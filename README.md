@@ -6,7 +6,7 @@ The SaintDenis 1899 Redm Launcher, is intended to be used as a Client Launcher, 
 
 ## 🖥️ For Developers : 
 ### How To Install
-1. [Install Visual Code with .NET desktop development module (.NET 8.0)](https://visualstudio.microsoft.com/fr/free-developer-offers/){:target="_blank"}
+1. [Install Visual Code with .NET desktop development module (.NET 8.0)](https://visualstudio.microsoft.com/fr/free-developer-offers/)
 2. Open ```SaintDenis_Launcher.sln```
 3. Press on *Play Button* (Execute)
 
