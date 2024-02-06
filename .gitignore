@@ -7,8 +7,6 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-!.RedM_Ressources/default.meta
-
 # User-specific files
 *.rsuser
 *.suo
@@ -583,3 +581,10 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp,visualstudio
+
+
+
+
+# CUSTOM EXCEPTIONS
+
+!.RedM_Ressources/*.meta
