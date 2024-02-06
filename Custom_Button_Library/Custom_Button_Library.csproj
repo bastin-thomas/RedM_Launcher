@@ -25,4 +25,13 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WPF-UI" Version="3.0.0" />
+  </ItemGroup>
+
 </Project>
