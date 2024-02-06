@@ -9,11 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Resource Include=".Resources\icons8-close-48-Pressed.png" />
+    <Resource Include=".Resources\background.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include=".Resources\icons8-close-48.png" />
+    <Resource Include=".Resources\icons8-close-48-Pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include=".Resources\icons8-close-48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

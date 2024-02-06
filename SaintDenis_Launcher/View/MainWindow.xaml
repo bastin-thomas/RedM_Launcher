@@ -11,10 +11,13 @@
         Background="Transparent"
         >
     <Grid>
-        <Border Margin="10" Background="DarkRed" CornerRadius="25">
+        <Border Margin="10" CornerRadius="25">
             <Border.Effect>
                 <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="20" Opacity="0.25" Color="Red"/>
             </Border.Effect>
+            <Border.Background>
+                <ImageBrush ImageSource="/.Resources/background.jpg"/>
+            </Border.Background>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1.8*"></ColumnDefinition>
@@ -24,7 +27,7 @@
                     <ColumnDefinition Width="1.8*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
                     <RowDefinition Height="20*"></RowDefinition>
                     <RowDefinition Height="20*"></RowDefinition>
                     <RowDefinition Height="2*"></RowDefinition>
@@ -34,7 +37,7 @@
 
                 </Border>
 
-                <Button x:Name="CloseButton" Background="Transparent" Grid.Column="3" Margin="337,14,16,18" Grid.ColumnSpan="2" BorderBrush="Transparent" Click="Close_Button_Click" Cursor="Hand">
+                <Button x:Name="CloseButton" Background="Transparent" Grid.Column="3" Margin="342,14,16,271" Grid.ColumnSpan="2" BorderBrush="Transparent" Click="Close_Button_Click" Cursor="Hand" Grid.RowSpan="2">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="Transparent"/>
@@ -55,7 +58,7 @@
                         </Style>
                     </Button.Style>
 
-                    <Image x:Name="CloseButtonImage" Width="46" Height="46" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image x:Name="CloseButtonImage" Width="38" Height="38" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Image.Style>
                             <Style TargetType="{x:Type Image}">
                                 <Setter Property="Source" Value="/.Resources/icons8-close-48.png"/>
