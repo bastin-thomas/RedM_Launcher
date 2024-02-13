@@ -1,9 +1,31 @@
 ﻿<Application x:Class="SaintDenis_Launcher.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:SaintDenis_Launcher"
+             xmlns:local="clr-namespace:SaintDenis_Launcher" xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="MainFont">/.Resources/Fonts/#Vanilla Whale</FontFamily>
+        
+        <ImageSource x:Key="CloseIcon">/.Resources/Icons/icons8-close-48.png</ImageSource>
+        <ImageSource x:Key="CloseIcon_Hover">/.Resources/Icons/icons8-close-48-Pressed.png</ImageSource>
+
+        <ImageSource x:Key="GearIcon">/.Resources/Icons/gear-icon.png</ImageSource>
+        <ImageSource x:Key="GearIcon_Hover">/.Resources/Icons/gear-icon_hover.png</ImageSource>
+
+        <ImageSource x:Key="ServerLogo">/.Resources/Icons/Server_Logo.png</ImageSource>
+        
+        <ImageSource x:Key="PeoplesIcon">/.Resources/Icons/Peoples.png</ImageSource>
+        <ImageSource x:Key="OnlineIcon">/.Resources/Icons/Online.png</ImageSource>
+        <ImageSource x:Key="OfflineIcon">/.Resources/Icons/Offline.png</ImageSource>
+
+        <ImageSource x:Key="DefaultMainBackground">/.Resources/background.jpg</ImageSource>
+        
+
+        <SolidColorBrush x:Key="Color.Button.White">#d1d1d1</SolidColorBrush>
+        <SolidColorBrush x:Key="Color.Button.Gold">Gold</SolidColorBrush>
+        <SolidColorBrush x:Key="Color.Button.Black">black</SolidColorBrush>
+        <SolidColorBrush x:Key="Color.Text.White">WhiteSmoke</SolidColorBrush>
+        
     </Application.Resources>
 </Application>

@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using OokiiTsuki.Palette;
+using SaintDenis_Launcher.ViewModel;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace SaintDenis_Launcher.View
 {
@@ -25,10 +29,13 @@ namespace SaintDenis_Launcher.View
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
         #endregion
+        
 
         public MainWindow()
         {
             InitializeComponent();
+            MainWindowVM vm = new MainWindowVM();
+            this.DataContext = vm;
         }
 
         private void Header_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -41,6 +48,11 @@ namespace SaintDenis_Launcher.View
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
