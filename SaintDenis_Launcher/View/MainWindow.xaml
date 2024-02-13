@@ -58,7 +58,7 @@
 
                     <Image RenderOptions.BitmapScalingMode="HighQuality" Height="200" Width="200" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2" MouseLeftButtonDown="Header_MouseLeftButtonDown"
                            Source="{StaticResource ServerLogo}"/>
-                    
+
                     <StackPanel  Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                         <Button x:Name="SettingsButton" Background="Transparent"  BorderBrush="Transparent" Click="SettingsButton_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" Margin="0,0,15,0">
                             <Button.Style>
@@ -82,9 +82,9 @@
                             </Button.Style>
                             <Image Width="45" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Source="{StaticResource GearIcon}"/>
                         </Button>
-                        
-                        
-                        
+
+
+
                         <Button x:Name="CloseButton" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Center" Click="Close_Button_Click" Cursor="Hand">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
@@ -122,18 +122,25 @@
                             </Image>
                         </Button>
                     </StackPanel>
-
-
+                    
+                    
                     <Frame x:Name="MainContent" Grid.Row="1" Source="/View/MainPage.xaml" NavigationUIVisibility="Hidden"/>
                 </Grid>
+                
+                
+                
+                
+                
 
-                <Grid Grid.Column="1" Grid.Row="4" MouseLeftButtonDown="Header_MouseLeftButtonDown">
+                <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" MouseLeftButtonDown="Header_MouseLeftButtonDown" Width="495" HorizontalAlignment="Left">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="80"></ColumnDefinition>
-                        <ColumnDefinition Width="15"></ColumnDefinition>
+                        <ColumnDefinition Width="30"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="30"></ColumnDefinition>
+                        <ColumnDefinition Width="85"></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition Width="20"></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="80"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
@@ -192,7 +199,7 @@
                     </Border>
                     <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1" Background="Transparent">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Height="20" Width="20" Margin="0,0,10,0" Source="{StaticResource OfflineIcon}">
+                            <Image Height="20" Width="20" Margin="0,0,15,0" Source="{StaticResource OfflineIcon}">
                                 <Image.Effect>
                                     <BlurEffect Radius="3" RenderingBias="Quality"></BlurEffect>
                                 </Image.Effect>
@@ -204,28 +211,13 @@
                             </StackPanel>
                         </StackPanel>
                     </Border>
-                </Grid>
 
-
-                <Grid Grid.Column="3" Grid.Row="4" MouseLeftButtonDown="Header_MouseLeftButtonDown">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition ></ColumnDefinition>
-                        <ColumnDefinition Width="15"></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition Width="20"></ColumnDefinition>
-                        <ColumnDefinition Width="75"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
-
-
-                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.65">
+                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="6" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.75">
                         <Border.BitmapEffect>
-                            <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.50" />
+                            <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.65" />
                         </Border.BitmapEffect>
                     </Border>
-                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1" Background="Transparent">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="6" Grid.Row="1" Background="Transparent">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
