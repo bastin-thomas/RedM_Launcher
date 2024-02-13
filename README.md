@@ -23,9 +23,11 @@ The launcher take it's inspiration on a project created by Zerator's Community, 
 ✅ Repository Folder Tree Creation
 
 ✅ Main Window View Creation
+
 ☐ Main Window ViewModel Creation
 
 ✅ Main Page View Creation
+
 ☐ Main Page ViewModel Creation
 
 ☐ Setting Page View Creation
@@ -44,11 +46,17 @@ The launcher take it's inspiration on a project created by Zerator's Community, 
 ☐ Navigation Logic / Routing Creation
 
 ☐ Create functions to get CFX RedM Status and Update UI to relate it
+
 ☐ Create functions to get Server Status and Update UI to relate it
+
 ☐ Create functions to Launch RedM using auto-connect to an IP or not
+
 ☐ Create functions to Clear the Cache
+
 ☐ Create functions to Launch all needed Launcher
+
 ☐ Create functions to Launch TeamSpeak on the right Server
+
 ☐ Create functions to Manage the First Launch
 
 ☐ Create functions to get RP Board Data and displaying them on the mainpage
