@@ -5,7 +5,7 @@
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-        <FontFamily x:Key="MainFont">/.Resources/Fonts/#Vanilla Whale</FontFamily>
+        <FontFamily x:Key="MainFont">/.Resources/Fonts/#chinese rocks rg</FontFamily>
         
         <ImageSource x:Key="CloseIcon">/.Resources/Icons/icons8-close-48.png</ImageSource>
         <ImageSource x:Key="CloseIcon_Hover">/.Resources/Icons/icons8-close-48-Pressed.png</ImageSource>
@@ -20,12 +20,13 @@
         <ImageSource x:Key="OfflineIcon">/.Resources/Icons/Offline.png</ImageSource>
 
         <ImageSource x:Key="DefaultMainBackground">/.Resources/background.jpg</ImageSource>
-        
 
         <SolidColorBrush x:Key="Color.Button.White">#d1d1d1</SolidColorBrush>
         <SolidColorBrush x:Key="Color.Button.Gold">Gold</SolidColorBrush>
         <SolidColorBrush x:Key="Color.Button.Black">black</SolidColorBrush>
         <SolidColorBrush x:Key="Color.Text.White">WhiteSmoke</SolidColorBrush>
-        
+
     </Application.Resources>
+    
+    
 </Application>

@@ -18,97 +18,9 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
 
-
-        <Grid Grid.Column="0" Grid.Row="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80"></ColumnDefinition>
-                <ColumnDefinition Width="15"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="20"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-
-            <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.80">
-                <Border.BitmapEffect>
-                    <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.75" />
-                </Border.BitmapEffect>
-            </Border>
-            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Background="Transparent">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image Height="25" Width="25" Margin="0,0,5,0" Source="{StaticResource PeoplesIcon}">
-                        <Image.Effect>
-                            <BlurEffect Radius="1"></BlurEffect>
-                        </Image.Effect>
-                    </Image>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Border BorderBrush="{x:Null}" Padding="0,0,0,3">
-                            <TextBlock FontSize="20"  VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="0" TextWrapping="Wrap"/>
-                        </Border>
-                        <Border BorderBrush="{x:Null}" Padding="0,0,0,3">
-                            <TextBlock FontSize="20"  VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="/" TextWrapping="Wrap"/>
-                        </Border>
-                        <Border BorderBrush="{x:Null}" Padding="0,0,0,3">
-                            <TextBlock FontSize="20"  VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="64" TextWrapping="Wrap"/>
-                        </Border>
-                    </StackPanel>
-                </StackPanel>
-            </Border>
-            
-            
-
-            <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.80">
-                <Border.BitmapEffect>
-                    <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.75" />
-                </Border.BitmapEffect>
-            </Border>
-            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Background="Transparent">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image Height="20" Width="20" Margin="0,0,10,0" Source="{StaticResource OnlineIcon}">
-                        <Image.Effect>
-                            <BlurEffect Radius="3" RenderingBias="Quality"></BlurEffect>
-                        </Image.Effect>
-                    </Image>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Border BorderBrush="{x:Null}" Padding="0,0,0,3">
-                            <TextBlock FontSize="20"  VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="Server" TextWrapping="Wrap"/>
-                        </Border>
-                    </StackPanel>
-                </StackPanel>
-            </Border>
-
-            <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.80">
-                <Border.BitmapEffect>
-                    <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.75" />
-                </Border.BitmapEffect>
-            </Border>
-            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1" Background="Transparent">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image Height="20" Width="20" Margin="0,0,10,0" Source="{StaticResource OfflineIcon}">
-                        <Image.Effect>
-                            <BlurEffect Radius="3" RenderingBias="Quality"></BlurEffect>
-                        </Image.Effect>
-                    </Image>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Border BorderBrush="{x:Null}" Padding="0,0,0,3">
-                            <TextBlock FontSize="20"  VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="RedM" TextWrapping="Wrap"/>
-                        </Border>
-                    </StackPanel>
-                </StackPanel>
-            </Border>
-        </Grid>
-
-
-
-
-
-        <Button Height="75" FontSize="48" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" FontFamily="{StaticResource MainFont}" Cursor="Hand" Grid.Column="0" Grid.Row="2">
+        <Button Height="82" FontSize="80" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" FontFamily="{StaticResource MainFont}" Cursor="Hand" Grid.Column="0" Grid.Row="2">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -136,11 +48,13 @@
                     </Style.Triggers>
                 </Style>
             </Button.Style>
-            PLAY
+            <Border Margin="0,-4,0,0">
+                <TextBlock>PLAY</TextBlock>
+            </Border>
         </Button>
 
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
-            <Button Height="75" Width="75" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="{StaticResource MainFont}" BorderThickness="2" Cursor="Hand" Margin="50,0,0,0">
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="2" Orientation="Vertical" Margin="20,0,0,0">
+            <Button Height="38" Width="150" FontSize="27" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="{StaticResource MainFont}" BorderThickness="2" Cursor="Hand">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -168,11 +82,11 @@
                         </Style.Triggers>
                     </Style>
                 </Button.Style>
-                <TextBlock>clear<LineBreak/>cache</TextBlock>
+                <TextBlock>clear cache</TextBlock>
             </Button>
 
 
-            <Button Height="75" Width="75" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="{StaticResource MainFont}" BorderThickness="2" Cursor="Hand" Margin="15,0,0,0">
+            <Button Height="39" Width="150" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="{StaticResource MainFont}" BorderThickness="2" Cursor="Hand" Margin="0,5,0,0">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -201,7 +115,7 @@
                         </Style.Triggers>
                     </Style>
                 </Button.Style>
-                <TextBlock>install<LineBreak/>azerty</TextBlock>
+                <TextBlock>install azerty</TextBlock>
             </Button>
         </StackPanel>
     </Grid>

@@ -8,6 +8,9 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>.Resources\Icons\Server_Logo.ico</ApplicationIcon>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <StartupObject>SaintDenis_Launcher.App</StartupObject>
+    <ApplicationManifest>E:\GitHub\SaintDenis_Launcher\.Documentation\MyManifest.xml</ApplicationManifest>
+    <IsPublishable>False</IsPublishable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,21 +26,12 @@
     <Resource Include=".Resources\Fonts\Cowboy Movie.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include=".Resources\Fonts\RioGrande Striped.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <EmbeddedResource Include=".Resources\Background_Chinois.png">
+    <EmbeddedResource Include=".Resources\Chinois_Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <Content Include=".Resources\Fonts\RioGrande.ttf">
+    <Resource Include=".Resources\Fonts\chinese rocks rg.otf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include=".Resources\Fonts\ROADSTORE Dafont.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include=".Resources\Fonts\TEXAT BOLD PERSONAL USE___.otf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
     <Content Include=".Resources\Icons\Server_Logo.ico" />
     <Resource Include=".Resources\Icons\Server_Logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -66,9 +60,6 @@
     <Resource Include=".Resources\Fonts\vanilla whale.otf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Content Include=".Resources\Fonts\WEST____.TTF">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>

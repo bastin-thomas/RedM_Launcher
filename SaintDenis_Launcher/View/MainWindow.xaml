@@ -35,6 +35,8 @@
                     <RowDefinition Height="20*"></RowDefinition>
                     <RowDefinition Height="20*"></RowDefinition>
                     <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
                 </Grid.RowDefinitions>
 
 
@@ -54,15 +56,9 @@
                     </Grid.RowDefinitions>
 
 
-                    <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
-                        <Image RenderOptions.BitmapScalingMode="HighQuality"  SnapsToDevicePixels="True" Height="100" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Source="{StaticResource ServerLogo}"/>
-                        <TextBlock x:Name="Logo" FontSize="60" Margin="10, 0,0, 0" Foreground="{StaticResource Color.Text.White}" Opacity="1" FontFamily="{StaticResource MainFont}" 
-                                   LineHeight="1" MouseLeftButtonDown="Header_MouseLeftButtonDown" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Text="SAINT DENIS 1899"/>
-                    </StackPanel>
+                    <Image RenderOptions.BitmapScalingMode="HighQuality" Height="200" Width="200" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2" MouseLeftButtonDown="Header_MouseLeftButtonDown"
+                           Source="{StaticResource ServerLogo}"/>
                     
-
-
                     <StackPanel  Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                         <Button x:Name="SettingsButton" Background="Transparent"  BorderBrush="Transparent" Click="SettingsButton_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" Margin="0,0,15,0">
                             <Button.Style>
@@ -129,6 +125,118 @@
 
 
                     <Frame x:Name="MainContent" Grid.Row="1" Source="/View/MainPage.xaml" NavigationUIVisibility="Hidden"/>
+                </Grid>
+
+                <Grid Grid.Column="1" Grid.Row="4" MouseLeftButtonDown="Header_MouseLeftButtonDown">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"></ColumnDefinition>
+                        <ColumnDefinition Width="15"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="20"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.80">
+                        <Border.BitmapEffect>
+                            <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.75" />
+                        </Border.BitmapEffect>
+                    </Border>
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Background="Transparent">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Height="25" Width="25" Margin="0,0,5,0" Source="{StaticResource PeoplesIcon}" Opacity="0.95">
+                                <Image.Effect>
+                                    <BlurEffect Radius="1"></BlurEffect>
+                                </Image.Effect>
+                            </Image>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
+                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="0" TextWrapping="Wrap"/>
+                                </Border>
+                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
+                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="/" TextWrapping="Wrap"/>
+                                </Border>
+                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
+                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="64" TextWrapping="Wrap"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.80">
+                        <Border.BitmapEffect>
+                            <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.75" />
+                        </Border.BitmapEffect>
+                    </Border>
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Background="Transparent">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Height="20" Width="20" Margin="0,0,10,0" Source="{StaticResource OnlineIcon}">
+                                <Image.Effect>
+                                    <BlurEffect Radius="3" RenderingBias="Quality"></BlurEffect>
+                                </Image.Effect>
+                            </Image>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
+                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="Server" TextWrapping="Wrap"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.80">
+                        <Border.BitmapEffect>
+                            <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.75" />
+                        </Border.BitmapEffect>
+                    </Border>
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1" Background="Transparent">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Height="20" Width="20" Margin="0,0,10,0" Source="{StaticResource OfflineIcon}">
+                                <Image.Effect>
+                                    <BlurEffect Radius="3" RenderingBias="Quality"></BlurEffect>
+                                </Image.Effect>
+                            </Image>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
+                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="RedM" TextWrapping="Wrap"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+
+                <Grid Grid.Column="3" Grid.Row="4" MouseLeftButtonDown="Header_MouseLeftButtonDown">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition Width="15"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="20"></ColumnDefinition>
+                        <ColumnDefinition Width="75"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+
+                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.65">
+                        <Border.BitmapEffect>
+                            <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.50" />
+                        </Border.BitmapEffect>
+                    </Border>
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1" Background="Transparent">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
+                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="V " TextWrapping="Wrap"/>
+                                </Border>
+                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
+                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="{Binding CurrentVersion, FallbackValue=Unkown}" TextWrapping="Wrap"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
                 </Grid>
             </Grid>
         </Border>
