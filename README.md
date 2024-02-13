@@ -37,16 +37,14 @@ The launcher take it's inspiration on a project created by Zerator's Community, 
 - TeamSpeak Folder 
 - TeamSpeak String + Auto-Connect or not
 
-
 ☐ Setting Page ViewModel Creation
 
 ☐ App Model Creation (Storable)
 
 ☐ Navigation Logic / Routing Creation
 
-☐ Create functions to get CFX RedM Status and Update UI to relate it 
+☐ Create functions to get CFX RedM Status and Update UI to relate it
 ☐ Create functions to get Server Status and Update UI to relate it
-
 ☐ Create functions to Launch RedM using auto-connect to an IP or not
 ☐ Create functions to Clear the Cache
 ☐ Create functions to Launch all needed Launcher
