@@ -29,15 +29,13 @@ The launcher take it's inspiration on a project created by Zerator's Community, 
 ☐ Main Page ViewModel Creation
 
 ☐ Setting Page View Creation
--> RedM Folder + install azerty at Launch + Clear Cache at Launch
--> RedM IP String + Auto-Connect or not
-
--> Steam Folder
--> Epic Folder + IsEnabled
--> Rockstar Folder + IsEnabled
-
--> TeamSpeak Folder 
--> TeamSpeak String + Auto-Connect or not
+- RedM Folder + install azerty at Launch + Clear Cache at Launch
+- RedM IP String + Auto-Connect or not
+- Steam Folder
+- Epic Folder + IsEnabled
+- Rockstar Folder + IsEnabled
+- TeamSpeak Folder 
+- TeamSpeak String + Auto-Connect or not
 
 
 ☐ Setting Page ViewModel Creation
