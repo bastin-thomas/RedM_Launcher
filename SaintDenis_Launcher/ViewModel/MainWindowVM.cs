@@ -1,52 +1,41 @@
-﻿using OokiiTsuki.Palette;
+﻿using SaintDenis_Launcher.Utils;
 using System.ComponentModel;
-using System.Printing.IndexedProperties;
-using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Xml.Linq;
 
 namespace SaintDenis_Launcher.ViewModel
 {
     class MainWindowVM : INotifyPropertyChanged
     {
         #region Properties
-        private Color _backgroundColor;
-        private BitmapImage? _backgroundImage;
-        private String _currentVersion;
+        private object? _currentPage;
+        private int _stateMachine;
         #endregion
 
         #region Accessors
-        public Color BackgroundColor
+        public object? CurrentPage
         {
-            get { return _backgroundColor; }
-            set { _backgroundColor = value; OnPropertyChanged(); }
-        }
-        public BitmapImage? BackgroundImage
-        {
-            get { return _backgroundImage; }
-            set { _backgroundImage = value; OnPropertyChanged(); }
+            get { return _currentPage; }
+            set { _currentPage = value; OnPropertyChanged(); }
         }
 
-        public String CurrentVersion
+        public int StateMachine
         {
-            get { return _currentVersion; }
-            set { _currentVersion = value; OnPropertyChanged(); }
+            get { return _stateMachine; }
+            set { _stateMachine = value; OnPropertyChanged(); }
         }
+
+        public MainPageVM MainPage { get; set; }
+        public SettingsPageVM Settings { get; set; }
         #endregion
 
         #region Constructors
         public MainWindowVM()
         {
-            CurrentVersion = "Unkown";
+            MainPage = new MainPageVM();
+            Settings = new SettingsPageVM();
 
-            BackgroundImage = new BitmapImage(new Uri(@".Resources/Chinois_Background.png", UriKind.Relative));
-            Palette palette = Palette.Generate(BackgroundImage);
-            BackgroundColor = palette.GetDarkMutedColor(Colors.Black);
-            Version version = Assembly.GetExecutingAssembly()
-                                      .GetName().Version!;
-            CurrentVersion = version.ToString();
+            CurrentPage = MainPage;
+            StateMachine = 0;
         }
         #endregion
 
@@ -54,6 +43,23 @@ namespace SaintDenis_Launcher.ViewModel
         #endregion
 
         #region Events
+        #region Commands
+        public RelayCommand onSettingClick => new RelayCommand(execute => {
+            switch (StateMachine) 
+            {
+                case 0:
+                    CurrentPage = Settings;
+                    StateMachine = 1;
+                    break;
+                case 1:
+                default:
+                    CurrentPage = MainPage;
+                    StateMachine = 0;
+                    break;
+            }
+        });
+        #endregion
+
         #region INotifiedProperty Block
         public event PropertyChangedEventHandler? PropertyChanged;
 

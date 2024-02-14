@@ -4,43 +4,65 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SaintDenis_Launcher.View"
+        xmlns:viewModel="clr-namespace:SaintDenis_Launcher.ViewModel"
         mc:Ignorable="d"
         Title="Saint Denis 1899" 
         Height="650" Width="1155"
         WindowStyle="None" AllowsTransparency="true" ResizeMode="NoResize"
         Background="Transparent"
+        MouseDown="Window_MouseDown"
         >
+    <Window.DataContext>
+        <viewModel:MainWindowVM/>
+    </Window.DataContext>
     
     <Grid>
         <Border Margin="10" CornerRadius="25">
             <Border.Effect>
-                <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="20" Opacity="0.25" Color="{Binding BackgroundColor, FallbackValue=Black}"/>
+                <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="20" Opacity="0.25" Color="Black"/>
             </Border.Effect>
 
             <Border.Background>
-                <ImageBrush ImageSource="{Binding BackgroundImage, FallbackValue={StaticResource DefaultMainBackground}}"/>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <StackPanel Background="White">
+                            <Image Opacity="1" Stretch="None">
+                                <Image.Style>
+                                    <Style TargetType="{x:Type Image}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding StateMachine, FallbackValue = 0}" Value="0">
+                                                <Setter Property="Source" Value="{StaticResource Background2}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding StateMachine}" Value="1">
+                                                <Setter Property="Source" Value="{StaticResource Background0}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                        </StackPanel>
+                    </VisualBrush.Visual>
+                </VisualBrush>
             </Border.Background>
 
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="25"></ColumnDefinition>
+                    <ColumnDefinition Width="22"></ColumnDefinition>
                     <ColumnDefinition Width="20*"></ColumnDefinition>
                     <ColumnDefinition Width="20*"></ColumnDefinition>
                     <ColumnDefinition Width="20*"></ColumnDefinition>
-                    <ColumnDefinition Width="25"></ColumnDefinition>
+                    <ColumnDefinition Width="22"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="22"></RowDefinition>
                     <RowDefinition Height="20*"></RowDefinition>
                     <RowDefinition Height="20*"></RowDefinition>
-                    <RowDefinition Height="10"></RowDefinition>
-                    <RowDefinition Height="30"></RowDefinition>
-                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="22"></RowDefinition>
                 </Grid.RowDefinitions>
 
 
-                <Border Background="Transparent" MouseLeftButtonDown="Header_MouseLeftButtonDown" Grid.ColumnSpan="5" Grid.RowSpan="5">
+                <Border Background="Transparent" Grid.ColumnSpan="5" Grid.RowSpan="5">
                     <Border.OpacityMask>
                         <ImageBrush/>
                     </Border.OpacityMask>
@@ -51,16 +73,15 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="55"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
                     </Grid.RowDefinitions>
 
-
-                    <Image RenderOptions.BitmapScalingMode="HighQuality" Height="200" Width="200" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2" MouseLeftButtonDown="Header_MouseLeftButtonDown"
-                           Source="{StaticResource ServerLogo}"/>
-
-                    <StackPanel  Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                        <Button x:Name="SettingsButton" Background="Transparent"  BorderBrush="Transparent" Click="SettingsButton_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" Margin="0,0,15,0">
+                    
+                    
+                    
+                    <StackPanel  Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+                        <Button x:Name="SettingsButton" Background="Transparent"  BorderBrush="Transparent" Command="{Binding onSettingClick}" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" Margin="0,0,15,0">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Opacity" Value="0.75"/>
@@ -77,13 +98,14 @@
                                         <Trigger Property="IsMouseOver" Value="True">
                                             <Setter Property="Opacity" Value="0.95"/>
                                         </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Opacity" Value="0.75"/>
+                                        </Trigger>
                                     </Style.Triggers>
                                 </Style>
                             </Button.Style>
-                            <Image Width="45" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Source="{StaticResource GearIcon}"/>
+                            <Image Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Source="{StaticResource GearIcon}"/>
                         </Button>
-
-
 
                         <Button x:Name="CloseButton" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Center" Click="Close_Button_Click" Cursor="Hand">
                             <Button.Style>
@@ -100,7 +122,7 @@
                                 </Style>
                             </Button.Style>
 
-                            <Image Width="60" Height="60" Margin="-6, -6, -6, -6" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                            <Image Width="40" Height="40" Margin="-5, -5, -5, -5" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
                                 <Image.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
@@ -122,113 +144,8 @@
                             </Image>
                         </Button>
                     </StackPanel>
-                    
-                    
-                    <Frame x:Name="MainContent" Grid.Row="1" Source="/View/MainPage.xaml" NavigationUIVisibility="Hidden"/>
-                </Grid>
-                
-                
-                
-                
-                
 
-                <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" MouseLeftButtonDown="Header_MouseLeftButtonDown" Width="495" HorizontalAlignment="Left">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80"></ColumnDefinition>
-                        <ColumnDefinition Width="30"></ColumnDefinition>
-                        <ColumnDefinition Width="100"></ColumnDefinition>
-                        <ColumnDefinition Width="30"></ColumnDefinition>
-                        <ColumnDefinition Width="85"></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition Width="80"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
-
-                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.80">
-                        <Border.BitmapEffect>
-                            <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.75" />
-                        </Border.BitmapEffect>
-                    </Border>
-                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Background="Transparent">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Height="25" Width="25" Margin="0,0,5,0" Source="{StaticResource PeoplesIcon}" Opacity="0.95">
-                                <Image.Effect>
-                                    <BlurEffect Radius="1"></BlurEffect>
-                                </Image.Effect>
-                            </Image>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
-                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="0" TextWrapping="Wrap"/>
-                                </Border>
-                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
-                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="/" TextWrapping="Wrap"/>
-                                </Border>
-                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
-                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="64" TextWrapping="Wrap"/>
-                                </Border>
-                            </StackPanel>
-                        </StackPanel>
-                    </Border>
-
-                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.80">
-                        <Border.BitmapEffect>
-                            <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.75" />
-                        </Border.BitmapEffect>
-                    </Border>
-                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Background="Transparent">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Height="20" Width="20" Margin="0,0,10,0" Source="{StaticResource OnlineIcon}">
-                                <Image.Effect>
-                                    <BlurEffect Radius="3" RenderingBias="Quality"></BlurEffect>
-                                </Image.Effect>
-                            </Image>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
-                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="Server" TextWrapping="Wrap"/>
-                                </Border>
-                            </StackPanel>
-                        </StackPanel>
-                    </Border>
-
-                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.80">
-                        <Border.BitmapEffect>
-                            <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.75" />
-                        </Border.BitmapEffect>
-                    </Border>
-                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1" Background="Transparent">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Height="20" Width="20" Margin="0,0,15,0" Source="{StaticResource OfflineIcon}">
-                                <Image.Effect>
-                                    <BlurEffect Radius="3" RenderingBias="Quality"></BlurEffect>
-                                </Image.Effect>
-                            </Image>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
-                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="RedM" TextWrapping="Wrap"/>
-                                </Border>
-                            </StackPanel>
-                        </StackPanel>
-                    </Border>
-
-                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="6" Grid.Row="1" Background="{StaticResource Color.Button.Black}" CornerRadius="5" Opacity="0.75">
-                        <Border.BitmapEffect>
-                            <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.65" ShadowDepth="3" Opacity="0.65" />
-                        </Border.BitmapEffect>
-                    </Border>
-                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="6" Grid.Row="1" Background="Transparent">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
-                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="V " TextWrapping="Wrap"/>
-                                </Border>
-                                <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
-                                    <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="{Binding CurrentVersion, FallbackValue=Unkown}" TextWrapping="Wrap"/>
-                                </Border>
-                            </StackPanel>
-                        </StackPanel>
-                    </Border>
+                    <ContentControl x:Name="MainContent" Grid.Row="1" Content="{Binding CurrentPage}"/>
                 </Grid>
             </Grid>
         </Border>

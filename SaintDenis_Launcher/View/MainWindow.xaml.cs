@@ -1,6 +1,7 @@
 ﻿using OokiiTsuki.Palette;
 using SaintDenis_Launcher.ViewModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -12,6 +13,21 @@ namespace SaintDenis_Launcher.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void Window_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void Close_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
 
         #region Cross Removal
         // Prep stuff needed to remove close button on window
@@ -29,30 +45,5 @@ namespace SaintDenis_Launcher.View
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
         #endregion
-        
-
-        public MainWindow()
-        {
-            InitializeComponent();
-            MainWindowVM vm = new MainWindowVM();
-            this.DataContext = vm;
-        }
-
-        private void Header_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            Cursor = Cursors.SizeAll;
-            DragMove();
-            Cursor = Cursors.Arrow;
-        }
-
-        private void Close_Button_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

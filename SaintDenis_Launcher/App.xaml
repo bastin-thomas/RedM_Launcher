@@ -3,30 +3,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SaintDenis_Launcher" xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:viewModel="clr-namespace:SaintDenis_Launcher.ViewModel"
+             xmlns:view="clr-namespace:SaintDenis_Launcher.View"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-        <FontFamily x:Key="MainFont">/.Resources/Fonts/#chinese rocks rg</FontFamily>
-        
-        <ImageSource x:Key="CloseIcon">/.Resources/Icons/icons8-close-48.png</ImageSource>
-        <ImageSource x:Key="CloseIcon_Hover">/.Resources/Icons/icons8-close-48-Pressed.png</ImageSource>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="View/Themes/Fonts.xaml"/>
+                <ResourceDictionary Source="View/Themes/Colors.xaml"/>
+                <ResourceDictionary Source="View/Themes/CheckBox.xaml"/>
+                <ResourceDictionary Source="View/Themes/Text.xaml"/>
+                <ResourceDictionary Source="View/Themes/ScrollBar.xaml"/>
+                <ResourceDictionary Source="View/Themes/Button.xaml"/>
+                <ResourceDictionary Source="View/Themes/TextBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
 
-        <ImageSource x:Key="GearIcon">/.Resources/Icons/gear-icon.png</ImageSource>
-        <ImageSource x:Key="GearIcon_Hover">/.Resources/Icons/gear-icon_hover.png</ImageSource>
+            <ImageSource x:Key="CloseIcon">/.Resources/Icons/icons8-close-48.png</ImageSource>
+            <ImageSource x:Key="CloseIcon_Hover">/.Resources/Icons/icons8-close-48-Pressed.png</ImageSource>
 
-        <ImageSource x:Key="ServerLogo">/.Resources/Icons/Server_Logo.png</ImageSource>
-        
-        <ImageSource x:Key="PeoplesIcon">/.Resources/Icons/Peoples.png</ImageSource>
-        <ImageSource x:Key="OnlineIcon">/.Resources/Icons/Online.png</ImageSource>
-        <ImageSource x:Key="OfflineIcon">/.Resources/Icons/Offline.png</ImageSource>
+            <ImageSource x:Key="GearIcon">/.Resources/Icons/gear-icon.png</ImageSource>
+            <ImageSource x:Key="GearIcon_Hover">/.Resources/Icons/gear-icon_hover.png</ImageSource>
 
-        <ImageSource x:Key="DefaultMainBackground">/.Resources/background.jpg</ImageSource>
+            <ImageSource x:Key="ServerLogo">/.Resources/Icons/Server_Logo.png</ImageSource>
 
-        <SolidColorBrush x:Key="Color.Button.White">#d1d1d1</SolidColorBrush>
-        <SolidColorBrush x:Key="Color.Button.Gold">Gold</SolidColorBrush>
-        <SolidColorBrush x:Key="Color.Button.Black">black</SolidColorBrush>
-        <SolidColorBrush x:Key="Color.Text.White">WhiteSmoke</SolidColorBrush>
+            <ImageSource x:Key="PeoplesIcon">/.Resources/Icons/Peoples.png</ImageSource>
+            <ImageSource x:Key="OnlineIcon">/.Resources/Icons/Online.png</ImageSource>
+            <ImageSource x:Key="OfflineIcon">/.Resources/Icons/Offline.png</ImageSource>
 
+            <ImageSource x:Key="Background0">/.Resources/Settings_Background.png</ImageSource>
+            <ImageSource x:Key="Background1">/.Resources/Default_Background.png</ImageSource>
+            <ImageSource x:Key="Background2">/.Resources/Chinois_Background.png</ImageSource>
+
+            
+
+            
+
+            <DataTemplate DataType="{x:Type viewModel:MainPageVM}">
+                <view:MainPage/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:SettingsPageVM}">
+                <view:SettingsPage/>
+            </DataTemplate>
+        </ResourceDictionary>
     </Application.Resources>
-    
-    
 </Application>
