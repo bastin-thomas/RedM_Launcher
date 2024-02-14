@@ -10,9 +10,7 @@ The SaintDenis 1899 Redm Launcher, is intended to be used as a Client Launcher, 
 2. Open ```SaintDenis_Launcher.sln```
 3. Press on *Play Button* (Execute)
 
-## 🎨 UI : 
-The launcher take it's inspiration on a project created by Zerator's Community, for their own server. 
-
+## 🎨 MockUp : 
 ![MainPage](./.Documentation/Mockup/MainPage.png)
 ![SettingPage](./.Documentation/Mockup/SettingPage.png)
 
