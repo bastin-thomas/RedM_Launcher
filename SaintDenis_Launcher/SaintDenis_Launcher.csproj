@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
@@ -11,7 +11,14 @@
     <StartupObject>SaintDenis_Launcher.App</StartupObject>
     <ApplicationManifest>E:\GitHub\SaintDenis_Launcher\.Documentation\MyManifest.xml</ApplicationManifest>
     <IsPublishable>False</IsPublishable>
+    <SignAssembly>False</SignAssembly>
+    <SupportedOSPlatformVersion>10.0.18362.0</SupportedOSPlatformVersion>
+    <AssemblyVersion>0.3.2.0</AssemblyVersion>
+    <FileVersion>0.3.2.0</FileVersion>
+    <UseWindowsForms>False</UseWindowsForms>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" />
 
   <ItemGroup>
     <Resource Include=".Resources\background.jpg">
@@ -78,17 +85,6 @@
     <Resource Include=".Resources\Icons\icons8-close-48.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="SharpVectors.Wpf" Version="1.8.3" />
-    <PackageReference Include="WPF-UI" Version="3.0.0" />
-    <PackageReference Include="wpf.colorpalette" Version="1.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Converters\" />
-    <Folder Include="Model\" />
   </ItemGroup>
 
   <ItemGroup>

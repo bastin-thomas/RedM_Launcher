@@ -24,14 +24,18 @@ namespace SaintDenis_Launcher.Utils
             _canExecute = canExecute;
         }
 
+#pragma warning disable CS8604 // Possible null reference argument.
         public bool CanExecute(object? parameter)
         {
+
             return _canExecute == null || _canExecute(parameter);
+
         }
 
         public void Execute(object? parameter)
         {
             _execute?.Invoke(parameter);
         }
+#pragma warning restore CS8604 // Possible null reference argument.
     }
 }

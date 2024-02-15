@@ -1,4 +1,5 @@
-﻿using SaintDenis_Launcher.Utils;
+﻿using SaintDenis_Launcher.Tools;
+using SaintDenis_Launcher.Utils;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -50,11 +51,13 @@ namespace SaintDenis_Launcher.ViewModel
                 case 0:
                     CurrentPage = Settings;
                     StateMachine = 1;
+                    Logger.Information("== Go To Settings Page ==");
                     break;
                 case 1:
                 default:
                     CurrentPage = MainPage;
                     StateMachine = 0;
+                    Logger.Information("== Go To Main Page ==");
                     break;
             }
         });

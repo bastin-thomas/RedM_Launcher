@@ -1,11 +1,7 @@
-﻿using OokiiTsuki.Palette;
+﻿using SaintDenis_Launcher.Tools;
+using SaintDenis_Launcher.Utils;
 using System.ComponentModel;
-using System.Printing.IndexedProperties;
-using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Xml.Linq;
 
 namespace SaintDenis_Launcher.ViewModel
 {
@@ -57,6 +53,22 @@ namespace SaintDenis_Launcher.ViewModel
         #endregion
 
         #region Events
+        #region Commands
+        public RelayCommand onLaunchClick => new RelayCommand(execute => {
+            Logger.Information("== LaunchButton Click ==");
+
+        });
+
+        public RelayCommand onClearCacheClick => new RelayCommand(execute => {
+            Logger.Information("== ClearCache Click ==");
+
+        });
+
+        public RelayCommand onAzertyInstallClick => new RelayCommand(execute => {
+            Logger.Information("== AzertyInstall Click ==");
+        });
+        #endregion
+
         #region INotifiedProperty Block
         public event PropertyChangedEventHandler? PropertyChanged;
 

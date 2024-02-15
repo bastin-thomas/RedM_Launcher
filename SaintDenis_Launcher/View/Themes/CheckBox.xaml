@@ -15,16 +15,28 @@
                         <ContentPresenter/>
                     </StackPanel>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="checkboxImage" Property="Source" Value="{StaticResource CheckBox_Click}"/>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.20"/>
                         </Trigger>
+                        
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="True"/>
+                                <Condition Property="IsChecked" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="checkboxImage" Property="Source" Value="{StaticResource CheckBox_Click}"/>
+                        </MultiTrigger>
+
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver" Value="True"/>
                                 <Condition Property="IsChecked" Value="False"/>
+                                <Condition Property="IsEnabled" Value="True"/>
                             </MultiTrigger.Conditions>
                             <Setter TargetName="checkboxImage" Property="Source" Value="{StaticResource CheckBox_Hover}"/>
                         </MultiTrigger>
+
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

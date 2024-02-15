@@ -5,6 +5,7 @@
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              xmlns:viewModel="clr-namespace:SaintDenis_Launcher.ViewModel"
              xmlns:view="clr-namespace:SaintDenis_Launcher.View"
+             xmlns:converter="clr-namespace:SaintDenis_Launcher.Converters"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -17,6 +18,10 @@
                 <ResourceDictionary Source="View/Themes/Button.xaml"/>
                 <ResourceDictionary Source="View/Themes/TextBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <converter:BooleanANDConverter x:Key="booleanAndConverter" />
+            <converter:BoolToVisibility x:Key="boolToVisibility" />
+            <converter:StringToVisibility x:Key="stringToVisibility" />
 
             <ImageSource x:Key="CloseIcon">/.Resources/Icons/icons8-close-48.png</ImageSource>
             <ImageSource x:Key="CloseIcon_Hover">/.Resources/Icons/icons8-close-48-Pressed.png</ImageSource>
@@ -34,7 +39,7 @@
             <ImageSource x:Key="Background1">/.Resources/Default_Background.png</ImageSource>
             <ImageSource x:Key="Background2">/.Resources/Chinois_Background.png</ImageSource>
 
-            
+
 
             
 

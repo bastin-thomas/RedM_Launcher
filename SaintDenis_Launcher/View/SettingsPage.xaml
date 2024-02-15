@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SaintDenis_Launcher.View"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1200">
+             d:DesignHeight="1000" d:DesignWidth="1200"
+             >
 
     <UserControl.Resources>
         <ResourceDictionary Source="Themes/ScrollBar.xaml"/>
@@ -27,11 +28,11 @@
                 <RowDefinition Height="0"/>
             </Grid.RowDefinitions>
 
-            <Border Height="50" Width="220" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="0,-45,0,0">
+            <Border Height="50" Width="220" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="20,-30,0,0">
                 <TextBlock Text="SETTINGS" FontSize="50" Opacity="1" VerticalAlignment="Center" Style="{StaticResource TextSettings}"/>
             </Border>
 
-            <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="0,0,0,0">
+            <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="20,20,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
@@ -48,80 +49,12 @@
                 </Border>
             </Grid>
 
-            <ScrollViewer Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Margin="180,25,-15,-10">
-                <StackPanel>
-                    
-                    
-                    <Grid Margin="0,0,200,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="10*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="4*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="15"/>
-                            <RowDefinition Height="20"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="RedM - Folder" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" Style="{StaticResource TextSettings}"/>
-                        <TextBlock Text="Select RedM Location" Grid.Row="2"  Opacity="0.60" Grid.ColumnSpan="2" FontSize="15" Style="{StaticResource TextSettings}"/>
-                        <Button Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="20"/>
-                                </Style>
-                            </Button.Resources>
-                            <TextBlock Text="Open" Margin="0,3,0,0"/>
-                        </Button>
-                        <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
-                    </Grid>
-
-
-                    <Grid Margin="0,0,200,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="10*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="4*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="15"/>
-                            <RowDefinition Height="20"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="Clear Cache" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" Style="{StaticResource TextSettings}"/>
-                        <TextBlock Text="Clear Cache at each RedM Launch" Grid.Row="2"  Opacity="0.60" Grid.ColumnSpan="2" FontSize="15" Style="{StaticResource TextSettings}"/>
-                        <CheckBox Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
-                        <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
-                    </Grid>
-
-                    <Grid Margin="0,0,200,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="10*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="4*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="15"/>
-                            <RowDefinition Height="20"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="AZERTY Keybinds" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" Style="{StaticResource TextSettings}"/>
-                        <TextBlock Text="Install azerty keybinds at each RedM Launch" Grid.Row="2"  Opacity="0.60" Grid.ColumnSpan="2" FontSize="15" Style="{StaticResource TextSettings}"/>
-                        <CheckBox Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
-                        <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
-                    </Grid>
-
-
-                    <Grid Margin="0,0,200,0">
+            
+            
+            
+            <ScrollViewer Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Margin="200,25,-15,-10">
+                <StackPanel Margin="0,0,150,0">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="12*"/>
                             <ColumnDefinition Width="1*"/>
@@ -130,60 +63,102 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="30"/>
                             <RowDefinition Height="15"/>
+                            <RowDefinition Height="30"/>
                             <RowDefinition Height="20"/>
+                            <RowDefinition Height="15"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="Direct Connect" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" Style="{StaticResource TextSettings}"/>
-                        <TextBlock Text="set the server ip to connect at launch" Grid.Row="2"  Opacity="0.60" Grid.ColumnSpan="2" FontSize="15" Style="{StaticResource TextSettings}"/>
-                        <TextBox Text="" x:Name="serveripInput" LostFocus="serveripInput_LostFocus" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" Width="250" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
+                        <TextBlock Text="RedM" Grid.Row="1" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
+                        <TextBlock Text="Select RedM.exe Location" Grid.Row="2"  Opacity="0.60" Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource TextSettings}"/>
+                        <Button Command="{Binding onRedMFolderClick}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                            <TextBlock Text="Select" Margin="0,3,0,0"/>
+                        </Button>
+                        <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
+                    </Grid>
+
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="15"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Clear Cache" Grid.Row="1" IsEnabled="{Binding IsClearCacheOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
+                        <TextBlock Text="Clear Cache at each RedM Launch" IsEnabled="{Binding IsClearCacheOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="2"  Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource SubTextSettings}"/>
+                        <CheckBox IsChecked="{Binding IsClearCacheOnLaunch, FallbackValue=False, Mode=TwoWay}" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
+                        <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="15"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="AZERTY Keybinds" Grid.Row="1" IsEnabled="{Binding IsAzertyInstallOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
+                        <TextBlock Text="Install azerty keybinds at each RedM Launch" IsEnabled="{Binding IsAzertyInstallOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="2"  Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource SubTextSettings}"/>
+                        <CheckBox IsChecked="{Binding IsAzertyInstallOnLaunch, FallbackValue=False, Mode=TwoWay}" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
+                        <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
+                    </Grid>
+
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="12*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="15"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Direct Connect" Grid.Row="1" IsEnabled="{Binding IsDirectConnectOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
+                        <TextBlock Text="set the server ip to connect at launch" IsEnabled="{Binding IsDirectConnectOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="2"  Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource SubTextSettings}"/>
+                        <TextBox Text="{Binding RedmServerIP, Mode=TwoWay}" IsEnabled="{Binding IsDirectConnectOnLaunch, FallbackValue=False, Mode=OneWay}" x:Name="serveripInput" LostFocus="serveripInput_LostFocus" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="250" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>
                                 </Style>
                             </TextBox.Resources>
                         </TextBox>
-                        <TextBox Text="IP" x:Name="serveripWatermark" GotFocus="serveripWatermark_GotFocus" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" Width="250" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
+                        <TextBox Text="IP" Visibility="{Binding RedmServerIP, Mode=OneWay, Converter={StaticResource stringToVisibility}}" IsEnabled="{Binding IsDirectConnectOnLaunch, FallbackValue=False, Mode=OneWay}" x:Name="serveripWatermark" GotFocus="serveripWatermark_GotFocus" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="250" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>
                                 </Style>
                             </TextBox.Resources>
                         </TextBox>
-                        <CheckBox Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
+                        <CheckBox IsChecked="{Binding IsDirectConnectOnLaunch, FallbackValue=False, Mode=TwoWay}" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
                         <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
                     </Grid>
 
 
-                    <Grid Margin="0,0,200,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="10*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="4*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition Height="15"/>
-                            <RowDefinition Height="20"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="STEAM - Folder" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" Style="{StaticResource TextSettings}"/>
-                        <TextBlock Text="Select Steam Location" Grid.Row="2"  Opacity="0.60" Grid.ColumnSpan="2" FontSize="15" Style="{StaticResource TextSettings}"/>
-                        <Button Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="20"/>
-                                </Style>
-                            </Button.Resources>
-                            <TextBlock Text="Open" Margin="0,3,0,0"/>
-                        </Button>
-                        <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
-                    </Grid>
-
-                    <Grid Margin="0,0,200,0">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="12*"/>
                             <ColumnDefinition Width="1*"/>
@@ -192,26 +167,25 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="30"/>
                             <RowDefinition Height="15"/>
+                            <RowDefinition Height="30"/>
                             <RowDefinition Height="20"/>
+                            <RowDefinition Height="15"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="RockStar - Folder" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" Style="{StaticResource TextSettings}"/>
-                        <TextBlock Text="Select RockStar Location" Grid.Row="2"  Opacity="0.60" Grid.ColumnSpan="2" FontSize="15" Style="{StaticResource TextSettings}"/>
-                        <Button Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
+                        <TextBlock Text="STEAM" Grid.Row="1" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
+                        <TextBlock Text="Select Steam.exe Location" Grid.Row="2" Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource SubTextSettings}"/>
+                        <Button Command="{Binding onSteamFolderClick}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="20"/>
                                 </Style>
                             </Button.Resources>
-                            <TextBlock Text="Open" Margin="0,3,0,0"/>
+                            <TextBlock Text="Select" Margin="0,3,0,0"/>
                         </Button>
-                        <CheckBox Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
                         <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
                     </Grid>
 
-                    <Grid Margin="0,0,200,0">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="12*"/>
                             <ColumnDefinition Width="1*"/>
@@ -220,27 +194,26 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="30"/>
                             <RowDefinition Height="15"/>
+                            <RowDefinition Height="30"/>
                             <RowDefinition Height="20"/>
+                            <RowDefinition Height="15"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="EpicGame - Folder" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" Style="{StaticResource TextSettings}"/>
-                        <TextBlock Text="Select EpicGame Location" Grid.Row="2"  Opacity="0.60" Grid.ColumnSpan="2" FontSize="15" Style="{StaticResource TextSettings}"/>
-                        <Button Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
+                        <TextBlock Text="RockStar - Launcher" IsEnabled="{Binding IsOpenRockstarOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="1" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
+                        <TextBlock Text="Select Launcher.exe Location" Grid.Row="2" IsEnabled="{Binding IsOpenRockstarOnLaunch, FallbackValue=False, Mode=OneWay}"  Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource SubTextSettings}"/>
+                        <Button Command="{Binding onRockstarFolderClick}" IsEnabled="{Binding IsOpenRockstarOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="20"/>
                                 </Style>
                             </Button.Resources>
-                            <TextBlock Text="Open" Margin="0,3,0,0"/>
+                            <TextBlock Text="Select" Margin="0,3,0,0"/>
                         </Button>
-                        <CheckBox Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
+                        <CheckBox IsChecked="{Binding IsOpenRockstarOnLaunch, FallbackValue=False, Mode=TwoWay}" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
                         <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
                     </Grid>
 
-
-                    <Grid Margin="0,0,200,0">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="12*"/>
                             <ColumnDefinition Width="1*"/>
@@ -249,51 +222,107 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="30"/>
                             <RowDefinition Height="15"/>
+                            <RowDefinition Height="30"/>
                             <RowDefinition Height="20"/>
+                            <RowDefinition Height="15"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="TeamSpeak - Folder" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" Style="{StaticResource TextSettings}"/>
-                        <TextBlock Text="Select TeamSpeak Location" Grid.Row="2"  Opacity="0.60" Grid.ColumnSpan="2" FontSize="15" Style="{StaticResource TextSettings}"/>
-                        <Button Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
+                        <TextBlock Text="EpicGame - Folder" IsEnabled="{Binding IsOpenEpicgameOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="1" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
+                        <TextBlock Text="Select EpicGame Folder Location" IsEnabled="{Binding IsOpenEpicgameOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="2" Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource SubTextSettings}"/>
+                        <Button Command="{Binding onEpicFolderClick}" IsEnabled="{Binding IsOpenEpicgameOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="20"/>
                                 </Style>
                             </Button.Resources>
-                            <TextBlock Text="Open" Margin="0,3,0,0"/>
+                            <TextBlock Text="Select" Margin="0,3,0,0"/>
                         </Button>
-                        <CheckBox Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
+                        <CheckBox IsChecked="{Binding IsOpenEpicgameOnLaunch, FallbackValue=False, Mode=TwoWay}" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
+                        <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
+                    </Grid>
+
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="12*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="15"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="TeamSpeak" IsEnabled="{Binding IsOpenTeamSpeakOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="1" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
+                        <TextBlock Text="Select  ts3client_win64.exe  Location" IsEnabled="{Binding IsOpenTeamSpeakOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="2" Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource SubTextSettings}"/>
+                        <Button Command="{Binding onTeamSpeakFolderClick}" IsEnabled="{Binding IsOpenTeamSpeakOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </Button.Resources>
+                            <TextBlock Text="Select" Margin="0,3,0,0"/>
+                        </Button>
+                        <CheckBox IsChecked="{Binding IsOpenTeamSpeakOnLaunch, FallbackValue=False, Mode=TwoWay}" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
                         <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
                     </Grid>
 
                     
-                    <Grid Margin="0,0,200,0">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="12*"/>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="10*"/>
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="3*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
-                            <RowDefinition Height="30"/>
                             <RowDefinition Height="15"/>
+                            <RowDefinition Height="30"/>
                             <RowDefinition Height="20"/>
+                            <RowDefinition Height="15"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="TS - Direct Connect" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" Style="{StaticResource TextSettings}"/>
-                        <TextBlock Text="set the TeamSpeak ip to connect at launch" Grid.Row="2"  Opacity="0.60" Grid.ColumnSpan="2" FontSize="15" Style="{StaticResource TextSettings}"/>
+                        <TextBlock Text="TS - Direct Connect" Grid.Row="1" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}">
+                            <TextBlock.IsEnabled>
+                                <MultiBinding Converter="{StaticResource booleanAndConverter}">
+                                    <Binding Path="IsDirectConnectTSOnLaunch" FallbackValue="False" Mode="OneWay"/>
+                                    <Binding Path="IsOpenTeamSpeakOnLaunch" FallbackValue="False" Mode="OneWay"/>
+                                </MultiBinding>
+                            </TextBlock.IsEnabled>
+                        </TextBlock>
+                        <TextBlock Text="set the TeamSpeak ip / password" Grid.Row="2" Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource SubTextSettings}">
+                            <TextBlock.IsEnabled>
+                                <MultiBinding Converter="{StaticResource booleanAndConverter}">
+                                    <Binding Path="IsDirectConnectTSOnLaunch" FallbackValue="False" Mode="OneWay"/>
+                                    <Binding Path="IsOpenTeamSpeakOnLaunch" FallbackValue="False" Mode="OneWay"/>
+                                </MultiBinding>
+                            </TextBlock.IsEnabled>
+                        </TextBlock>
+                        <TextBox Text="{Binding TSServerIP, Mode=TwoWay}" x:Name="ipInput" LostFocus="ipInput_LostFocus" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="180" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
+                            <TextBox.IsEnabled>
+                                <MultiBinding Converter="{StaticResource booleanAndConverter}">
+                                    <Binding Path="IsDirectConnectTSOnLaunch" FallbackValue="False" Mode="OneWay"/>
+                                    <Binding Path="IsOpenTeamSpeakOnLaunch" FallbackValue="False" Mode="OneWay"/>
+                                </MultiBinding>
+                            </TextBox.IsEnabled>
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        <TextBox Text="IP" Visibility="{Binding TSServerIP, Mode=OneWay, Converter={StaticResource stringToVisibility}}" x:Name="ipWatermark" GotFocus="ipWatermark_GotFocus" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="180" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
+                            <TextBox.IsEnabled>
+                                <MultiBinding Converter="{StaticResource booleanAndConverter}">
+                                    <Binding Path="IsDirectConnectTSOnLaunch" FallbackValue="False" Mode="OneWay"/>
+                                    <Binding Path="IsOpenTeamSpeakOnLaunch" FallbackValue="False" Mode="OneWay"/>
+                                </MultiBinding>
+                            </TextBox.IsEnabled>
 
-                        <TextBox Text="" x:Name="ipInput" LostFocus="ipInput_LostFocus" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" Width="180" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
-                            <TextBox.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="15"/>
-                                </Style>
-                            </TextBox.Resources>
-                        </TextBox>
-                        <TextBox Text="IP" x:Name="ipWatermark" GotFocus="ipWatermark_GotFocus" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" Width="180" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>
@@ -301,20 +330,33 @@
                             </TextBox.Resources>
                         </TextBox>
 
-                        <TextBox Text="" x:Name="passwordInput" LostFocus="passwordInput_LostFocus" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" Width="180" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
+                        <TextBox Text="{Binding TSPassword, Mode=TwoWay}" x:Name="passwordInput" LostFocus="passwordInput_LostFocus" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="180" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
+                            <TextBox.IsEnabled>
+                                <MultiBinding Converter="{StaticResource booleanAndConverter}">
+                                    <Binding Path="IsDirectConnectTSOnLaunch" FallbackValue="False" Mode="OneWay"/>
+                                    <Binding Path="IsOpenTeamSpeakOnLaunch" FallbackValue="False" Mode="OneWay"/>
+                                </MultiBinding>
+                            </TextBox.IsEnabled>
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>
                                 </Style>
                             </TextBox.Resources>
                         </TextBox>
-                        <TextBox Text="Password" x:Name="passwordWatermark" GotFocus="passwordWatermark_GotFocus" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" Width="180" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
+                        <TextBox Text="Password" Visibility="{Binding TSPassword, Mode=OneWay, Converter={StaticResource stringToVisibility}}" x:Name="passwordWatermark" GotFocus="passwordWatermark_GotFocus" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="180" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
+                            <TextBox.IsEnabled>
+                                <MultiBinding Converter="{StaticResource booleanAndConverter}">
+                                    <Binding Path="IsDirectConnectTSOnLaunch" FallbackValue="False" Mode="OneWay"/>
+                                    <Binding Path="IsOpenTeamSpeakOnLaunch" FallbackValue="False" Mode="OneWay"/>
+                                </MultiBinding>
+                            </TextBox.IsEnabled>
                             <TextBox.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>
                                 </Style>
                             </TextBox.Resources>
                         </TextBox>
+                        <CheckBox IsChecked="{Binding IsDirectConnectTSOnLaunch, FallbackValue=False, Mode=TwoWay}" IsEnabled="{Binding IsOpenTeamSpeakOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Column="5" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
                     </Grid>
 
                 </StackPanel>

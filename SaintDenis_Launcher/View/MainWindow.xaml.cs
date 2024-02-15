@@ -1,10 +1,6 @@
-﻿using OokiiTsuki.Palette;
-using SaintDenis_Launcher.ViewModel;
+﻿using SaintDenis_Launcher.Tools;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace SaintDenis_Launcher.View
 {
@@ -26,6 +22,7 @@ namespace SaintDenis_Launcher.View
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
+            Logger.Information("App is Closed Normally");
             Close();
         }
 

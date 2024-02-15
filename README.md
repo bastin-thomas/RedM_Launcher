@@ -45,7 +45,7 @@ Another one is the RockStarLauncher UI.
 - TeamSpeak Folder 
 - TeamSpeak String + Auto-Connect or not
 
-☐ Setting Page ViewModel Creation
+✅ Setting Page ViewModel Creation
 
 ☐ App Model Creation (Storable)
 
