@@ -154,7 +154,7 @@ namespace SaintDenis_Launcher.Tools
             }
         }
 
-        public static String GetFolderFromFile(String Name, String currentFile)
+        public static String GetFolderFromFile(String Name, String currentFile, String filter)
         {
             Logger.Information("OldPath:" + currentFile);
 
@@ -162,7 +162,7 @@ namespace SaintDenis_Launcher.Tools
             folderDialog = new OpenFileDialog();
             folderDialog.InitialDirectory = currentFile;
             folderDialog.Title = Name;
-            folderDialog.Filter = "Exe Files (.exe)|*.exe";
+            folderDialog.Filter = filter + "|Exec|*.exe";
             folderDialog.FilterIndex = 0;
             folderDialog.DereferenceLinks = true;
 

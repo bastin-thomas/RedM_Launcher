@@ -1,4 +1,5 @@
-﻿using SaintDenis_Launcher.Tools;
+﻿using SaintDenis_Launcher.Properties;
+using SaintDenis_Launcher.Tools;
 using SaintDenis_Launcher.Utils;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -10,6 +11,7 @@ namespace SaintDenis_Launcher.ViewModel
         #region Properties
         private object? _currentPage;
         private int _stateMachine;
+        private readonly Settings Config = Properties.Settings.Default;
         #endregion
 
         #region Accessors
@@ -58,6 +60,7 @@ namespace SaintDenis_Launcher.ViewModel
                     CurrentPage = MainPage;
                     StateMachine = 0;
                     Logger.Information("== Go To Main Page ==");
+                    Config.Save();
                     break;
             }
         });

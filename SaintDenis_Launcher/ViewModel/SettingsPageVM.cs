@@ -1,4 +1,5 @@
-﻿using SaintDenis_Launcher.Tools;
+﻿using SaintDenis_Launcher.Properties;
+using SaintDenis_Launcher.Tools;
 using SaintDenis_Launcher.Utils;
 using System.ComponentModel;
 using System.IO;
@@ -10,25 +11,8 @@ namespace SaintDenis_Launcher.ViewModel
     class SettingsPageVM : INotifyPropertyChanged
     {
         #region Properties
+        private readonly Settings Config = Properties.Settings.Default;
         private String? _currentVersion;
-
-        private bool _isClearCacheOnLaunch;
-        private bool _isAzertyInstallOnLaunch;
-        private bool _isDirectConnectOnLaunch;
-        private bool _isOpenRockstarOnLaunch;
-        private bool _isOpenEpicgameOnLaunch;
-        private bool _isOpenTeamSpeakOnLaunch;
-        private bool _isDirectConnectTSOnLaunch;
-
-        private String _redmServerIP;
-        private String _tsServerIP;
-        private String _tsPassword;
-        
-        private String _redmFolder;
-        private String _steamFolder;
-        private String _rockstarFolder;
-        private String _epicFolder;
-        private String _teamspeakFolder;
         #endregion
 
         #region Accessors
@@ -40,80 +24,84 @@ namespace SaintDenis_Launcher.ViewModel
 
         public bool IsClearCacheOnLaunch
         {
-            get { return _isClearCacheOnLaunch; }
-            set { _isClearCacheOnLaunch = value; OnPropertyChanged(); }
+            get { return Config.IsClearCacheOnLaunch; }
+            set { Config.IsClearCacheOnLaunch = value; OnPropertyChanged(); }
         }
         public bool IsAzertyInstallOnLaunch
         {
-            get { return _isAzertyInstallOnLaunch; }
-            set { _isAzertyInstallOnLaunch = value; OnPropertyChanged(); }
+            get { return Config.IsAzertyInstallOnLaunch; }
+            set { Config.IsAzertyInstallOnLaunch = value; OnPropertyChanged(); }
         }
         public bool IsDirectConnectOnLaunch
         {
-            get { return _isDirectConnectOnLaunch; }
-            set { _isDirectConnectOnLaunch = value; OnPropertyChanged(); }
+            get { return Config.IsDirectConnectOnLaunch; }
+            set { Config.IsDirectConnectOnLaunch = value; OnPropertyChanged(); }
         }
         public bool IsOpenRockstarOnLaunch
         {
-            get { return _isOpenRockstarOnLaunch; }
-            set { _isOpenRockstarOnLaunch = value; OnPropertyChanged(); }
+            get { return Config.IsOpenRockstarOnLaunch; }
+            set { Config.IsOpenRockstarOnLaunch = value; OnPropertyChanged(); }
         }
         public bool IsOpenEpicgameOnLaunch
         {
-            get { return _isOpenEpicgameOnLaunch; }
-            set { _isOpenEpicgameOnLaunch = value; OnPropertyChanged(); }
+            get { return Config.IsOpenEpicgameOnLaunch; }
+            set { Config.IsOpenEpicgameOnLaunch = value; OnPropertyChanged(); }
         }
         public bool IsOpenTeamSpeakOnLaunch
         {
-            get { return _isOpenTeamSpeakOnLaunch; }
-            set { _isOpenTeamSpeakOnLaunch = value; OnPropertyChanged(); }
+            get { return Config.IsOpenTeamSpeakOnLaunch; }
+            set { Config.IsOpenTeamSpeakOnLaunch = value; OnPropertyChanged(); }
         }
         public bool IsDirectConnectTSOnLaunch
         {
-            get { return _isDirectConnectTSOnLaunch; }
-            set { _isDirectConnectTSOnLaunch = value; OnPropertyChanged(); }
+            get { return Config.IsDirectConnectTSOnLaunch; }
+            set { Config.IsDirectConnectTSOnLaunch = value; OnPropertyChanged(); }
         }
+
+
 
         public String RedmServerIP
         {
-            get { return _redmServerIP; }
-            set { _redmServerIP = value; OnPropertyChanged(); }
+            get { return Config.RedmServerIP; }
+            set { Config.RedmServerIP = value; OnPropertyChanged(); }
         }
         public String TSServerIP
         {
-            get { return _tsServerIP; }
-            set { _tsServerIP = value; OnPropertyChanged(); }
+            get { return Config.TSServerIP; }
+            set { Config.TSServerIP = value; OnPropertyChanged(); }
         }
         public String TSPassword
         {
-            get { return _tsPassword; }
-            set { _tsPassword = value; OnPropertyChanged(); }
+            get { return Config.TSPassword; }
+            set { Config.TSPassword = value; OnPropertyChanged(); }
         }
+
+
 
         public String RedmFolder
         {
-            get { return _redmFolder; }
-            set { _redmFolder = value; }
+            get { return Config.RedmFolder; }
+            set { Config.RedmFolder = value; }
         }
         public String SteamFolder
         {
-            get { return _steamFolder; }
-            set { _steamFolder = value; }
+            get { return Config.SteamFolder; }
+            set { Config.SteamFolder = value; }
         }
         public String RockstarFolder
         {
-            get { return _rockstarFolder; }
-            set { _rockstarFolder = value; }
+            get { return Config.RockstarFolder; }
+            set { Config.RockstarFolder = value; }
         }
         public String EpicFolder
         {
-            get { return _epicFolder; }
-            set { _epicFolder = value; }
+            get { return Config.EpicFolder; }
+            set { Config.EpicFolder = value; }
         }
         public String TeamSpeakFolder
         {
-            get { return _teamspeakFolder; }
-            set { _teamspeakFolder = value; }
+            get { return Config.TeamSpeakFolder; }
+            set { Config.TeamSpeakFolder = value; }
         }
         #endregion
 
@@ -123,33 +111,12 @@ namespace SaintDenis_Launcher.ViewModel
             Version version = Assembly.GetExecutingAssembly()
                                       .GetName().Version!;
             CurrentVersion = version.ToString();
-
-            IsClearCacheOnLaunch = false;
-            IsAzertyInstallOnLaunch = false;
-
-            IsDirectConnectOnLaunch = true;
-
-            IsOpenRockstarOnLaunch = true;
-            IsOpenEpicgameOnLaunch = false;
-
-            IsOpenTeamSpeakOnLaunch = true;
-            IsDirectConnectTSOnLaunch = true;
-
-            RedmServerIP = "162.19.253.49";
-            TSServerIP = "162.19.253.49";
-            TSPassword = "4jKQz4t5";
-
-            RedmFolder = "";
-            SteamFolder = "";
-            RockstarFolder = "";
-            EpicFolder = "";
-            TeamSpeakFolder = "";
         }
         #endregion
 
         #region Methods
         private String GetFolder(String name, String folder) => FileTools.GetFolder(name, folder);
-        private String GetFolderFromFile(String name, String folder) => FileTools.GetFolderFromFile(name, folder);
+        private String GetFolderFromFile(String name, String folder, String filter) => FileTools.GetFolderFromFile(name, folder, filter);
         #endregion
 
         #region Events
@@ -160,7 +127,7 @@ namespace SaintDenis_Launcher.ViewModel
             try
             {
                 if (RedmFolder.Equals("")) { RedmFolder = FileTools.DefaultRedMFolder; }
-                RedmFolder = GetFolderFromFile("Select RedM.exe", RedmFolder);
+                RedmFolder = GetFolderFromFile("Select RedM.exe", RedmFolder, "RedM|RedM.exe");
             }
             catch (Exception ex)
             {
@@ -173,7 +140,7 @@ namespace SaintDenis_Launcher.ViewModel
             try
             {
                 if (SteamFolder.Equals("")) { SteamFolder = FileTools.DefaultSteamFolder; }
-                SteamFolder = GetFolderFromFile("Select Steam.exe Executable", SteamFolder); 
+                SteamFolder = GetFolderFromFile("Select Steam.exe Executable", SteamFolder, "Steam|Steam.exe"); 
             }
             catch (Exception ex)
             {
@@ -186,7 +153,7 @@ namespace SaintDenis_Launcher.ViewModel
             try
             {
                 if (RockstarFolder.Equals("")) { RockstarFolder = FileTools.DefaultRockstarFolder; }
-                RockstarFolder = GetFolderFromFile("Select Launcher.exe Executable", RockstarFolder);
+                RockstarFolder = GetFolderFromFile("Select Launcher.exe Executable", RockstarFolder, "Launcher|Launcher.exe");
             }
             catch (Exception ex)
             {
@@ -212,7 +179,7 @@ namespace SaintDenis_Launcher.ViewModel
             try
             {
                 if (TeamSpeakFolder.Equals("")) { TeamSpeakFolder = FileTools.DefaultTSFolder; }
-                TeamSpeakFolder = GetFolderFromFile("Select ts3client_win64.exe Executable", TeamSpeakFolder);
+                TeamSpeakFolder = GetFolderFromFile("Select ts3client_win64.exe Executable", TeamSpeakFolder, "TeamSpeak|ts3client_win64.exe");
             }
             catch (Exception ex)
             {

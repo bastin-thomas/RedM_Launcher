@@ -1,4 +1,5 @@
-﻿using SaintDenis_Launcher.Tools;
+﻿using SaintDenis_Launcher.Properties;
+using SaintDenis_Launcher.Tools;
 using System.Windows;
 using System.Windows.Input;
 
@@ -9,6 +10,8 @@ namespace SaintDenis_Launcher.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly Settings Config = Properties.Settings.Default;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -23,6 +26,7 @@ namespace SaintDenis_Launcher.View
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
             Logger.Information("App is Closed Normally");
+            Config.Save();
             Close();
         }
 
