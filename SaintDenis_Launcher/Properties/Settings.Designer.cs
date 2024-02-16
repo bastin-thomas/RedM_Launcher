@@ -61,7 +61,7 @@ namespace SaintDenis_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool IsOpenRockstarOnLaunch {
             get {
                 return ((bool)(this["IsOpenRockstarOnLaunch"]));
@@ -242,9 +242,9 @@ namespace SaintDenis_Launcher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("15")]
-        public int Timer {
+        public long Timer {
             get {
-                return ((int)(this["Timer"]));
+                return ((long)(this["Timer"]));
             }
             set {
                 this["Timer"] = value;

@@ -1,5 +1,4 @@
-﻿using SaintDenis_Launcher.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -8,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace SaintDenis_Launcher.Tools.Handlers
 {
-    internal class ClearCache
+    internal class PlaceAzerty
     {
-        public readonly static String ProcessName = "ClearCache.bat";
-        public readonly static String ExecName = "ClearCache.bat";
+        public readonly static String ProcessName = "PlaceAZERTY.bat";
+        public readonly static String ExecName = "PlaceAZERTY.bat";
         public readonly static String ProcessFolder = App.workingDirectoryPath + @"\Ressources";
 
         private static ProcessHandler _pr;
@@ -19,14 +18,14 @@ namespace SaintDenis_Launcher.Tools.Handlers
         /// <summary>
         /// All behaviors to Start EpicGame Properly Synchronously
         /// </summary>
-        public static void Start() => (_pr = new ProcessHandler(ProcessName, ExecName, ProcessFolder,"", false, ProcessWindowStyle.Hidden)).Start();
+        public static void Start() => (_pr = new ProcessHandler(ProcessName, ExecName, ProcessFolder, "", false, ProcessWindowStyle.Hidden)).Start();
 
         /// <summary>
         /// All behaviors to Start EpicGame Properly Asynchronously
         /// </summary>
         public static void StartAsync() => (_pr = new ProcessHandler(ProcessName, ExecName, ProcessFolder, "", false, ProcessWindowStyle.Hidden)).StartAsync();
 
-        public static void Wait() 
+        public static void Wait()
         {
             _pr.WaitProcessClosed();
         }

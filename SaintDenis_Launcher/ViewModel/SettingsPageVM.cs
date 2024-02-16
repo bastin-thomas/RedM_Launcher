@@ -81,7 +81,7 @@ namespace SaintDenis_Launcher.ViewModel
             get { return Config.TSPassword; }
             set { Config.TSPassword = value; OnPropertyChanged(); }
         }
-        public int Timer 
+        public long Timer 
         {
             get { return Config.Timer; }
             set { Config.Timer = value; OnPropertyChanged(); }

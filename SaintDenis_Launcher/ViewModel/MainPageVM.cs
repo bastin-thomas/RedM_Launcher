@@ -1,10 +1,12 @@
 ﻿using Microsoft.Win32;
+using SaintDenis_Launcher.Model.Utils;
 using SaintDenis_Launcher.Properties;
 using SaintDenis_Launcher.Tools;
 using SaintDenis_Launcher.Tools.Handlers;
 using SaintDenis_Launcher.Utils;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using Windows.UI.Popups;
 
 namespace SaintDenis_Launcher.ViewModel
@@ -69,19 +71,48 @@ namespace SaintDenis_Launcher.ViewModel
         public RelayCommand onLaunchClick => new RelayCommand(execute => {
             Logger.Information("== LaunchButton Click ==");
 
+            if(Config.IsClearCacheOnLaunch) 
+            {
+                try
+                {
+                    ClearCache.StartAsync();
+                    ClearCache.Wait();
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex);
+                    DialogBox.Error("Impossible to Clear Cache", "Clear Cache Error");
+                }
+            }
+
+
+            if(Config.IsAzertyInstallOnLaunch) 
+            {
+                try
+                {
+                    PlaceAzerty.StartAsync();
+                    PlaceAzerty.Wait();
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex);
+                    DialogBox.Error("Impossible to Install Azerty File", "Install Azerty File Error");
+                }
+                DialogBox.Information("Game Configured in Azerty", "Install Azerty File");
+            }
+
 
             //Launch Rockstar Launcher if Needed
             if(Config.IsOpenRockstarOnLaunch) 
             {
                 try
                 {
-                    Rockstar.Start();
+                    Rockstar.StartAsync();
                 }
                 catch (Exception ex)
                 {
                     Logger.LogError(ex);
-                    //TODO: Add a custom popup that Warn the user
-                    new MessageDialog("Impossible to Launch Rockstar", "Rockstar Error");
+                    DialogBox.Error("Impossible to Launch Rockstar", "Rockstar Error");
                 }
             }
             
@@ -91,12 +122,12 @@ namespace SaintDenis_Launcher.ViewModel
             {
                 try 
                 {
-                    EpicGame.Start();
+                    EpicGame.StartAsync();
                 }
                 catch (Exception ex) 
                 {
                     Logger.LogError(ex);
-                    new MessageDialog("Impossible to Launch Epic", "EpicGame Error");
+                    DialogBox.Error("Impossible to Launch Epic", "EpicGame Error");
                 }   
             }
 
@@ -109,41 +140,50 @@ namespace SaintDenis_Launcher.ViewModel
             catch(Exception ex) 
             {
                 Logger.LogError(ex);
-                //TODO: Add a custom popup that Warn the user
-                new MessageDialog("Impossible to Launch Steam", "Steam Error");
+                DialogBox.Error("Impossible to Launch Steam", "Steam Error");
             }
 
 
-            //Launching RedM
-            try
+            //Set A Timing / Or Not depending on IsTimerOnLaunch
+            long awaitTime = Settings.Default.IsTimerOnLaunch ? Settings.Default.Timer : 0;
+
+            //After Timing Out
+            try 
             {
-                if(Settings.Default.IsTimerOnLaunch) 
+                CallbackTimer.RunAfter(awaitTime, () =>
                 {
-                    Thread.Sleep(Settings.Default.Timer * 1000);
-                }
+                    //Launching RedM
+                    try
+                    {
+                        RedM.Start(Config.IsDirectConnectOnLaunch);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.LogError(ex);
+                        DialogBox.Error("Impossible to Launch RedM", "RedM Error");
+                    }
 
-                RedM.Start(Config.IsDirectConnectOnLaunch);
+
+
+                    //Launch TeamSpeak
+                    if (Config.IsOpenTeamSpeakOnLaunch)
+                    {
+                        try
+                        {
+                            Teamspeak.Start(Settings.Default.IsDirectConnectTSOnLaunch);
+                        }
+                        catch (Win32Exception ex)
+                        {
+                            Logger.LogError(ex);
+                            DialogBox.Error("Impossible to Launch Teamspeak", "Teamspeak Error");
+                        }
+                    }
+                });
             }
-            catch (Exception ex)
+            catch (Exception ex) 
             {
                 Logger.LogError(ex);
-                //TODO: Add a custom popup that Warn the user
-                new MessageDialog("Impossible to Launch RedM", "RedM Error");
-            }
-
-
-            //Launch TeamSpeak
-            if (Config.IsOpenTeamSpeakOnLaunch)
-            {
-                try 
-                {
-                    Teamspeak.Start(Settings.Default.IsDirectConnectTSOnLaunch);
-                }
-                catch (Win32Exception ex)
-                {
-                    Logger.LogError(ex);
-                    new MessageDialog("Impossible to Launch Teamspeak", "Teamspeak Error");
-                }
+                DialogBox.Error("The Timer as turned off unexpectedly ", "Timer Error");
             }
         });
 
@@ -157,14 +197,18 @@ namespace SaintDenis_Launcher.ViewModel
             catch(Exception ex) 
             {
                 Logger.LogError(ex);
-                new MessageDialog("Impossible to Clear Cache", "Clear Cache Error");
+                DialogBox.Error("Impossible to Clear Cache", "Clear Cache Error");
             }
+            DialogBox.Information("Cache Cleared", "Clear Cache");
         });
+
 
         public RelayCommand onAzertyInstallClick => new RelayCommand(execute => {
             Logger.Information("== AzertyInstall Click ==");
         });
         #endregion
+
+
 
         #region INotifiedProperty Block
         public event PropertyChangedEventHandler? PropertyChanged;

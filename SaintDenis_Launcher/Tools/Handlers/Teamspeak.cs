@@ -10,7 +10,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
 {
     internal class Teamspeak
     {
-        public readonly static String ProcessName = "ts3client_win64.exe";
+        public readonly static String ProcessName = "ts3client_win64";
         public readonly static String ExecName =    "ts3client_win64.exe";
         public readonly static String Arguments = $"ts3server://{Settings.Default.TSServerIP}?password={Settings.Default.TSPassword}";
         public readonly static String ProcessFolder = Settings.Default.TeamSpeakFolder;
@@ -24,8 +24,6 @@ namespace SaintDenis_Launcher.Tools.Handlers
         {
             IPAddress? addr;
             bool ValidateIP = IPAddress.TryParse(Settings.Default.TSServerIP, out addr);
-
-            //TODO: Display a Warning that String is not a good IP
 
             if (asArguments && ValidateIP)
             {

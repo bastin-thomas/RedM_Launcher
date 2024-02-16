@@ -12,7 +12,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="IsOpenRockstarOnLaunch" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="IsOpenEpicgameOnLaunch" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -56,7 +56,7 @@
     <Setting Name="IsTimerOnLaunch" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Timer" Type="System.Int32" Scope="User">
+    <Setting Name="Timer" Type="System.Int64" Scope="User">
       <Value Profile="(Default)">15</Value>
     </Setting>
     <Setting Name="FirstLaunch" Type="System.Boolean" Scope="User">

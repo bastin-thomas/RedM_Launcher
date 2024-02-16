@@ -13,23 +13,39 @@
     <IsPublishable>False</IsPublishable>
     <SignAssembly>False</SignAssembly>
     <SupportedOSPlatformVersion>10.0.18362.0</SupportedOSPlatformVersion>
-    <AssemblyVersion>0.6.0.0</AssemblyVersion>
-    <FileVersion>0.6.0.0</FileVersion>
+    <AssemblyVersion>0.6.1.0</AssemblyVersion>
+    <FileVersion>0.6.1.0</FileVersion>
     <UseWindowsForms>False</UseWindowsForms>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
-    <ContentWithTargetPath Include="..\ExternalLibs\steam_api64.dll">
+    <ContentWithTargetPath Include="..\.RedM_Ressources\ClearCache.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>%(Filename)%(Extension)</TargetPath>
+      <TargetPath>Ressources/%(Filename)%(Extension)</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
 
   <ItemGroup>
-    <ContentWithTargetPath Include="..\ExternalLibs\ClearCache.bat">
+    <ContentWithTargetPath Include="..\.RedM_Ressources\PlaceAZERTY.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>%(Filename)%(Extension)</TargetPath>
+      <TargetPath>Ressources/%(Filename)%(Extension)</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\.RedM_Ressources\default.meta">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Ressources/%(Filename)%(Extension)</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\.RedM_Ressources\RedM.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Ressources/%(Filename)%(Extension)</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
 
@@ -39,6 +55,22 @@
         <TargetPath>%(Filename)%(Extension)</TargetPath>
       </ContentWithTargetPath>
   </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Steamworks.NET">
+      <HintPath>..\ExternalLibs\Steamworks.NET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\ExternalLibs\steam_api64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+
+
 
   <ItemGroup>
     <Resource Include=".Resources\background.jpg">
@@ -109,12 +141,6 @@
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Steamworks.NET">
-      <HintPath>..\ExternalLibs\Steamworks.NET.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup>

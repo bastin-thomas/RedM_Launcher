@@ -53,6 +53,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
 
                 _process.StartInfo = psi;
                 _process.Start();
+                Logger.Information($"{_process.ProcessName} Process has been Launched");
             }
         }
 
