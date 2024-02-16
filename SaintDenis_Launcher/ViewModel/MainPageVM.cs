@@ -170,7 +170,7 @@ namespace SaintDenis_Launcher.ViewModel
                     {
                         try
                         {
-                            Teamspeak.Start(Settings.Default.IsDirectConnectTSOnLaunch);
+                            Teamspeak.StartAsync(Settings.Default.IsDirectConnectTSOnLaunch);
                         }
                         catch (Win32Exception ex)
                         {
