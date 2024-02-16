@@ -5,10 +5,6 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaintDenis_Launcher", "SaintDenis_Launcher\SaintDenis_Launcher.csproj", "{FEC41108-EA09-41CB-8139-141CC04FCA1F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Custom_Button_Library", "Custom_Button_Library\Custom_Button_Library.csproj", "{459DB2F1-3657-4C25-B74E-4E1930A82899}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedM_Logic_Library", "RedM_Logic_Library\RedM_Logic_Library.csproj", "{805A8203-7090-473B-A5A7-6D688066F895}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EF5A04F7-31E1-4AEF-90A4-4FA268617555}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -24,14 +20,6 @@ Global
 		{FEC41108-EA09-41CB-8139-141CC04FCA1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEC41108-EA09-41CB-8139-141CC04FCA1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEC41108-EA09-41CB-8139-141CC04FCA1F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{459DB2F1-3657-4C25-B74E-4E1930A82899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{459DB2F1-3657-4C25-B74E-4E1930A82899}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{459DB2F1-3657-4C25-B74E-4E1930A82899}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{459DB2F1-3657-4C25-B74E-4E1930A82899}.Release|Any CPU.Build.0 = Release|Any CPU
-		{805A8203-7090-473B-A5A7-6D688066F895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{805A8203-7090-473B-A5A7-6D688066F895}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{805A8203-7090-473B-A5A7-6D688066F895}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{805A8203-7090-473B-A5A7-6D688066F895}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

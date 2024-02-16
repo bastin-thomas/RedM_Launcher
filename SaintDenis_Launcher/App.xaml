@@ -29,17 +29,14 @@
             <ImageSource x:Key="GearIcon">/.Resources/Icons/gear-icon.png</ImageSource>
             <ImageSource x:Key="GearIcon_Hover">/.Resources/Icons/gear-icon_hover.png</ImageSource>
 
-            <ImageSource x:Key="ServerLogo">/.Resources/Icons/Server_Logo.png</ImageSource>
-
             <ImageSource x:Key="PeoplesIcon">/.Resources/Icons/Peoples.png</ImageSource>
             <ImageSource x:Key="OnlineIcon">/.Resources/Icons/Online.png</ImageSource>
             <ImageSource x:Key="OfflineIcon">/.Resources/Icons/Offline.png</ImageSource>
 
+
+            <ImageSource x:Key="ServerLogo">/.Resources/Icons/Server_Logo.png</ImageSource>
             <ImageSource x:Key="Background0">/.Resources/Settings_Background.png</ImageSource>
             <ImageSource x:Key="Background1">/.Resources/Default_Background.png</ImageSource>
-            <ImageSource x:Key="Background2">/.Resources/Chinois_Background.png</ImageSource>
-
-
 
             
 

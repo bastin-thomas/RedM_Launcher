@@ -123,7 +123,7 @@ namespace SaintDenis_Launcher.ViewModel
 
         #region Commands
         public RelayCommand onRedMFolderClick => new RelayCommand(execute => {
-            Logger.Information("Open RedM Folder Click");
+            Logger.Information("Open RedM _folder Click");
             try
             {
                 if (RedmFolder.Equals("")) { RedmFolder = FileTools.DefaultRedMFolder; }
@@ -136,7 +136,7 @@ namespace SaintDenis_Launcher.ViewModel
         });
                 
         public RelayCommand onSteamFolderClick => new RelayCommand(execute => {
-            Logger.Information("Open Steam Folder Click");
+            Logger.Information("Open Steam _folder Click");
             try
             {
                 if (SteamFolder.Equals("")) { SteamFolder = FileTools.DefaultSteamFolder; }
@@ -149,7 +149,7 @@ namespace SaintDenis_Launcher.ViewModel
         });
                 
         public RelayCommand onRockstarFolderClick => new RelayCommand(execute => {
-            Logger.Information("Open Rockstar Folder Click");
+            Logger.Information("Open Rockstar _folder Click");
             try
             {
                 if (RockstarFolder.Equals("")) { RockstarFolder = FileTools.DefaultRockstarFolder; }
@@ -162,11 +162,11 @@ namespace SaintDenis_Launcher.ViewModel
         });
 
         public RelayCommand onEpicFolderClick => new RelayCommand(execute => {
-            Logger.Information("Open Epic Folder Click");
+            Logger.Information("Open EpicGame _folder Click");
             try
             {
                 if (EpicFolder.Equals("")) { EpicFolder = FileTools.DefaultEpicFolder; }
-                EpicFolder = GetFolder("Select Epic Folder", EpicFolder);
+                EpicFolder = GetFolder("Select EpicGame _folder", EpicFolder);
             }
             catch (Exception ex)
             {
@@ -175,7 +175,7 @@ namespace SaintDenis_Launcher.ViewModel
         });
 
         public RelayCommand onTeamSpeakFolderClick => new RelayCommand(execute => {
-            Logger.Information("Open TeamSpeak Folder Click");
+            Logger.Information("Open TeamSpeak _folder Click");
             try
             {
                 if (TeamSpeakFolder.Equals("")) { TeamSpeakFolder = FileTools.DefaultTSFolder; }

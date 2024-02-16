@@ -47,5 +47,11 @@
     <Setting Name="TeamSpeakFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="MainPageLogo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/.Resources/Icons/Server_Logo.png</Value>
+    </Setting>
+    <Setting Name="MainPageBackground" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/.Resources/Chinois_Background.png</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

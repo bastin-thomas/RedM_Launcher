@@ -1,8 +1,10 @@
 ﻿using SaintDenis_Launcher.Properties;
 using SaintDenis_Launcher.Tools;
 using SaintDenis_Launcher.Utils;
+using SaintDenis_Launcher.View;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace SaintDenis_Launcher.ViewModel
 {
@@ -11,7 +13,6 @@ namespace SaintDenis_Launcher.ViewModel
         #region Properties
         private object? _currentPage;
         private int _stateMachine;
-        private readonly Settings Config = Properties.Settings.Default;
         #endregion
 
         #region Accessors
@@ -26,6 +27,13 @@ namespace SaintDenis_Launcher.ViewModel
             get { return _stateMachine; }
             set { _stateMachine = value; OnPropertyChanged(); }
         }
+        
+        public Settings Config
+        {
+            get { return Properties.Settings.Default; }
+        }
+
+
 
         public MainPageVM MainPage { get; set; }
         public SettingsPageVM Settings { get; set; }

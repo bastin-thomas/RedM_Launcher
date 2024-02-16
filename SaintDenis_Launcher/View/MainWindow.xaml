@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SaintDenis_Launcher.View"
         xmlns:viewModel="clr-namespace:SaintDenis_Launcher.ViewModel"
+        xmlns:settings="clr-namespace:SaintDenis_Launcher.Properties"
         mc:Ignorable="d"
         Title="Saint Denis 1899" 
         Height="650" Width="1155"
@@ -31,7 +32,7 @@
                                     <Style TargetType="{x:Type Image}">
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding StateMachine, FallbackValue = 0}" Value="0">
-                                                <Setter Property="Source" Value="{StaticResource Background2}"/>
+                                                <Setter Property="Source" Value="{Binding Config.MainPageBackground, FallbackValue={StaticResource Background1}, Mode=OneTime}"/>
                                             </DataTrigger>
                                             <DataTrigger Binding="{Binding StateMachine}" Value="1">
                                                 <Setter Property="Source" Value="{StaticResource Background0}"/>
@@ -76,8 +77,6 @@
                         <RowDefinition Height="40"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
                     </Grid.RowDefinitions>
-
-                    
                     
                     
                     <StackPanel  Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">

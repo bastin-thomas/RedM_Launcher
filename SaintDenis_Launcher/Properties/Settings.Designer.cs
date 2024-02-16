@@ -202,5 +202,29 @@ namespace SaintDenis_Launcher.Properties {
                 this["TeamSpeakFolder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/.Resources/Icons/Server_Logo.png")]
+        public string MainPageLogo {
+            get {
+                return ((string)(this["MainPageLogo"]));
+            }
+            set {
+                this["MainPageLogo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("/.Resources/Chinois_Background.png")]
+        public string MainPageBackground {
+            get {
+                return ((string)(this["MainPageBackground"]));
+            }
+            set {
+                this["MainPageBackground"] = value;
+            }
+        }
     }
 }

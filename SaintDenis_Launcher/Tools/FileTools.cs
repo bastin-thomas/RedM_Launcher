@@ -1,14 +1,8 @@
 ﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
+#pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
 namespace SaintDenis_Launcher.Tools
 {
     class FileTools
@@ -55,7 +49,9 @@ namespace SaintDenis_Launcher.Tools
             {
                 try
                 {
+
                     RegistryKey SteamKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Rockstar Games\Launcher");
+
                     if (SteamKey is not null)
                     {
                         object value = SteamKey.GetValue("InstallFolder");
@@ -92,9 +88,9 @@ namespace SaintDenis_Launcher.Tools
                         {
                             return StringValue.ToUpper().Replace("/", @"\");
                         }
-                        else { return @"C:\Program Files\Epic Games"; }
+                        else { return @"C:\Program Files\EpicGame Games"; }
                     }
-                    else { return @"C:\Program Files\Epic Games"; }
+                    else { return @"C:\Program Files\EpicGame Games"; }
                 }
                 catch (Exception ex)
                 {
@@ -169,7 +165,9 @@ namespace SaintDenis_Launcher.Tools
             if (folderDialog.ShowDialog() == true)
             {
                 Logger.Information("NewPath:" + folderDialog);
-                return Path.GetDirectoryName(folderDialog.FileName); 
+
+                return Path.GetDirectoryName(folderDialog.FileName);
+
             }
             else
             {
@@ -178,3 +176,5 @@ namespace SaintDenis_Launcher.Tools
         }
     }
 }
+#pragma warning restore CS8603 // Possible null reference return.
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
