@@ -51,10 +51,6 @@ Another one is the RockStarLauncher UI.
 
 ✅ Navigation Logic / Routing Creation
 
-☐ Create functions to get CFX RedM Status and Update UI to relate it
-
-☐ Create functions to get Server Status and Update UI to relate it
-
 ✅ Create functions to Launch RedM using auto-connect to an IP or not
 
 ✅ Create functions to Clear the Cache
@@ -65,6 +61,18 @@ Another one is the RockStarLauncher UI.
 
 ✅ Create functions to Manage the First Launch
 
-☐ Create functions to get RP Board Data and displaying them on the mainpage
+☐ Launching Pop Bar (Skippable Timer + What's going on)
+
+☐ Dynamic Enable/Disable MainButton + Text / Background representing What's going on
+
+☐ Create functions to get CFX RedM Status and Update UI to relate it
+
+☐ Create functions to get Server Status and Update UI to relate it
+
+☐ Add a minimized Button
+
+☐ Online Backgrounds / Logos
 
 ☐ Custom Popups
+
+☐ Create functions to get RP Board Data and displaying them on the mainpage
