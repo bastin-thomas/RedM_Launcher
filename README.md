@@ -69,6 +69,8 @@ Another one is the RockStarLauncher UI.
 
 ☐ Create functions to get Server Status and Update UI to relate it
 
+☐ Add a minimized Button
+
 ☐ Online Backgrounds / Logos
 
 ☐ Custom Popups
