@@ -24,7 +24,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
         /// <summary>
         /// All behaviors to Start Rockstar Properly Asynchronously
         /// </summary>
-        public static void StartAsync() => (_pr = new ProcessHandler(ProcessName, ExecName, Settings.Default.RockstarFolder)).StartAsync();
+        public static void StartAsync() => (_pr = new ProcessHandler(ProcessName, ExecName, ProcessFolder)).StartAsync();
 
         /// <summary>
         /// Wait that Rockstar is Initialized

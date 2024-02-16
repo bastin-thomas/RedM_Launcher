@@ -5,14 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SaintDenis_Launcher.View"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1200"
+             d:DesignHeight="1500" d:DesignWidth="1200"
              >
 
     <UserControl.Resources>
         <ResourceDictionary Source="Themes/ScrollBar.xaml"/>
     </UserControl.Resources>
 
-    
+
+
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -81,6 +82,43 @@
                         <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
                     </Grid>
 
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="12*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="15"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Timer" Grid.Row="1" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}" IsEnabled="{Binding IsTimerOnLaunch, FallbackValue=False, Mode=TwoWay}">
+                        </TextBlock>
+                        <TextBlock Text="Timer in Seconds Before trying to Launch RedM" Grid.Row="2" Grid.ColumnSpan="3" FontSize="20" Style="{StaticResource SubTextSettings}" IsEnabled="{Binding IsTimerOnLaunch, FallbackValue=False, Mode=OneWay}">
+                        </TextBlock>
+
+                        <TextBox Text="{Binding Timer, Mode=TwoWay}" x:Name="timerInput" LostFocus="timerInput_LostFocus" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="180" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}" IsEnabled="{Binding IsTimerOnLaunch, FallbackValue=False, Mode=TwoWay}">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        <TextBox Text="Seconds" Visibility="{Binding Timer, Mode=OneWay, Converter={StaticResource intToVisibility}}" IsEnabled="{Binding IsTimerOnLaunch, FallbackValue=False, Mode=TwoWay}" x:Name="timerWatermark" GotFocus="timerWatermark_GotFocus" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="180" VerticalAlignment="Center" Style="{StaticResource TextBoxStyle}">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        <CheckBox IsChecked="{Binding IsTimerOnLaunch, FallbackValue=False, Mode=TwoWay}" Grid.Column="5" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
+                        <Border Background="White" Height="0.75" VerticalAlignment="Bottom" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3"/>
+                    </Grid>
 
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -359,6 +397,10 @@
                         <CheckBox IsChecked="{Binding IsDirectConnectTSOnLaunch, FallbackValue=False, Mode=TwoWay}" IsEnabled="{Binding IsOpenTeamSpeakOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Column="5" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource CheckBox.Gold}"/>
                     </Grid>
 
+                    
+                    
+                    
+                    
                 </StackPanel>
             </ScrollViewer>
         </Grid>

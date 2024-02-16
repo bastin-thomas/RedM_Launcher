@@ -226,5 +226,41 @@ namespace SaintDenis_Launcher.Properties {
                 this["MainPageBackground"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsTimerOnLaunch {
+            get {
+                return ((bool)(this["IsTimerOnLaunch"]));
+            }
+            set {
+                this["IsTimerOnLaunch"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public int Timer {
+            get {
+                return ((int)(this["Timer"]));
+            }
+            set {
+                this["Timer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool FirstLaunch {
+            get {
+                return ((bool)(this["FirstLaunch"]));
+            }
+            set {
+                this["FirstLaunch"] = value;
+            }
+        }
     }
 }

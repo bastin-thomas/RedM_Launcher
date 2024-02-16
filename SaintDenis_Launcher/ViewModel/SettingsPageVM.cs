@@ -22,6 +22,12 @@ namespace SaintDenis_Launcher.ViewModel
             set { _currentVersion = value; OnPropertyChanged(); }
         }
 
+        public bool IsTimerOnLaunch
+        {
+            get { return Config.IsTimerOnLaunch; }
+            set { Config.IsTimerOnLaunch = value; OnPropertyChanged(); }
+        }
+
         public bool IsClearCacheOnLaunch
         {
             get { return Config.IsClearCacheOnLaunch; }
@@ -75,9 +81,12 @@ namespace SaintDenis_Launcher.ViewModel
             get { return Config.TSPassword; }
             set { Config.TSPassword = value; OnPropertyChanged(); }
         }
-
-
-
+        public int Timer 
+        {
+            get { return Config.Timer; }
+            set { Config.Timer = value; OnPropertyChanged(); }
+        }
+        
         public String RedmFolder
         {
             get { return Config.RedmFolder; }

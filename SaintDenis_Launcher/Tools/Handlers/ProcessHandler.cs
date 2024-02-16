@@ -1,10 +1,5 @@
-﻿using SaintDenis_Launcher.Properties;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Windows;
 
 namespace SaintDenis_Launcher.Tools.Handlers
 {
@@ -17,35 +12,18 @@ namespace SaintDenis_Launcher.Tools.Handlers
         private String _execName;
         private String _folder;
         private String _parameters;
-        private Process? _process;
+        private bool _asAdmin;
+        private ProcessWindowStyle _style;
+        private Process _process = new Process();
 
-        public ProcessHandler(string processName, string execName, string folder, string parameters = "")
+        public ProcessHandler(string processName, string execName, string folder, string parameters = "", bool asAdmin = false, ProcessWindowStyle style = ProcessWindowStyle.Normal)
         {
             _processName = processName;
             _execName = execName;
             _folder = folder;
             _parameters = parameters;
-        }
-
-        /// <summary>
-        /// All behaviors to Start Process Properly
-        /// </summary>
-        public void Start()
-        {
-            Logger.Information($"{_processName} Is Running: {IsRedMRunning}");
-
-            // If Process Is Opened and Ready, skip
-            if (IsRedMRunning)
-            {
-                Logger.Information($"{_processName} Already Launched Skip Phase");
-            }
-            // If Process Is Not Open, Launch it
-            else
-            {
-                Logger.Information($"Launching {_processName}");
-                _process = Process.Start(_folder + @"\" + _execName, _parameters);
-                WaitProcessInitialized();
-            }
+            _asAdmin = asAdmin;
+            _style = style;
         }
 
         /// <summary>
@@ -53,10 +31,10 @@ namespace SaintDenis_Launcher.Tools.Handlers
         /// </summary>
         public void StartAsync()
         {
-            Logger.Information($"{_processName} Is Running: {IsRedMRunning}");
+            Logger.Information($"{_processName} Is Running: {IsProcessRunning}");
 
             // If Process Is Opened and Ready, skip
-            if (IsRedMRunning)
+            if (IsProcessRunning)
             {
                 Logger.Information($"{_processName} Already Launched Skip Phase");
             }
@@ -64,8 +42,27 @@ namespace SaintDenis_Launcher.Tools.Handlers
             else
             {
                 Logger.Information($"Launching {_processName}");
-                _process = Process.Start(_folder + @"\" + _execName, _parameters);
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = _folder + @"\" + _execName,
+                    Arguments = _parameters,
+                    UseShellExecute = true,
+                    WindowStyle = _style,
+                };
+                if (_asAdmin) psi.Verb = "runas";
+
+                _process.StartInfo = psi;
+                _process.Start();
             }
+        }
+
+        /// <summary>
+        /// All behaviors to Start Process Properly
+        /// </summary>
+        public void Start()
+        {
+            StartAsync();
+            if (!_asAdmin) { WaitProcessInitialized(); }
         }
 
         /// <summary>
@@ -90,11 +87,18 @@ namespace SaintDenis_Launcher.Tools.Handlers
             Logger.Information($"{_processName} never been launched. Skipped");
         }
 
+        /// <summary>
+        /// Waiting Process Closure
+        /// </summary>
+        internal void WaitProcessClosed()
+        {
+            _process.WaitForExit();
+        }
 
         /// <summary>
         /// Check that Process is Already Running or Not
         /// </summary>
-        private bool IsRedMRunning
+        private bool IsProcessRunning
         {
             get
             {

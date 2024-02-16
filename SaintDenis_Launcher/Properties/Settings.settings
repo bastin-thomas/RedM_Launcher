@@ -53,5 +53,14 @@
     <Setting Name="MainPageBackground" Type="System.String" Scope="User">
       <Value Profile="(Default)">/.Resources/Chinois_Background.png</Value>
     </Setting>
+    <Setting Name="IsTimerOnLaunch" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Timer" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="FirstLaunch" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

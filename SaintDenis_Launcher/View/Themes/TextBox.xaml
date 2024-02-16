@@ -56,17 +56,58 @@
                            Focusable="False" />
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="UIElement.IsMouseOver" Value="True">
-                                <Setter Property="Border.BorderBrush" TargetName="border" Value="#fcaf17"/>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition  Property="Validation.HasError" Value="False"/>
+                                    <Condition  Property="UIElement.IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter Property="Border.BorderBrush" TargetName="border" Value="#fcaf17"/>
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+
+                            <Trigger Property="IsHitTestVisible" Value="True">
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                            </Trigger>
+
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="Border.BorderBrush">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                            <GradientStop Color="{StaticResource Color.Button.Gradient9}" Offset="0.0"/>
+                                            <GradientStop Color="{StaticResource Color.Button.Gradient10}" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Foreground" Value="Red"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <!-- Empty -->
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
         </Style.Setters>
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Opacity" Value="0.20"/>
+            </Trigger>
+            
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="Validation.ErrorTemplate">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <!-- Empty -->
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Trigger>
         </Style.Triggers>
     </Style>

@@ -1,9 +1,11 @@
-﻿using SaintDenis_Launcher.Properties;
+﻿using Microsoft.Win32;
+using SaintDenis_Launcher.Properties;
 using SaintDenis_Launcher.Tools;
 using SaintDenis_Launcher.Tools.Handlers;
 using SaintDenis_Launcher.Utils;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Windows.UI.Popups;
 
 namespace SaintDenis_Launcher.ViewModel
 {
@@ -67,6 +69,7 @@ namespace SaintDenis_Launcher.ViewModel
         public RelayCommand onLaunchClick => new RelayCommand(execute => {
             Logger.Information("== LaunchButton Click ==");
 
+
             //Launch Rockstar Launcher if Needed
             if(Config.IsOpenRockstarOnLaunch) 
             {
@@ -78,14 +81,23 @@ namespace SaintDenis_Launcher.ViewModel
                 {
                     Logger.LogError(ex);
                     //TODO: Add a custom popup that Warn the user
+                    new MessageDialog("Impossible to Launch Rockstar", "Rockstar Error");
                 }
             }
-
+            
 
             //Launch EpicGame if Needed
             if(Config.IsOpenEpicgameOnLaunch) 
             {
-                EpicGame.Start();
+                try 
+                {
+                    EpicGame.Start();
+                }
+                catch (Exception ex) 
+                {
+                    Logger.LogError(ex);
+                    new MessageDialog("Impossible to Launch Epic", "EpicGame Error");
+                }   
             }
 
 
@@ -98,38 +110,55 @@ namespace SaintDenis_Launcher.ViewModel
             {
                 Logger.LogError(ex);
                 //TODO: Add a custom popup that Warn the user
+                new MessageDialog("Impossible to Launch Steam", "Steam Error");
             }
+
 
             //Launching RedM
             try
             {
+                if(Settings.Default.IsTimerOnLaunch) 
+                {
+                    Thread.Sleep(Settings.Default.Timer * 1000);
+                }
+
                 RedM.Start(Config.IsDirectConnectOnLaunch);
             }
             catch (Exception ex)
             {
                 Logger.LogError(ex);
                 //TODO: Add a custom popup that Warn the user
+                new MessageDialog("Impossible to Launch RedM", "RedM Error");
             }
-
-
 
 
             //Launch TeamSpeak
             if (Config.IsOpenTeamSpeakOnLaunch)
             {
-                if (Config.IsDirectConnectTSOnLaunch)
+                try 
                 {
-                    throw new NotImplementedException();
+                    Teamspeak.Start(Settings.Default.IsDirectConnectTSOnLaunch);
                 }
-                else 
+                catch (Win32Exception ex)
                 {
-                    throw new NotImplementedException();
+                    Logger.LogError(ex);
+                    new MessageDialog("Impossible to Launch Teamspeak", "Teamspeak Error");
                 }
             }
         });
 
         public RelayCommand onClearCacheClick => new RelayCommand(execute => {
             Logger.Information("== ClearCache Click ==");
+            try 
+            {
+                ClearCache.StartAsync();
+                ClearCache.Wait();
+            }
+            catch(Exception ex) 
+            {
+                Logger.LogError(ex);
+                new MessageDialog("Impossible to Clear Cache", "Clear Cache Error");
+            }
         });
 
         public RelayCommand onAzertyInstallClick => new RelayCommand(execute => {

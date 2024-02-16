@@ -47,7 +47,7 @@ Another one is the RockStarLauncher UI.
 
 ✅ Setting Page ViewModel Creation
 
-☐ App Model Creation (Storable)
+✅ App Model Creation (Storable) -> Finnaly using .Net Settings
 
 ✅ Navigation Logic / Routing Creation
 
@@ -55,15 +55,15 @@ Another one is the RockStarLauncher UI.
 
 ☐ Create functions to get Server Status and Update UI to relate it
 
-☐ Create functions to Launch RedM using auto-connect to an IP or not
+✅ Create functions to Launch RedM using auto-connect to an IP or not
 
-☐ Create functions to Clear the Cache
+✅ Create functions to Clear the Cache
 
-☐ Create functions to Launch all needed Launcher
+✅ Create functions to Launch all needed Launcher
 
-☐ Create functions to Launch TeamSpeak on the right Server
+✅ Create functions to Launch TeamSpeak on the right Server
 
-☐ Create functions to Manage the First Launch
+✅ Create functions to Manage the First Launch
 
 ☐ Create functions to get RP Board Data and displaying them on the mainpage
 

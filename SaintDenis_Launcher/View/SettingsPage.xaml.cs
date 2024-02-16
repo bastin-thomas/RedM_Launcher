@@ -73,5 +73,21 @@ namespace SaintDenis_Launcher.View
                 serveripWatermark.Visibility = Visibility.Visible;
             }
         }
+
+        private void timerWatermark_GotFocus(object sender, RoutedEventArgs e)
+        {
+            timerWatermark.Visibility = Visibility.Collapsed;
+            timerInput.Visibility = Visibility.Visible;
+            timerInput.Focus();
+        }
+
+        private void timerInput_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(serveripInput.Text))
+            {
+                timerInput.Visibility = Visibility.Collapsed;
+                timerWatermark.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

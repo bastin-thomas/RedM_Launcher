@@ -17,4 +17,7 @@
 
     <Color x:Key="Color.Button.Gradient7">#333436</Color>
     <Color x:Key="Color.Button.Gradient8">#373738</Color>
+
+    <Color x:Key="Color.Button.Gradient9">#E75419</Color>
+    <Color x:Key="Color.Button.Gradient10">Red</Color>
 </ResourceDictionary>

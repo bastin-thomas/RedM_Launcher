@@ -19,7 +19,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
         /// <summary>
         /// All behaviors to Start EpicGame Properly Asynchronously
         /// </summary>
-        public static void StartAsync() => (_pr = new ProcessHandler(ProcessName, ExecName, Settings.Default.EpicFolder)).StartAsync();
+        public static void StartAsync() => (_pr = new ProcessHandler(ProcessName, ExecName, ProcessFolder)).StartAsync();
 
         /// <summary>
         /// Wait that EpicGame is Initialized
