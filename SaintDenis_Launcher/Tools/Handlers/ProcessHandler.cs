@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Windows;
 
 namespace SaintDenis_Launcher.Tools.Handlers
@@ -94,6 +95,19 @@ namespace SaintDenis_Launcher.Tools.Handlers
         internal void WaitProcessClosed()
         {
             _process.WaitForExit();
+        }
+
+        /// <summary>
+        /// Waiting Asynchronously Process Closure
+        /// </summary>
+        /// <param name="action"></param>
+        internal async Task ProcessEndCallBack(Action action) 
+        {
+            if( _process == null ) { throw new Exception("Process_Null"); }
+            if(_process.HasExited) { throw new Exception("Already_Finished"); }
+
+            await _process.WaitForExitAsync();
+            action.Invoke();
         }
 
         /// <summary>

@@ -20,32 +20,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ContentWithTargetPath Include="..\.RedM_Ressources\ClearCache.bat">
+    <ContentWithTargetPath Include="..\.RedM_Resources\ClearCache.bat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Ressources/%(Filename)%(Extension)</TargetPath>
+      <TargetPath>Resources/%(Filename)%(Extension)</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
 
   <ItemGroup>
-    <ContentWithTargetPath Include="..\.RedM_Ressources\PlaceAZERTY.bat">
+    <ContentWithTargetPath Include="..\.RedM_Resources\default.meta">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Ressources/%(Filename)%(Extension)</TargetPath>
-    </ContentWithTargetPath>
-  </ItemGroup>
-
-
-
-  <ItemGroup>
-    <ContentWithTargetPath Include="..\.RedM_Ressources\default.meta">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Ressources/%(Filename)%(Extension)</TargetPath>
+      <TargetPath>Resources/%(Filename)%(Extension)</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
 
   <ItemGroup>
-    <ContentWithTargetPath Include="..\.RedM_Ressources\RedM.exe">
+    <ContentWithTargetPath Include="..\.RedM_Resources\RedM.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>Ressources/%(Filename)%(Extension)</TargetPath>
+      <TargetPath>Resources/%(Filename)%(Extension)</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
 

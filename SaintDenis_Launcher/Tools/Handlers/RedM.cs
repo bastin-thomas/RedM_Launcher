@@ -53,5 +53,8 @@ namespace SaintDenis_Launcher.Tools.Handlers
         /// Wait that RedM is Initialized
         /// </summary>
         public static void WaitRedMInitialized() => _pr?.WaitProcessInitialized();
+
+
+        public static async void OnProcessEnd(Action task) => await _pr.ProcessEndCallBack(task);
     }
 }

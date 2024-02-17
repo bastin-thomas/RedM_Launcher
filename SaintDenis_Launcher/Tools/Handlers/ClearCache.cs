@@ -1,10 +1,4 @@
-﻿using SaintDenis_Launcher.Properties;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace SaintDenis_Launcher.Tools.Handlers
 {
@@ -12,7 +6,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
     {
         public readonly static String ProcessName = "ClearCache.bat";
         public readonly static String ExecName = "ClearCache.bat";
-        public readonly static String ProcessFolder = App.workingDirectoryPath + @"\Ressources";
+        public readonly static String ProcessFolder = App.workingDirectoryPath + @"Resources";
 
         private static ProcessHandler _pr;
 

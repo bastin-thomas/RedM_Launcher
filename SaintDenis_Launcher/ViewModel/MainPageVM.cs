@@ -22,6 +22,9 @@ namespace SaintDenis_Launcher.ViewModel
 
         private bool _isServerOnline;
         private bool _isRedMOnline;
+
+        private bool _isLaunching;
+        private bool _isLaunched;
         #endregion
 
         #region Accessors
@@ -45,7 +48,16 @@ namespace SaintDenis_Launcher.ViewModel
             get { return _isRedMOnline; }
             set { _isRedMOnline = value; OnPropertyChanged(); }
         }
-
+        public bool IsLaunching
+        {
+            get { return _isLaunching; }
+            set { _isLaunching = value; }
+        }
+        public bool IsLaunched
+        {
+            get { return _isLaunched; }
+            set { _isLaunched = value; }
+        }
         public Settings Config 
         {
             get { return Properties.Settings.Default; }
@@ -69,14 +81,16 @@ namespace SaintDenis_Launcher.ViewModel
         #region Events
         #region Commands
         public RelayCommand onLaunchClick => new RelayCommand(execute => {
+            if(IsLaunching) { return; }
             Logger.Information("== LaunchButton Click ==");
+            IsLaunching = true;
 
-            if(Config.IsClearCacheOnLaunch) 
+            //ClearCache
+            if (Config.IsClearCacheOnLaunch) 
             {
                 try
                 {
                     ClearCache.StartAsync();
-                    ClearCache.Wait();
                 }
                 catch (Exception ex)
                 {
@@ -85,20 +99,21 @@ namespace SaintDenis_Launcher.ViewModel
                 }
             }
 
-
+            //ModeFile
             if(Config.IsAzertyInstallOnLaunch) 
             {
-                try
+                Task.Run(async () =>
                 {
-                    PlaceAzerty.StartAsync();
-                    PlaceAzerty.Wait();
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogError(ex);
-                    DialogBox.Error("Impossible to Install Azerty File", "Install Azerty File Error");
-                }
-                DialogBox.Information("Game Configured in Azerty", "Install Azerty File");
+                    try
+                    {
+                        await PlaceAzerty.MoveFile();
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.LogError(ex);
+                        DialogBox.Error("Impossible to Install Azerty File", "Install Azerty File Error");
+                    }
+                });
             }
 
 
@@ -156,6 +171,11 @@ namespace SaintDenis_Launcher.ViewModel
                     try
                     {
                         RedM.Start(Config.IsDirectConnectOnLaunch);
+                        RedM.WaitRedMInitialized();
+
+                        RedM.OnProcessEnd(() => {
+                            Logger.Information("RedM Has Been Closed");
+                        });
                     }
                     catch (Exception ex)
                     {
@@ -192,12 +212,12 @@ namespace SaintDenis_Launcher.ViewModel
             try 
             {
                 ClearCache.StartAsync();
-                ClearCache.Wait();
             }
             catch(Exception ex) 
             {
                 Logger.LogError(ex);
                 DialogBox.Error("Impossible to Clear Cache", "Clear Cache Error");
+                return;
             }
             DialogBox.Information("Cache Cleared", "Clear Cache");
         });
@@ -205,6 +225,20 @@ namespace SaintDenis_Launcher.ViewModel
 
         public RelayCommand onAzertyInstallClick => new RelayCommand(execute => {
             Logger.Information("== AzertyInstall Click ==");
+            Task.Run(async () =>
+            {
+                try
+                {
+                    await PlaceAzerty.MoveFile();
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex);
+                    DialogBox.Error("Impossible to Install Azerty File", "Install Azerty File Error");
+                    return;
+                }
+                DialogBox.Information("Game Configured in Azerty", "Install Azerty File");
+            });
         });
         #endregion
 
