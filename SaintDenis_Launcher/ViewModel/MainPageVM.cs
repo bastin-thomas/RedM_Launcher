@@ -76,94 +76,88 @@ namespace SaintDenis_Launcher.ViewModel
         #endregion
 
         #region Methods
-        #endregion
+        private void LaunchClearCache(bool displayEndPopup = false, bool returnOnFail = false) 
+        {
+            try
+            {
+                ClearCache.StartAsync();
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex);
+                DialogBox.Error("Impossible to Clear Cache", "Clear Cache Error");
+                if(returnOnFail) return;
+            }
+            if(displayEndPopup) DialogBox.Information("Cache Cleared", "Clear Cache");
+        }
 
-        #region Events
-        #region Commands
-        public RelayCommand onLaunchClick => new RelayCommand(execute => {
-            if(IsLaunching) { return; }
-            Logger.Information("== LaunchButton Click ==");
-            IsLaunching = true;
-
-            //ClearCache
-            if (Config.IsClearCacheOnLaunch) 
+        private void LaunchPlaceAzerty(bool displayEndPopup = false, bool returnOnFail = false)
+        {
+            Task.Run(async () =>
             {
                 try
                 {
-                    ClearCache.StartAsync();
+                    await PlaceAzerty.MoveFile();
                 }
                 catch (Exception ex)
                 {
                     Logger.LogError(ex);
-                    DialogBox.Error("Impossible to Clear Cache", "Clear Cache Error");
+                    DialogBox.Error("Impossible to Install Azerty File", "Install Azerty File Error");
+                    if (returnOnFail) return;
                 }
-            }
+                if(displayEndPopup) DialogBox.Information("Game Configured in Azerty", "Install Azerty File");
+            });
+        }
 
-            //ModeFile
-            if(Config.IsAzertyInstallOnLaunch) 
+        private void LaunchRockstar(bool returnOnFail = false)
+        {
+            try
             {
-                Task.Run(async () =>
-                {
-                    try
-                    {
-                        await PlaceAzerty.MoveFile();
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.LogError(ex);
-                        DialogBox.Error("Impossible to Install Azerty File", "Install Azerty File Error");
-                    }
-                });
+                Rockstar.StartAsync();
             }
-
-
-            //Launch Rockstar Launcher if Needed
-            if(Config.IsOpenRockstarOnLaunch) 
+            catch (Exception ex)
             {
-                try
-                {
-                    Rockstar.StartAsync();
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogError(ex);
-                    DialogBox.Error("Impossible to Launch Rockstar", "Rockstar Error");
-                }
+                Logger.LogError(ex);
+                DialogBox.Error("Impossible to Launch Rockstar", "Rockstar Error");
+                if (returnOnFail) return;
             }
-            
+        }
 
-            //Launch EpicGame if Needed
-            if(Config.IsOpenEpicgameOnLaunch) 
+        private void LaunchEpic(bool returnOnFail = false) 
+        {
+            try
             {
-                try 
-                {
-                    EpicGame.StartAsync();
-                }
-                catch (Exception ex) 
-                {
-                    Logger.LogError(ex);
-                    DialogBox.Error("Impossible to Launch Epic", "EpicGame Error");
-                }   
+                EpicGame.StartAsync();
             }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex);
+                DialogBox.Error("Impossible to Launch Epic", "EpicGame Error");
+                if (returnOnFail) return;
+            }
+        }
 
-
-            //Launch Steam & Wait it is Ready to be used by RedM
-            try 
+        private void LaunchSteam(bool returnOnFail = false) 
+        {
+            try
             {
                 Steam.Start();
-            } 
-            catch(Exception ex) 
+            }
+            catch (Exception ex)
             {
                 Logger.LogError(ex);
                 DialogBox.Error("Impossible to Launch Steam", "Steam Error");
+                if (returnOnFail) return;
             }
+        }
 
-
+        private void LaunchRedM_AND_TeamSpeak(bool returnOnFail = false)
+        {
             //Set A Timing / Or Not depending on IsTimerOnLaunch
             long awaitTime = Settings.Default.IsTimerOnLaunch ? Settings.Default.Timer : 0;
 
             //After Timing Out
-            try 
+            try
             {
                 CallbackTimer.RunAfter(awaitTime, () =>
                 {
@@ -172,8 +166,11 @@ namespace SaintDenis_Launcher.ViewModel
                     {
                         RedM.Start(Config.IsDirectConnectOnLaunch);
                         RedM.WaitRedMInitialized();
+                        IsLaunched = true;
 
                         RedM.OnProcessEnd(() => {
+                            IsLaunching = false;
+                            IsLaunched = false;
                             Logger.Information("RedM Has Been Closed");
                         });
                     }
@@ -181,8 +178,8 @@ namespace SaintDenis_Launcher.ViewModel
                     {
                         Logger.LogError(ex);
                         DialogBox.Error("Impossible to Launch RedM", "RedM Error");
+                        if (returnOnFail) return;
                     }
-
 
 
                     //Launch TeamSpeak
@@ -196,49 +193,69 @@ namespace SaintDenis_Launcher.ViewModel
                         {
                             Logger.LogError(ex);
                             DialogBox.Error("Impossible to Launch Teamspeak", "Teamspeak Error");
+                            if (returnOnFail) return;
                         }
                     }
                 });
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 Logger.LogError(ex);
                 DialogBox.Error("The Timer as turned off unexpectedly ", "Timer Error");
+                if (returnOnFail) return;
             }
+        }
+        #endregion
+
+        #region Events
+        #region Commands
+        public RelayCommand onLaunchClick => new RelayCommand(execute => {
+            if(IsLaunching) { return; }
+            Logger.Information("== LaunchButton Click ==");
+            IsLaunching = true;
+
+            //LaunchClearCache
+            if (Config.IsClearCacheOnLaunch) 
+            {
+                LaunchClearCache();
+            }
+
+            //ModeFile
+            if(Config.IsAzertyInstallOnLaunch) 
+            {
+                LaunchPlaceAzerty();
+            }
+
+
+            //Launch Rockstar Launcher if Needed
+            if(Config.IsOpenRockstarOnLaunch) 
+            {
+                LaunchRockstar();
+            }
+            
+
+            //Launch EpicGame if Needed
+            if(Config.IsOpenEpicgameOnLaunch) 
+            {
+                LaunchEpic();
+            }
+
+
+            //Launch Steam & Wait it is Ready to be used by RedM
+            LaunchSteam();
+
+            LaunchRedM_AND_TeamSpeak();
         });
 
         public RelayCommand onClearCacheClick => new RelayCommand(execute => {
-            Logger.Information("== ClearCache Click ==");
-            try 
-            {
-                ClearCache.StartAsync();
-            }
-            catch(Exception ex) 
-            {
-                Logger.LogError(ex);
-                DialogBox.Error("Impossible to Clear Cache", "Clear Cache Error");
-                return;
-            }
-            DialogBox.Information("Cache Cleared", "Clear Cache");
+            Logger.Information("== LaunchClearCache Click ==");
+            LaunchClearCache(true, true);
         });
 
 
         public RelayCommand onAzertyInstallClick => new RelayCommand(execute => {
             Logger.Information("== AzertyInstall Click ==");
-            Task.Run(async () =>
-            {
-                try
-                {
-                    await PlaceAzerty.MoveFile();
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogError(ex);
-                    DialogBox.Error("Impossible to Install Azerty File", "Install Azerty File Error");
-                    return;
-                }
-                DialogBox.Information("Game Configured in Azerty", "Install Azerty File");
-            });
+            LaunchPlaceAzerty(true, true);
         });
         #endregion
 

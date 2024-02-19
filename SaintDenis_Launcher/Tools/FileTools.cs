@@ -1,13 +1,42 @@
 ﻿using Microsoft.Win32;
 using System.IO;
 
-#pragma warning disable CS8603 // Possible null reference return.
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
 namespace SaintDenis_Launcher.Tools
 {
     class FileTools
     {
+        private readonly struct Steam 
+        {
+            public const String DefaultPath = @"C:\Program Files (x86)\Steam\";
+            public const String KeyPath = @"Software\Valve\Steam";
+            public const String KeyValue = @"SteamPath";
+        }
 
+        private readonly struct Rockstar
+        {
+            public const String DefaultPath = @"C:\Program Files\Rockstar Games\Launcher";
+            public const String KeyPath = @"SOFTWARE\WOW6432Node\Rockstar Games\Launcher";
+            public const String KeyValue = @"InstallFolder";
+        }
+
+        private readonly struct Epic
+        {
+            public const String DefaultPath = @"C:\Program Files\EpicGame Games";
+            public const String KeyPath = @"SOFTWARE\WOW6432Node\EpicGames\Unreal Engine";
+            public const String KeyValue = @"INSTALLDIR";
+        }
+
+        private readonly struct TeamSpeak
+        {
+            public const String DefaultPath = @"C:\Program Files\TeamSpeak";
+            public const String KeyPath = @"SOFTWARE\TeamSpeak 3 Client";
+            public const String KeyValue = @"";
+        }
+
+
+        /// <summary>
+        /// Get The Default Folder, based on RegKey (if available).
+        /// </summary>
         public static String DefaultRedMFolder
         {
             get {
@@ -15,114 +44,114 @@ namespace SaintDenis_Launcher.Tools
             }
         }
 
+        /// <summary>
+        /// Get The Default Folder, based on RegKey (if available).
+        /// </summary>
         public static String DefaultSteamFolder
         {
             get
-            {     
+            {
                 try 
                 {
-                    RegistryKey SteamKey = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam");
+                    RegistryKey? SteamKey = Registry.CurrentUser.OpenSubKey(Steam.KeyPath);
                     if (SteamKey is not null)
                     {
-                        object value = SteamKey.GetValue("SteamPath");
+                        object? value = SteamKey.GetValue(Steam.KeyValue);
                         if (value is not null && value is string StringValue)
                         {
                             return StringValue.ToUpper().Replace("/", @"\");
                         }
-                        else
-                        { return @"C:\Program Files (x86)\Steam\"; }
                     }
-                    else 
-                    { return @"C:\Program Files (x86)\Steam\"; }
                 }
                 catch(Exception ex) 
                 {
                     Logger.LogError(ex);
                 }
-                return @"";
+                return Steam.DefaultPath;
             }
         }
 
+        /// <summary>
+        /// Get The Default Folder, based on RegKey (if available).
+        /// </summary>
         public static String DefaultRockstarFolder
         {
             get
             {
                 try
                 {
+                    RegistryKey? RockstarKey = Registry.LocalMachine.OpenSubKey(Rockstar.KeyPath);
 
-                    RegistryKey SteamKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\Rockstar Games\Launcher");
-
-                    if (SteamKey is not null)
+                    if (RockstarKey is not null)
                     {
-                        object value = SteamKey.GetValue("InstallFolder");
+                        object? value = RockstarKey.GetValue(Rockstar.KeyValue);
+
                         if (value is not null && value is string StringValue)
                         {
                             return StringValue.ToUpper().Replace("/", @"\");
                         }
-                        else
-                        { return @"C:\Program Files\Rockstar Games\Launcher"; }
                     }
-                    else 
-                    { return @"C:\Program Files\Rockstar Games\Launcher"; }
                 }
                 catch (Exception ex)
                 {
                     Logger.LogError(ex);
-                }
-                return @"";
+                }               
+
+                return Rockstar.DefaultPath;
             }
         }
 
+        /// <summary>
+        /// Get The Default Folder, based on RegKey (if available).
+        /// </summary>
         public static String DefaultEpicFolder
         {
             get
-            {
-                 
+            {    
                 try
                 {
-                    RegistryKey SteamKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\WOW6432Node\EpicGames\Unreal Engine");
-                    if (SteamKey is not null)
+                    RegistryKey? EpicKey = Registry.LocalMachine.OpenSubKey(Epic.KeyPath);
+                    if (EpicKey is not null)
                     {
-                        object value = SteamKey.GetValue("INSTALLDIR");
+                        object? value = EpicKey.GetValue(Epic.KeyValue);
                         if (value is not null && value is string StringValue)
                         {
                             return StringValue.ToUpper().Replace("/", @"\");
                         }
-                        else { return @"C:\Program Files\EpicGame Games"; }
                     }
-                    else { return @"C:\Program Files\EpicGame Games"; }
                 }
                 catch (Exception ex)
                 {
                     Logger.LogError(ex);
                 }
-                return @"";
+                return Epic.DefaultPath;
             }
         }
 
+        /// <summary>
+        /// Get The Default Folder, based on RegKey (if available).
+        /// </summary>
         public static String DefaultTSFolder
         {
             get
             {
                 try
                 {
-                    RegistryKey SteamKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\TeamSpeak 3 Client");
+                    RegistryKey? SteamKey = Registry.LocalMachine.OpenSubKey(TeamSpeak.KeyPath);
                     if (SteamKey is not null)
                     {
-                        object value = SteamKey.GetValue("");
+                        object? value = SteamKey.GetValue(TeamSpeak.KeyValue);
                         if (value is not null && value is string StringValue)
                         {
                             return StringValue.ToUpper().Replace("/", @"\");
                         }
-                        else { return @"C:\Program Files\TeamSpeak"; }
                     }
-                    else { return @"C:\Program Files\TeamSpeak"; }
                 }
                 catch (Exception ex)
                 {
                     Logger.LogError(ex);
                 }
-                return @"";
+                return TeamSpeak.DefaultPath;
             }
         }
 
@@ -130,43 +159,59 @@ namespace SaintDenis_Launcher.Tools
 
 
 
-
-        public static String GetFolder(String Name, String currentFolder)
+        /// <summary>
+        /// Open a popup to get a Folder
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="currentFolder"></param>
+        /// <returns></returns>
+        public static String? GetFolder(String Name, String currentFolder)
         {
             Logger.Information("OldPath: " + currentFolder);
 
-            OpenFolderDialog folderDialog;
-            folderDialog = new OpenFolderDialog();
-            folderDialog.InitialDirectory = currentFolder;
-            folderDialog.Title = Name;
-
-            if (folderDialog.ShowDialog() == true)
+            OpenFolderDialog? dialog;
+            dialog = new()
             {
-                Logger.Information("NewPath: " + folderDialog);
-                return folderDialog.FolderName;
+                InitialDirectory = currentFolder,
+                Title = Name
+            };
+
+            if (dialog is not null && dialog.ShowDialog() == true)
+            {
+                Logger.Information("NewPath: " + dialog);
+                return dialog.FolderName;
             }
             else {
                 return currentFolder;
             }
         }
 
+        /// <summary>
+        /// Open a popup to select a file that will return it's folder location
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="currentFile"></param>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         public static String GetFolderFromFile(String Name, String currentFile, String filter)
         {
             Logger.Information("OldPath:" + currentFile);
 
-            OpenFileDialog folderDialog;
-            folderDialog = new OpenFileDialog();
-            folderDialog.InitialDirectory = currentFile;
-            folderDialog.Title = Name;
-            folderDialog.Filter = filter + "|Exec|*.exe";
-            folderDialog.FilterIndex = 0;
-            folderDialog.DereferenceLinks = true;
-
-            if (folderDialog.ShowDialog() == true)
+            OpenFileDialog? dialog;
+            dialog = new()
             {
-                Logger.Information("NewPath:" + folderDialog);
+                InitialDirectory = currentFile,
+                Title = Name,
+                Filter = filter + "|Exec|*.exe",
+                FilterIndex = 0,
+                DereferenceLinks = true
+            };
 
-                return Path.GetDirectoryName(folderDialog.FileName);
+            if (dialog is not null && dialog.ShowDialog() == true)
+            {
+                Logger.Information("NewPath:" + dialog);
+
+                return Path.GetDirectoryName(dialog.FileName);
 
             }
             else
@@ -176,5 +221,3 @@ namespace SaintDenis_Launcher.Tools
         }
     }
 }
-#pragma warning restore CS8603 // Possible null reference return.
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.

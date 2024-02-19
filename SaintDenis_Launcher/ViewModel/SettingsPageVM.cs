@@ -124,8 +124,18 @@ namespace SaintDenis_Launcher.ViewModel
         #endregion
 
         #region Methods
-        private String GetFolder(String name, String folder) => FileTools.GetFolder(name, folder);
-        private String GetFolderFromFile(String name, String folder, String filter) => FileTools.GetFolderFromFile(name, folder, filter);
+        private String GetFolder(String name, String folder) 
+        {
+            string? toreturn = FileTools.GetFolder(name, folder);
+            if (toreturn is null) return "";
+            return toreturn;
+        }
+        private String GetFolderFromFile(String name, String folder, String filter) 
+        {
+            string? toreturn = FileTools.GetFolderFromFile(name, folder, filter);
+            if (toreturn is null) return "";
+            return toreturn;
+        } 
         #endregion
 
         #region Events
@@ -135,7 +145,6 @@ namespace SaintDenis_Launcher.ViewModel
             Logger.Information("Open RedM _folder Click");
             try
             {
-                if (RedmFolder.Equals("")) { RedmFolder = FileTools.DefaultRedMFolder; }
                 RedmFolder = GetFolderFromFile("Select RedM.exe", RedmFolder, "RedM|RedM.exe");
             }
             catch (Exception ex)
@@ -148,7 +157,6 @@ namespace SaintDenis_Launcher.ViewModel
             Logger.Information("Open Steam _folder Click");
             try
             {
-                if (SteamFolder.Equals("")) { SteamFolder = FileTools.DefaultSteamFolder; }
                 SteamFolder = GetFolderFromFile("Select Steam.exe Executable", SteamFolder, "Steam|Steam.exe"); 
             }
             catch (Exception ex)
@@ -161,7 +169,6 @@ namespace SaintDenis_Launcher.ViewModel
             Logger.Information("Open Rockstar _folder Click");
             try
             {
-                if (RockstarFolder.Equals("")) { RockstarFolder = FileTools.DefaultRockstarFolder; }
                 RockstarFolder = GetFolderFromFile("Select Launcher.exe Executable", RockstarFolder, "Launcher|Launcher.exe");
             }
             catch (Exception ex)
@@ -174,7 +181,6 @@ namespace SaintDenis_Launcher.ViewModel
             Logger.Information("Open EpicGame _folder Click");
             try
             {
-                if (EpicFolder.Equals("")) { EpicFolder = FileTools.DefaultEpicFolder; }
                 EpicFolder = GetFolder("Select EpicGame _folder", EpicFolder);
             }
             catch (Exception ex)
@@ -187,7 +193,6 @@ namespace SaintDenis_Launcher.ViewModel
             Logger.Information("Open TeamSpeak _folder Click");
             try
             {
-                if (TeamSpeakFolder.Equals("")) { TeamSpeakFolder = FileTools.DefaultTSFolder; }
                 TeamSpeakFolder = GetFolderFromFile("Select ts3client_win64.exe Executable", TeamSpeakFolder, "TeamSpeak|ts3client_win64.exe");
             }
             catch (Exception ex)
