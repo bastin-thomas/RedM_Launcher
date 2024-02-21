@@ -113,7 +113,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
         /// <summary>
         /// Check that Process is Already Running or Not
         /// </summary>
-        private bool IsProcessRunning
+        public bool IsProcessRunning
         {
             get
             {

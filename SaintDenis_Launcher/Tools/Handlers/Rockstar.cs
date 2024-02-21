@@ -14,6 +14,14 @@ namespace SaintDenis_Launcher.Tools.Handlers
         public readonly static String ExecName = "LauncherPatcher.exe";
         public readonly static String ProcessFolder = Settings.Default.RockstarFolder;
 
+        public static bool IsLaunched 
+        {
+            get 
+            {
+                return _pr is not null ? _pr.IsProcessRunning : false;
+            }
+        } 
+
         private static ProcessHandler _pr;
 
         /// <summary>

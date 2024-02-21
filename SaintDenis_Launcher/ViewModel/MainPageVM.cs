@@ -51,13 +51,14 @@ namespace SaintDenis_Launcher.ViewModel
         public bool IsLaunching
         {
             get { return _isLaunching; }
-            set { _isLaunching = value; }
+            set { _isLaunching = value; OnPropertyChanged(); }
         }
         public bool IsLaunched
         {
             get { return _isLaunched; }
-            set { _isLaunched = value; }
+            set { _isLaunched = value; OnPropertyChanged(); }
         }
+
         public Settings Config 
         {
             get { return Properties.Settings.Default; }
@@ -72,10 +73,19 @@ namespace SaintDenis_Launcher.ViewModel
 
             IsServerOnline = true;
             IsRedMOnline = true;
+
+            IsLaunching = false;
+            IsLaunched = false;
         }
         #endregion
 
         #region Methods
+        private void ResetStateLaunch() 
+        {
+            IsLaunched = false;
+            IsLaunching = false;
+        }
+
         private void LaunchClearCache(bool displayEndPopup = false, bool returnOnFail = false) 
         {
             try
@@ -86,9 +96,17 @@ namespace SaintDenis_Launcher.ViewModel
             {
                 Logger.LogError(ex);
                 DialogBox.Error("Impossible to Clear Cache", "Clear Cache Error");
-                if(returnOnFail) return;
+                if (returnOnFail)
+                {
+                    ResetStateLaunch();
+                    return;
+                }
             }
-            if(displayEndPopup) DialogBox.Information("Cache Cleared", "Clear Cache");
+            if (displayEndPopup) 
+            {
+                DialogBox.Information("Cache Cleared", "Clear Cache");
+                ResetStateLaunch();
+            } 
         }
 
         private void LaunchPlaceAzerty(bool displayEndPopup = false, bool returnOnFail = false)
@@ -103,9 +121,17 @@ namespace SaintDenis_Launcher.ViewModel
                 {
                     Logger.LogError(ex);
                     DialogBox.Error("Impossible to Install Azerty File", "Install Azerty File Error");
-                    if (returnOnFail) return;
+                    if (returnOnFail)
+                    {
+                        ResetStateLaunch();
+                        return;
+                    }
                 }
-                if(displayEndPopup) DialogBox.Information("Game Configured in Azerty", "Install Azerty File");
+                if (displayEndPopup) 
+                {
+                    DialogBox.Information("Game Configured in Azerty", "Install Azerty File");
+                    ResetStateLaunch();
+                } 
             });
         }
 
@@ -118,8 +144,12 @@ namespace SaintDenis_Launcher.ViewModel
             catch (Exception ex)
             {
                 Logger.LogError(ex);
-                DialogBox.Error("Impossible to Launch Rockstar", "Rockstar Error");
-                if (returnOnFail) return;
+                DialogBox.Error("Impossible to Launch Rockstar, check if you have set the right Folder", "Rockstar Error");
+                if (returnOnFail)
+                {
+                    ResetStateLaunch();
+                    return;
+                }
             }
         }
 
@@ -132,8 +162,12 @@ namespace SaintDenis_Launcher.ViewModel
             catch (Exception ex)
             {
                 Logger.LogError(ex);
-                DialogBox.Error("Impossible to Launch Epic", "EpicGame Error");
-                if (returnOnFail) return;
+                DialogBox.Error("Impossible to Launch Epic, check if you have set the right Folder", "EpicGame Error");
+                if (returnOnFail)
+                {
+                    ResetStateLaunch();
+                    return;
+                }
             }
         }
 
@@ -146,8 +180,12 @@ namespace SaintDenis_Launcher.ViewModel
             catch (Exception ex)
             {
                 Logger.LogError(ex);
-                DialogBox.Error("Impossible to Launch Steam", "Steam Error");
-                if (returnOnFail) return;
+                DialogBox.Error("Impossible to Launch Steam, check if you have set the right Folder", "Steam Error");
+                if (returnOnFail)
+                {
+                    ResetStateLaunch();
+                    return;
+                }
             }
         }
 
@@ -155,6 +193,12 @@ namespace SaintDenis_Launcher.ViewModel
         {
             //Set A Timing / Or Not depending on IsTimerOnLaunch
             long awaitTime = Settings.Default.IsTimerOnLaunch ? Settings.Default.Timer : 0;
+
+            Logger.Information("Steam Running: " + (Steam.IsRunning && Steam.IsInitialized) + ", Rockstar:" + Rockstar.IsLaunched + ", Epic:" + (Settings.Default.IsOpenEpicgameOnLaunch ? EpicGame.IsLaunched : true));
+            if (Steam.IsRunning && Steam.IsInitialized && Rockstar.IsLaunched && (Settings.Default.IsOpenEpicgameOnLaunch ? EpicGame.IsLaunched : true))
+            {
+                awaitTime = 0;
+            }
 
             //After Timing Out
             try
@@ -178,7 +222,11 @@ namespace SaintDenis_Launcher.ViewModel
                     {
                         Logger.LogError(ex);
                         DialogBox.Error("Impossible to Launch RedM", "RedM Error");
-                        if (returnOnFail) return;
+                        if (returnOnFail)
+                        {
+                            ResetStateLaunch();
+                            return;
+                        }
                     }
 
 
@@ -193,7 +241,11 @@ namespace SaintDenis_Launcher.ViewModel
                         {
                             Logger.LogError(ex);
                             DialogBox.Error("Impossible to Launch Teamspeak", "Teamspeak Error");
-                            if (returnOnFail) return;
+                            if (returnOnFail)
+                            {
+                                ResetStateLaunch();
+                                return;
+                            }
                         }
                     }
                 });
@@ -202,7 +254,11 @@ namespace SaintDenis_Launcher.ViewModel
             {
                 Logger.LogError(ex);
                 DialogBox.Error("The Timer as turned off unexpectedly ", "Timer Error");
-                if (returnOnFail) return;
+                if (returnOnFail)
+                {
+                    ResetStateLaunch();
+                    return;
+                }
             }
         }
         #endregion
@@ -211,50 +267,52 @@ namespace SaintDenis_Launcher.ViewModel
         #region Commands
         public RelayCommand onLaunchClick => new RelayCommand(execute => {
             if(IsLaunching) { return; }
-            Logger.Information("== LaunchButton Click ==");
             IsLaunching = true;
 
-            //LaunchClearCache
-            if (Config.IsClearCacheOnLaunch) 
-            {
-                LaunchClearCache();
-            }
+            Logger.Information("== LaunchButton Click ==");
 
-            //ModeFile
-            if(Config.IsAzertyInstallOnLaunch) 
-            {
-                LaunchPlaceAzerty();
-            }
+            Task.Run(() => {
+                //LaunchClearCache
+                if (Config.IsClearCacheOnLaunch)
+                {
+                    LaunchClearCache();
+                }
 
+                //ModeFile
+                if (Config.IsAzertyInstallOnLaunch)
+                {
+                    LaunchPlaceAzerty();
+                }
+                
+                //Launch Rockstar Launcher if Needed
+                if (Config.IsOpenRockstarOnLaunch)
+                {
+                    LaunchRockstar();
+                }
+                
+                //Launch EpicGame if Needed
+                if (Config.IsOpenEpicgameOnLaunch)
+                {
+                    LaunchEpic();
+                }
 
-            //Launch Rockstar Launcher if Needed
-            if(Config.IsOpenRockstarOnLaunch) 
-            {
-                LaunchRockstar();
-            }
-            
+                //Launch Steam & Wait it is Ready to be used by RedM
+                LaunchSteam();
 
-            //Launch EpicGame if Needed
-            if(Config.IsOpenEpicgameOnLaunch) 
-            {
-                LaunchEpic();
-            }
-
-
-            //Launch Steam & Wait it is Ready to be used by RedM
-            LaunchSteam();
-
-            LaunchRedM_AND_TeamSpeak();
+                LaunchRedM_AND_TeamSpeak();
+            });
         });
 
         public RelayCommand onClearCacheClick => new RelayCommand(execute => {
             Logger.Information("== LaunchClearCache Click ==");
+            IsLaunching = true;
             LaunchClearCache(true, true);
         });
 
 
         public RelayCommand onAzertyInstallClick => new RelayCommand(execute => {
             Logger.Information("== AzertyInstall Click ==");
+            IsLaunching = true;
             LaunchPlaceAzerty(true, true);
         });
         #endregion

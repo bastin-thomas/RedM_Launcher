@@ -25,9 +25,11 @@
         </Grid.RowDefinitions>
 
         <Image RenderOptions.BitmapScalingMode="HighQuality" Height="250" Width="250" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.RowSpan="2" Opacity="0.85" Margin="0,-40,0,0"
-                Source="{Binding Config.MainPageLogo, FallbackValue={StaticResource ServerLogo}, Mode=OneTime}"/>
+                Source="{Binding Config.MainPageLogo, FallbackValue={StaticResource ServerLogo}, Mode=OneWay}"/>
 
-        <Button Command="{Binding onLaunchClick}" FontSize="80" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="3" Style="{StaticResource LaunchButtonStyle}">
+        <Border Visibility="{Binding IsLaunching, Converter={StaticResource boolToVisibility}, Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="3" CornerRadius="10" Background="Black"/>
+
+        <Button Command="{Binding onLaunchClick}" IsEnabled="{Binding IsLaunching, FallbackValue=True, Converter={StaticResource booleanInverter}, Mode=OneWay}" FontSize="80" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="3" Style="{StaticResource LaunchButtonStyle}">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -50,10 +52,12 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Button Command="{Binding onClearCacheClick}" FontSize="27" BorderThickness="2" Grid.Column="1" Style="{StaticResource SubLaunchButtonStyle}">
+
+            <Border Visibility="{Binding IsLaunching, Converter={StaticResource boolToVisibility}, Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" CornerRadius="10" Background="Black"/>
+            <Button Command="{Binding onClearCacheClick}" IsEnabled="{Binding IsLaunching, FallbackValue=True, Converter={StaticResource booleanInverter}, Mode=OneWay}" FontSize="27" BorderThickness="2" Grid.Column="1" Style="{StaticResource SubLaunchButtonStyle}">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="7"/>
+                        <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
                 <Border BorderBrush="{x:Null}" Background="Transparent" Padding="0,0,0,0">
@@ -62,11 +66,11 @@
             </Button>
 
 
-
-            <Button Command="{Binding onAzertyInstallClick}" FontSize="24" BorderThickness="2" Grid.Column="3" Style="{StaticResource SubLaunchButtonStyle}">
+            <Border Visibility="{Binding IsLaunching, Converter={StaticResource boolToVisibility}, Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="3" CornerRadius="9" Background="Black"/>
+            <Button Command="{Binding onAzertyInstallClick}" IsEnabled="{Binding IsLaunching, FallbackValue=True, Converter={StaticResource booleanInverter}, Mode=OneWay}" FontSize="24" BorderThickness="2" Grid.Column="3" Style="{StaticResource SubLaunchButtonStyle}">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
+                        <Setter Property="CornerRadius" Value="9"/>
                     </Style>
                 </Button.Resources>
                 <Border BorderBrush="{x:Null}" Background="Transparent" Padding="0,0,0,0">

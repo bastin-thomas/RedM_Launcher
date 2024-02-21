@@ -23,6 +23,8 @@
             <converter:BoolToVisibility x:Key="boolToVisibility" />
             <converter:StringToVisibility x:Key="stringToVisibility" />
             <converter:IntToVisibility x:Key="intToVisibility" />
+            <converter:BooleanInverter x:Key="booleanInverter" />
+            <converter:BoolToVisibilityInverted x:Key="boolToVisibilityInverted"/>
 
             <ImageSource x:Key="CloseIcon">/.Resources/Icons/icons8-close-48.png</ImageSource>
             <ImageSource x:Key="CloseIcon_Hover">/.Resources/Icons/icons8-close-48-Pressed.png</ImageSource>

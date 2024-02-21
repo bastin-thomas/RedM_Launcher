@@ -9,6 +9,14 @@ namespace SaintDenis_Launcher.Tools.Handlers
         public readonly static String ExecName = "EpicGamesLauncher.exe";
         public readonly static String ProcessFolder = Settings.Default.EpicFolder + @"\Launcher\Portal\Binaries\Win64";
 
+        public static bool IsLaunched
+        {
+            get
+            {
+                return _pr is not null ? _pr.IsProcessRunning : false;
+            }
+        }
+
         private static ProcessHandler _pr;
 
         /// <summary>

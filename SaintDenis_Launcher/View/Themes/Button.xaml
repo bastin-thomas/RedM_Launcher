@@ -110,6 +110,9 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Opacity" Value="0.75"/>
             </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.50"/>
+            </Trigger>
         </Style.Triggers>
     </Style>
 
@@ -153,6 +156,9 @@
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Opacity" Value="0.75"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.50"/>
             </Trigger>
         </Style.Triggers>
     </Style>

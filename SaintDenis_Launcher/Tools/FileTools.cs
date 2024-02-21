@@ -210,9 +210,8 @@ namespace SaintDenis_Launcher.Tools
             if (dialog is not null && dialog.ShowDialog() == true)
             {
                 Logger.Information("NewPath:" + dialog);
-
-                return Path.GetDirectoryName(dialog.FileName);
-
+                string? path = Path.GetDirectoryName(dialog.FileName);
+                return path is not null ? path : "C:/";
             }
             else
             {
