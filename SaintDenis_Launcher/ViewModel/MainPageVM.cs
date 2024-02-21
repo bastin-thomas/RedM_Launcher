@@ -2,6 +2,7 @@
 using SaintDenis_Launcher.Model.Utils;
 using SaintDenis_Launcher.Properties;
 using SaintDenis_Launcher.Tools;
+using SaintDenis_Launcher.Tools.API_Calls;
 using SaintDenis_Launcher.Tools.Handlers;
 using SaintDenis_Launcher.Utils;
 using System.ComponentModel;
@@ -17,14 +18,14 @@ namespace SaintDenis_Launcher.ViewModel
     class MainPageVM : INotifyPropertyChanged
     {
         #region Properties
-        private int _currentPlayer;
-        private int _maxPlayer;
+        private int _currentPlayer = 0;
+        private int _maxPlayer = 0;
 
-        private bool _isServerOnline;
-        private bool _isRedMOnline;
+        private bool _isServerOnline = false;
+        private bool _isRedMOnline = false;
 
-        private bool _isLaunching;
-        private bool _isLaunched;
+        private bool _isLaunching = false;
+        private bool _isLaunched = false;
         #endregion
 
         #region Accessors
@@ -68,14 +69,18 @@ namespace SaintDenis_Launcher.ViewModel
         #region Constructors
         public MainPageVM()
         {
-            CurrentPlayer = 32;
-            MaxPlayer = 48;
+            Task.Run(async () => {
+                while (true) {
+                    await Task.Delay(1 * 1000);
 
-            IsServerOnline = true;
-            IsRedMOnline = true;
 
-            IsLaunching = false;
-            IsLaunched = false;
+                    CurrentPlayer = 32;
+                    MaxPlayer = 48;
+
+                    IsRedMOnline = CfxAPI.IsOnline;
+                    IsServerOnline = true;
+                }
+            });
         }
         #endregion
 
