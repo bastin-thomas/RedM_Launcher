@@ -7,11 +7,11 @@ namespace SaintDenis_Launcher.Tools.Handlers
     internal class Cache
     {
         public readonly static string[] ToRemove =
-        {
+        [
             App.Local + @"/RedM/RedM.app/data/cache",
             App.Local + @"/RedM/RedM.app/data/server-cache",
             App.Local + @"/RedM/RedM.app/data/server-cache-priv",
-        };
+        ];
 
 
 
@@ -21,7 +21,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
         /// <exception cref="IOException"></exception>
         public static async Task Clear()
         {
-            List<Task> tasks = new(){};
+            List<Task> tasks = [];
 
             foreach(string path in ToRemove) 
             {

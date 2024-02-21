@@ -83,7 +83,7 @@
                     
                     
                     <StackPanel  Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-                        <Button x:Name="SettingsButton" IsEnabled="{Binding CurrentPage.IsLaunching, Mode=OneWay, Converter={StaticResource booleanInverter}}"  Background="Transparent"  BorderBrush="Transparent" Command="{Binding onSettingClick}" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" Margin="0,0,15,0">
+                        <Button x:Name="SettingsButton" IsEnabled="{Binding CurrentPage.IsLaunching, Mode=OneWay, Converter={StaticResource booleanInverter}}"  Background="Transparent"  BorderBrush="Transparent" Command="{Binding OnSettingClick}" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" Margin="0,0,15,0">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Opacity" Value="0.75"/>
@@ -153,7 +153,7 @@
                     <ContentControl x:Name="MainContent" Grid.Row="1" Content="{Binding CurrentPage}"/>
                 </Grid>
 
-                <Button IsEnabled="{Binding StateMachine, Mode=OneWay, Converter={StaticResource stateMachineToBoolInverted}}" Visibility="{Binding StateMachine, Mode=OneWay, Converter={StaticResource stateMachineToVisibilityInverted}}" x:Name="BackButton" Background="Transparent"  BorderBrush="Transparent" Command="{Binding onSettingClick}" VerticalAlignment="Top" HorizontalAlignment="Left" Cursor="Hand" Margin="0,10,0,0" Grid.Column="1" Grid.Row="1" Height="48" Width="48">
+                <Button IsEnabled="{Binding StateMachine, Mode=OneWay, Converter={StaticResource stateMachineToBoolInverted}}" Visibility="{Binding StateMachine, Mode=OneWay, Converter={StaticResource stateMachineToVisibilityInverted}}" x:Name="BackButton" Background="Transparent"  BorderBrush="Transparent" Command="{Binding OnSettingClick}" VerticalAlignment="Top" HorizontalAlignment="Left" Cursor="Hand" Margin="0,10,0,0" Grid.Column="1" Grid.Row="1" Height="48" Width="48">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Opacity" Value="0.75"/>

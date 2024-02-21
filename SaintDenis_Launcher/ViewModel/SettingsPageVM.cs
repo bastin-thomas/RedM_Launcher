@@ -113,7 +113,7 @@ namespace SaintDenis_Launcher.ViewModel
             set { Config.TeamSpeakFolder = value; }
         }
 
-        public bool IsLaunched
+        public static bool IsLaunched
         {
             get { return false; }
             set { }
@@ -130,24 +130,25 @@ namespace SaintDenis_Launcher.ViewModel
         #endregion
 
         #region Methods
-        private String GetFolder(String name, String folder) 
+        private static String GetFolder(String name, String folder)
         {
             string? toreturn = FileTools.GetFolder(name, folder);
             if (toreturn is null) return "";
             return toreturn;
         }
-        private String GetFolderFromFile(String name, String folder, String filter) 
+        private static String GetFolderFromFile(String name, String folder, String filter)
         {
             string? toreturn = FileTools.GetFolderFromFile(name, folder, filter);
             if (toreturn is null) return "";
             return toreturn;
-        } 
+        }
         #endregion
 
         #region Events
 
         #region Commands
-        public RelayCommand onRedMFolderClick => new RelayCommand(execute => {
+        public RelayCommand OnRedMFolderClick => new(execute =>
+        {
             Logger.Information("Open RedM _folder Click");
             try
             {
@@ -158,8 +159,9 @@ namespace SaintDenis_Launcher.ViewModel
                 Logger.LogError(ex);
             }
         });
-                
-        public RelayCommand onSteamFolderClick => new RelayCommand(execute => {
+
+        public RelayCommand OnSteamFolderClick => new(execute =>
+        {
             Logger.Information("Open Steam _folder Click");
             try
             {
@@ -170,8 +172,9 @@ namespace SaintDenis_Launcher.ViewModel
                 Logger.LogError(ex);
             }
         });
-                
-        public RelayCommand onRockstarFolderClick => new RelayCommand(execute => {
+
+        public RelayCommand OnRockstarFolderClick => new(execute =>
+        {
             Logger.Information("Open Rockstar _folder Click");
             try
             {
@@ -183,7 +186,8 @@ namespace SaintDenis_Launcher.ViewModel
             }
         });
 
-        public RelayCommand onEpicFolderClick => new RelayCommand(execute => {
+        public RelayCommand OnEpicFolderClick => new(execute =>
+        {
             Logger.Information("Open EpicGame _folder Click");
             try
             {
@@ -195,7 +199,8 @@ namespace SaintDenis_Launcher.ViewModel
             }
         });
 
-        public RelayCommand onTeamSpeakFolderClick => new RelayCommand(execute => {
+        public RelayCommand OnTeamSpeakFolderClick => new(execute =>
+        {
             Logger.Information("Open TeamSpeak _folder Click");
             try
             {

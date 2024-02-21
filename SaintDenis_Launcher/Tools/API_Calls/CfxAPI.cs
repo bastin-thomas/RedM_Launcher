@@ -36,7 +36,7 @@ namespace SaintDenis_Launcher.Tools.API_Calls
             JsonNode rootNode = JsonNode.Parse(json)!;
             JsonNode status = rootNode["status"]!;
 
-            if (status!["indicator"]!.Equals("none"))
+            if (status!["indicator"]!.GetValue<string>().Equals("none"))
             {
                 return true;
             }

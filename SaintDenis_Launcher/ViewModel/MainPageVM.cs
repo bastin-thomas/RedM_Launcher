@@ -29,7 +29,7 @@ namespace SaintDenis_Launcher.ViewModel
         #endregion
 
         #region Accessors
-        public int CurrentPlayer
+        public int ConnectedPlayers
         {
             get { return _currentPlayer; }
             set { _currentPlayer = value; OnPropertyChanged(); }
@@ -60,7 +60,7 @@ namespace SaintDenis_Launcher.ViewModel
             set { _isLaunched = value; OnPropertyChanged(); }
         }
 
-        public Settings Config 
+        public static Settings Config 
         {
             get { return Properties.Settings.Default; }
         }
@@ -69,16 +69,31 @@ namespace SaintDenis_Launcher.ViewModel
         #region Constructors
         public MainPageVM()
         {
+            
             Task.Run(async () => {
                 while (true) {
-                    await Task.Delay(1 * 1000);
+                    //Run tasks in parallel
+                    Task[] tasks = [
+                        new Task(() => { IsRedMOnline = CfxAPI.IsOnline;                }),
+                        new Task(() => { ConnectedPlayers = ServerAPI.ConnectedPlayers; }),
+                        new Task(() => { MaxPlayer = ServerAPI.MaxPlayers;              }),
+                        new Task(() => { IsServerOnline = ServerAPI.IsOnline;           }),
+                        new Task(() => GC.Collect()                                      ),
+                    ];
 
+                    foreach (var task in tasks) { task.Start(); }
 
-                    CurrentPlayer = 32;
-                    MaxPlayer = 48;
+                    try
+                    {
+                        await Task.WhenAll(tasks);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.LogError(ex);
+                    }
 
-                    IsRedMOnline = CfxAPI.IsOnline;
-                    IsServerOnline = true;
+                    //Wait some time before refresh
+                    await Task.Delay(15 * 1000);
                 }
             });
         }
@@ -272,7 +287,8 @@ namespace SaintDenis_Launcher.ViewModel
 
         #region Events
         #region Commands
-        public RelayCommand onLaunchClick => new RelayCommand(execute => {
+        public RelayCommand OnLaunchClick => new(execute =>
+        {
             if(IsLaunching) { return; }
             IsLaunching = true;
 
@@ -310,14 +326,16 @@ namespace SaintDenis_Launcher.ViewModel
             });
         });
 
-        public RelayCommand onClearCacheClick => new RelayCommand(execute => {
+        public RelayCommand OnClearCacheClick => new(execute =>
+        {
             Logger.Information("== LaunchClearCache Click ==");
             IsLaunching = true;
             LaunchClearCache(true, true);
         });
 
 
-        public RelayCommand onAzertyInstallClick => new RelayCommand(execute => {
+        public RelayCommand OnAzertyInstallClick => new(execute =>
+        {
             Logger.Information("== AzertyInstall Click ==");
             IsLaunching = true;
             LaunchPlaceAzerty(true, true);

@@ -28,7 +28,7 @@ namespace SaintDenis_Launcher.ViewModel
             set { _stateMachine = value; OnPropertyChanged(); }
         }
         
-        public Settings Config
+        public static Settings Config
         {
             get { return Properties.Settings.Default; }
         }
@@ -55,7 +55,8 @@ namespace SaintDenis_Launcher.ViewModel
 
         #region Events
         #region Commands
-        public RelayCommand onSettingClick => new RelayCommand(execute => {
+        public RelayCommand OnSettingClick => new(execute =>
+        {
             switch (StateMachine) 
             {
                 case 0:

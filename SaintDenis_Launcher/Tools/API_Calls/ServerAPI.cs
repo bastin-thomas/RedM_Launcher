@@ -1,22 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using SaintDenis_Launcher.Properties;
+using System.Configuration;
 using System.Net;
-using System.Text;
+using System.Security.Policy;
 using System.Text.Json.Nodes;
-using System.Threading.Tasks;
 
 namespace SaintDenis_Launcher.Tools.API_Calls
 {
     internal class ServerAPI
     {
+        public static readonly string Ip = Settings.Default.RedmServerIP;
+
         public static bool IsOnline
         {
             get
             {
                 try
                 {
-                    return AnalyseJson(GetDataFromWeb());
+                    return GetStatusFromWeb($@"http://{Ip}:30120/info.json");
                 }
                 catch (Exception ex)
                 {
@@ -26,27 +26,73 @@ namespace SaintDenis_Launcher.Tools.API_Calls
             }
         }
 
+        public static int ConnectedPlayers
+        {
+            get
+            {
+                try
+                {
+                    return CountConnectedPlayers($@"http://{Ip}:30120/players.json");
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex);
+                    return 0;
+                }
+            }
+        }
+
+        public static int MaxPlayers
+        {
+            get
+            {
+                try
+                {
+                    return GetMaxPlayers($@"http://{Ip}:30120/info.json");
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex);
+                    return 0;
+                }
+            }
+        }
+
         /// <summary>
-        /// Get The Data From WebPage
+        /// Try Get a File to Test if Server is Online
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        private static string GetDataFromWeb(string url = @"https://status.cfx.re/api/v2/status.json")
+        private static bool GetStatusFromWeb(string url = @"http://127.0.0.1:30120/RootNode.json")
         {
             WebClient client = new();
-            return client.DownloadString(url);
+            _ = client.DownloadString(url);
+            return true;
         }
-        private static bool AnalyseJson(string json)
+
+
+        /// <summary>
+        /// Get the current number of connected RootNode on the server using RootNode.json
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        private static int CountConnectedPlayers(string url = @"http://127.0.0.1:30120/RootNode.json")
         {
-            JsonNode rootNode = JsonNode.Parse(json)!;
-            JsonNode status = rootNode["status"]!;
-
-            if (status!["indicator"]!.Equals("none"))
-            {
-                return true;
-            }
-
-            return false;
+            WebClient client = new();
+            string data = client.DownloadString(url);
+            JsonArray players = JsonNode.Parse(data)!.AsArray();
+            return players!.Count;
         }
-    }
+
+
+
+        private static int GetMaxPlayers(string url = @"http://127.0.0.1:30120/RootNode.json")
+        {
+            WebClient client = new();
+            string data = client.DownloadString(url);
+            JsonNode RootNode = JsonNode.Parse(data)!;
+
+            return int.Parse(RootNode["vars"]!["sv_maxClients"]!.GetValue<string>());
+        }
+	}
 }

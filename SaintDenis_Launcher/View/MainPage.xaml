@@ -29,7 +29,7 @@
 
         <Border Visibility="{Binding IsLaunching, Converter={StaticResource boolToVisibility}, Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="3" CornerRadius="10" Background="Black"/>
 
-        <Button Command="{Binding onLaunchClick}" IsEnabled="{Binding IsLaunching, FallbackValue=True, Converter={StaticResource booleanInverter}, Mode=OneWay}" FontSize="80" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="3" Style="{StaticResource LaunchButtonStyle}">
+        <Button Command="{Binding OnLaunchClick}" IsEnabled="{Binding IsLaunching, FallbackValue=True, Converter={StaticResource booleanInverter}, Mode=OneWay}" FontSize="80" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="3" Style="{StaticResource LaunchButtonStyle}">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -54,7 +54,7 @@
 
 
             <Border Visibility="{Binding IsLaunching, Converter={StaticResource boolToVisibility}, Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" CornerRadius="10" Background="Black"/>
-            <Button Command="{Binding onClearCacheClick}" IsEnabled="{Binding IsLaunching, FallbackValue=True, Converter={StaticResource booleanInverter}, Mode=OneWay}" FontSize="27" BorderThickness="2" Grid.Column="1" Style="{StaticResource SubLaunchButtonStyle}">
+            <Button Command="{Binding OnClearCacheClick}" IsEnabled="{Binding IsLaunching, FallbackValue=True, Converter={StaticResource booleanInverter}, Mode=OneWay}" FontSize="27" BorderThickness="2" Grid.Column="1" Style="{StaticResource SubLaunchButtonStyle}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -67,7 +67,7 @@
 
 
             <Border Visibility="{Binding IsLaunching, Converter={StaticResource boolToVisibility}, Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="3" CornerRadius="9" Background="Black"/>
-            <Button Command="{Binding onAzertyInstallClick}" IsEnabled="{Binding IsLaunching, FallbackValue=True, Converter={StaticResource booleanInverter}, Mode=OneWay}" FontSize="24" BorderThickness="2" Grid.Column="3" Style="{StaticResource SubLaunchButtonStyle}">
+            <Button Command="{Binding OnAzertyInstallClick}" IsEnabled="{Binding IsLaunching, FallbackValue=True, Converter={StaticResource booleanInverter}, Mode=OneWay}" FontSize="24" BorderThickness="2" Grid.Column="3" Style="{StaticResource SubLaunchButtonStyle}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="9"/>
@@ -109,7 +109,7 @@
                     </Image>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
-                            <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="{Binding CurrentPlayer, FallbackValue=0}" TextWrapping="Wrap"/>
+                            <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="{Binding ConnectedPlayers, FallbackValue=0}" TextWrapping="Wrap"/>
                         </Border>
                         <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
                             <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="/" TextWrapping="Wrap"/>

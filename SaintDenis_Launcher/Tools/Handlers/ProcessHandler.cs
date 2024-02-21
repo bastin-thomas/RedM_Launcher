@@ -9,13 +9,13 @@ namespace SaintDenis_Launcher.Tools.Handlers
     /// </summary>
     internal class ProcessHandler
     {
-        private String _processName;
-        private String _execName;
-        private String _folder;
-        private String _parameters;
-        private bool _asAdmin;
-        private ProcessWindowStyle _style;
-        private Process _process = new Process();
+        private readonly String _processName;
+        private readonly String _execName;
+        private readonly String _folder;
+        private readonly String _parameters;
+        private readonly bool _asAdmin;
+        private readonly ProcessWindowStyle _style;
+        private Process _process = new();
 
         public ProcessHandler(string processName, string execName, string folder, string parameters = "", bool asAdmin = false, ProcessWindowStyle style = ProcessWindowStyle.Normal)
         {
@@ -43,7 +43,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
             else
             {
                 Logger.Information($"Launching {_processName}");
-                ProcessStartInfo psi = new ProcessStartInfo
+                ProcessStartInfo psi = new()
                 {
                     FileName = _folder + @"\" + _execName,
                     Arguments = _parameters,

@@ -31,7 +31,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
             else
             {
                 Logger.Information("Launching Steam");
-                Process Steam = Process.Start(Settings.Default.SteamFolder + @"\" + ExecName, "-silent");
+                _ = Process.Start(Settings.Default.SteamFolder + @"\" + ExecName, "-silent");
                 WaitSteamInitialized();
             }
 
