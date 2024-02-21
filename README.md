@@ -61,17 +61,18 @@ Another one is the RockStarLauncher UI.
 
 ✅ Create functions to Manage the First Launch
 
-☐ Launching Pop Bar (Skippable Timer + What's going on)
+✅ Dynamic Enable/Disable MainButton + Text / Background representing What's going on
 
-☐ Dynamic Enable/Disable MainButton + Text / Background representing What's going on
+✅ Hide App on RedM Launch, and Show App on RedM Close 
 
 ☐ Create functions to get CFX RedM Status and Update UI to relate it
 
 ☐ Create functions to get Server Status and Update UI to relate it
 
-☐ Add a minimized Button
-
 ☐ Online Backgrounds / Logos
+
+
+☐ Launching Pop Bar (Skippable Timer + What's going on)
 
 ☐ Custom Popups
 
