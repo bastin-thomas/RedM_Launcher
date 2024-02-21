@@ -23,12 +23,25 @@
             <converter:BoolToVisibility x:Key="boolToVisibility" />
             <converter:StringToVisibility x:Key="stringToVisibility" />
             <converter:IntToVisibility x:Key="intToVisibility" />
+            
             <converter:BooleanInverter x:Key="booleanInverter" />
             <converter:BoolToVisibilityInverted x:Key="boolToVisibilityInverted"/>
+            
+            <converter:StateMachineToBool x:Key="stateMachineToBool"/>
+            <converter:StateMachineToVisibility x:Key="stateMachineToVisibility"/>
+            
+            <converter:StateMachineToBoolInverted x:Key="stateMachineToBoolInverted"/>
+            <converter:StateMachineToVisibilityInverted x:Key="stateMachineToVisibilityInverted"/>
+
+
 
             <ImageSource x:Key="CloseIcon">/.Resources/Icons/icons8-close-48.png</ImageSource>
             <ImageSource x:Key="CloseIcon_Hover">/.Resources/Icons/icons8-close-48-Pressed.png</ImageSource>
 
+
+
+            <ImageSource x:Key="ArrowLeftIcon">/.Resources/Icons/arrow-icon.png</ImageSource>
+            
             <ImageSource x:Key="GearIcon">/.Resources/Icons/gear-icon.png</ImageSource>
             <ImageSource x:Key="GearIcon_Hover">/.Resources/Icons/gear-icon_hover.png</ImageSource>
 

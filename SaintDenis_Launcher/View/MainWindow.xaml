@@ -16,7 +16,10 @@
     <Window.DataContext>
         <viewModel:MainWindowVM/>
     </Window.DataContext>
-    
+    <Window.Visibility>
+        <Binding Path="CurrentPage.IsLaunched" FallbackValue="True" Converter="{StaticResource boolToVisibilityInverted}" Mode="TwoWay"/>
+    </Window.Visibility>
+
     <Grid>
         <Border Margin="10" CornerRadius="25">
             <Border.Effect>
@@ -80,7 +83,7 @@
                     
                     
                     <StackPanel  Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
-                        <Button x:Name="SettingsButton" Background="Transparent"  BorderBrush="Transparent" Command="{Binding onSettingClick}" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" Margin="0,0,15,0">
+                        <Button x:Name="SettingsButton" IsEnabled="{Binding CurrentPage.IsLaunching, Mode=OneWay, Converter={StaticResource booleanInverter}}"  Background="Transparent"  BorderBrush="Transparent" Command="{Binding onSettingClick}" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" Margin="0,0,15,0">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Opacity" Value="0.75"/>
@@ -106,7 +109,7 @@
                             <Image Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Source="{StaticResource GearIcon}"/>
                         </Button>
 
-                        <Button x:Name="CloseButton" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Center" Click="Close_Button_Click" Cursor="Hand">
+                        <Button IsEnabled="{Binding StateMachine, Mode=OneWay, Converter={StaticResource stateMachineToBool}}" x:Name="CloseButton" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Center" Click="Close_Button_Click" Cursor="Hand">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Template">
@@ -137,6 +140,9 @@
                                             <Trigger Property="IsMouseOver" Value="True">
                                                 <Setter Property="Source" Value="{StaticResource CloseIcon_Hover}"/>
                                             </Trigger>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter Property="Opacity" Value="0.50"/>
+                                            </Trigger>
                                         </Style.Triggers>
                                     </Style>
                                 </Image.Style>
@@ -146,6 +152,32 @@
 
                     <ContentControl x:Name="MainContent" Grid.Row="1" Content="{Binding CurrentPage}"/>
                 </Grid>
+
+                <Button IsEnabled="{Binding StateMachine, Mode=OneWay, Converter={StaticResource stateMachineToBoolInverted}}" Visibility="{Binding StateMachine, Mode=OneWay, Converter={StaticResource stateMachineToVisibilityInverted}}" x:Name="BackButton" Background="Transparent"  BorderBrush="Transparent" Command="{Binding onSettingClick}" VerticalAlignment="Top" HorizontalAlignment="Left" Cursor="Hand" Margin="0,10,0,0" Grid.Column="1" Grid.Row="1" Height="48" Width="48">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Opacity" Value="0.75"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.95"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Opacity" Value="0.75"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Width="48" Height="48" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Source="{StaticResource ArrowLeftIcon}"/>
+                </Button>
             </Grid>
         </Border>
     </Grid>

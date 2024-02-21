@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SaintDenis_Launcher.Tools;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
 namespace SaintDenis_Launcher.Converters
 {
-    class BoolToVisibilityInverted : IValueConverter
+    class StateMachineToVisibilityInverted : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool isVisible) 
-            { 
-                return !isVisible ? Visibility.Visible : Visibility.Collapsed;
+            if (value is int valueInt) 
+            {
+                if (valueInt == 0) { return Visibility.Hidden; }
+                if (valueInt == 1) {  return Visibility.Visible; }
             }
-            return Visibility.Collapsed;
+            return Visibility.Hidden;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

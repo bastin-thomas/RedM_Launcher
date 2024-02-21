@@ -90,6 +90,9 @@
     <Resource Include=".Resources\Icons\CheckBox_Unchecked.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include=".Resources\Icons\arrow-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include=".Resources\Icons\Server_Logo.ico" />
     <Resource Include=".Resources\Settings_Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

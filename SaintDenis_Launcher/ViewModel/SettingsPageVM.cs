@@ -112,6 +112,12 @@ namespace SaintDenis_Launcher.ViewModel
             get { return Config.TeamSpeakFolder; }
             set { Config.TeamSpeakFolder = value; }
         }
+
+        public bool IsLaunched
+        {
+            get { return false; }
+            set { }
+        }
         #endregion
 
         #region Constructors

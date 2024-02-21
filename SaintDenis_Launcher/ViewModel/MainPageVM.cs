@@ -88,25 +88,27 @@ namespace SaintDenis_Launcher.ViewModel
 
         private void LaunchClearCache(bool displayEndPopup = false, bool returnOnFail = false) 
         {
-            try
-            {
-                ClearCache.StartAsync();
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex);
-                DialogBox.Error("Impossible to Clear Cache", "Clear Cache Error");
-                if (returnOnFail)
+            Task.Run(async () => {
+                try
                 {
-                    ResetStateLaunch();
-                    return;
+                    await Cache.Clear();
                 }
-            }
-            if (displayEndPopup) 
-            {
-                DialogBox.Information("Cache Cleared", "Clear Cache");
-                ResetStateLaunch();
-            } 
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex);
+                    DialogBox.Error("Impossible to Clear Cache", "Clear Cache Error");
+                    if (returnOnFail)
+                    {
+                        ResetStateLaunch();
+                        return;
+                    }
+                }
+                if (displayEndPopup)
+                {
+                    DialogBox.Information("Cache Cleared", "Clear Cache");
+                    ResetStateLaunch();
+                }
+            });
         }
 
         private void LaunchPlaceAzerty(bool displayEndPopup = false, bool returnOnFail = false)
@@ -253,7 +255,7 @@ namespace SaintDenis_Launcher.ViewModel
             catch (Exception ex)
             {
                 Logger.LogError(ex);
-                DialogBox.Error("The Timer as turned off unexpectedly ", "Timer Error");
+                DialogBox.Error("The Timer as turned off unexpectedly", "Timer Error");
                 if (returnOnFail)
                 {
                     ResetStateLaunch();
