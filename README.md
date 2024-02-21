@@ -65,9 +65,9 @@ Another one is the RockStarLauncher UI.
 
 ✅ Hide App on RedM Launch, and Show App on RedM Close 
 
-☐ Create functions to get CFX RedM Status and Update UI to relate it
+✅ Create functions to get CFX RedM Status and Update UI to relate it
 
-☐ Create functions to get Server Status and Update UI to relate it
+✅ Create functions to get Server Status and Update UI to relate it
 
 ☐ Online Backgrounds / Logos
 
