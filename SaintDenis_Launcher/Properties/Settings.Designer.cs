@@ -241,7 +241,7 @@ namespace SaintDenis_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        [global::System.Configuration.DefaultSettingValueAttribute("25")]
         public long Timer {
             get {
                 return ((long)(this["Timer"]));

@@ -16,10 +16,13 @@
     <Window.DataContext>
         <viewModel:MainWindowVM/>
     </Window.DataContext>
+    
+    <!--
     <Window.Visibility>
         <Binding Path="CurrentPage.IsLaunched" FallbackValue="True" Converter="{StaticResource boolToVisibilityInverted}" Mode="TwoWay"/>
     </Window.Visibility>
-
+    -->
+    
     <Grid>
         <Border Margin="10" CornerRadius="25">
             <Border.Effect>

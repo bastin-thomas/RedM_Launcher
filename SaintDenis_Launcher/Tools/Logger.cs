@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,16 @@ namespace SaintDenis_Launcher.Tools
 {
     public static class Logger
     {
-        private static TextWriterTraceListener fileListener = new TextWriterTraceListener(App.workingDirectoryPath + "log.txt");
+        private static TextWriterTraceListener fileListener;
         public static void Setup()
         {
+            if (!Directory.Exists(App.workingDirectoryPath + $"/Logs/")) 
+            {
+                Directory.CreateDirectory(App.workingDirectoryPath + $"/Logs/");
+            }
+
+            fileListener = new(App.workingDirectoryPath + $"/Logs/MainLog-{DateTime.Now:yyyy_MM_dd-HH_mm_ss}.txt");
+
             Trace.Listeners.Add(fileListener);
             Trace.WriteLine("\n");
         }

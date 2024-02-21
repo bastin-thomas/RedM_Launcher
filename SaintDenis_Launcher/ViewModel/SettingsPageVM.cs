@@ -155,10 +155,11 @@ namespace SaintDenis_Launcher.ViewModel
         #region Commands
         public RelayCommand OnRedMFolderClick => new(execute =>
         {
-            Logger.Information("Open RedM _folder Click");
+            Logger.Information("Open RedM_folder Click");
             try
             {
-                RedmFolder = GetFolderFromFile("Select RedM.exe", RedmFolder, "RedM|RedM.exe");
+                string Title = (string)App.Current.FindResource("RedM_OpenFolder_Popup_Title");
+                RedmFolder = GetFolderFromFile(Title, RedmFolder, "RedM|RedM.exe");
             }
             catch (Exception ex)
             {
@@ -168,10 +169,11 @@ namespace SaintDenis_Launcher.ViewModel
 
         public RelayCommand OnSteamFolderClick => new(execute =>
         {
-            Logger.Information("Open Steam _folder Click");
+            Logger.Information("Open Steam_Click");
             try
             {
-                SteamFolder = GetFolderFromFile("Select Steam.exe Executable", SteamFolder, "Steam|Steam.exe"); 
+                string Title = (string)App.Current.FindResource("Steam_OpenFolder_Popup_Title");
+                SteamFolder = GetFolderFromFile(Title, SteamFolder, "Steam|Steam.exe"); 
             }
             catch (Exception ex)
             {
@@ -181,10 +183,11 @@ namespace SaintDenis_Launcher.ViewModel
 
         public RelayCommand OnRockstarFolderClick => new(execute =>
         {
-            Logger.Information("Open Rockstar _folder Click");
+            Logger.Information("Open Rockstar_folder Click");
             try
             {
-                RockstarFolder = GetFolderFromFile("Select Launcher.exe Executable", RockstarFolder, "Launcher|Launcher.exe");
+                string Title = (string)App.Current.FindResource("Rockstar_OpenFolder_Popup_Title");
+                RockstarFolder = GetFolderFromFile(Title, RockstarFolder, "Launcher|Launcher.exe");
             }
             catch (Exception ex)
             {
@@ -194,10 +197,11 @@ namespace SaintDenis_Launcher.ViewModel
 
         public RelayCommand OnEpicFolderClick => new(execute =>
         {
-            Logger.Information("Open EpicGame _folder Click");
+            Logger.Information("Open EpicGame_folder Click");
             try
             {
-                EpicFolder = GetFolder("Select EpicGame _folder", EpicFolder);
+                string Title = (string)App.Current.FindResource("Epic_OpenFolder_Popup_Title");
+                EpicFolder = GetFolder(Title, EpicFolder);
             }
             catch (Exception ex)
             {
@@ -210,7 +214,8 @@ namespace SaintDenis_Launcher.ViewModel
             Logger.Information("Open TeamSpeak _folder Click");
             try
             {
-                TeamSpeakFolder = GetFolderFromFile("Select ts3client_win64.exe Executable", TeamSpeakFolder, "TeamSpeak|ts3client_win64.exe");
+                string Title = (string)App.Current.FindResource("TeamSpeak_OpenFolder_Popup_Title");
+                TeamSpeakFolder = GetFolderFromFile(Title, TeamSpeakFolder, "TeamSpeak|ts3client_win64.exe");
             }
             catch (Exception ex)
             {

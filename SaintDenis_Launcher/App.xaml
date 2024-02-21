@@ -17,6 +17,8 @@
                 <ResourceDictionary Source="View/Themes/ScrollBar.xaml"/>
                 <ResourceDictionary Source="View/Themes/Button.xaml"/>
                 <ResourceDictionary Source="View/Themes/TextBox.xaml"/>
+                
+                <ResourceDictionary x:Name="localization" Source="Properties/Localization_EN.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <converter:BooleanANDConverter x:Key="booleanAndConverter" />

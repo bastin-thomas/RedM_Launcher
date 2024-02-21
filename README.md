@@ -71,6 +71,8 @@ Another one is the RockStarLauncher UI.
 
 ☐ Online Backgrounds / Logos
 
+✅ Internationalization For EN & FR (more could be added by the Community). Based on OS Language
+
 
 ☐ Launching Pop Bar (Skippable Timer + What's going on)
 

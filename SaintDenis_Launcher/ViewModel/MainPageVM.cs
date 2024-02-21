@@ -116,7 +116,11 @@ namespace SaintDenis_Launcher.ViewModel
                 catch (Exception ex)
                 {
                     Logger.LogError(ex);
-                    DialogBox.Error("Impossible to Clear Cache", "Clear Cache Error");
+
+                    string Title = (string)App.Current.FindResource("ClearCache_Error_Popup_Title");
+                    string Message = (string)App.Current.FindResource("ClearCache_Error_Popup_Message");
+                    DialogBox.Error(Message, Title);
+
                     if (returnOnFail)
                     {
                         ResetStateLaunch();
@@ -125,7 +129,10 @@ namespace SaintDenis_Launcher.ViewModel
                 }
                 if (displayEndPopup)
                 {
-                    DialogBox.Information("Cache Cleared", "Clear Cache");
+                    string Title = (string)App.Current.FindResource("ClearCache_Info_Popup_Title");
+                    string Message = (string)App.Current.FindResource("ClearCache_Info_Popup_Message");
+                    DialogBox.Information(Message, Title);
+
                     ResetStateLaunch();
                 }
             });
@@ -142,7 +149,11 @@ namespace SaintDenis_Launcher.ViewModel
                 catch (Exception ex)
                 {
                     Logger.LogError(ex);
-                    DialogBox.Error("Impossible to Install Azerty File", "Install Azerty File Error");
+
+                    string Title = (string)App.Current.FindResource("Azerty_Error_Popup_Title");
+                    string Message = (string)App.Current.FindResource("Azerty_Error_Popup_Message");
+                    DialogBox.Error(Message, Title);
+
                     if (returnOnFail)
                     {
                         ResetStateLaunch();
@@ -151,9 +162,12 @@ namespace SaintDenis_Launcher.ViewModel
                 }
                 if (displayEndPopup) 
                 {
-                    DialogBox.Information("Game Configured in Azerty", "Install Azerty File");
+                    string Title = (string)App.Current.FindResource("Azerty_Info_Popup_Title");
+                    string Message = (string)App.Current.FindResource("Azerty_Info_Popup_Message");
+                    DialogBox.Information(Message, Title);
+
                     ResetStateLaunch();
-                } 
+                }
             });
         }
 
@@ -166,7 +180,11 @@ namespace SaintDenis_Launcher.ViewModel
             catch (Exception ex)
             {
                 Logger.LogError(ex);
-                DialogBox.Error("Impossible to Launch Rockstar, check if you have set the right Folder", "Rockstar Error");
+
+                string Title = (string)App.Current.FindResource("Rockstar_Error_Popup_Title");
+                string Message = (string)App.Current.FindResource("Rockstar_Error_Popup_Message");
+                DialogBox.Error(Message, Title);
+
                 if (returnOnFail)
                 {
                     ResetStateLaunch();
@@ -184,7 +202,11 @@ namespace SaintDenis_Launcher.ViewModel
             catch (Exception ex)
             {
                 Logger.LogError(ex);
-                DialogBox.Error("Impossible to Launch Epic, check if you have set the right Folder", "EpicGame Error");
+
+                string Title = (string)App.Current.FindResource("Epic_Error_Popup_Title");
+                string Message = (string)App.Current.FindResource("Epic_Error_Popup_Message");
+                DialogBox.Error(Message, Title);
+
                 if (returnOnFail)
                 {
                     ResetStateLaunch();
@@ -202,7 +224,11 @@ namespace SaintDenis_Launcher.ViewModel
             catch (Exception ex)
             {
                 Logger.LogError(ex);
-                DialogBox.Error("Impossible to Launch Steam, check if you have set the right Folder", "Steam Error");
+
+                string Title = (string)App.Current.FindResource("Steam_Error_Popup_Title");
+                string Message = (string)App.Current.FindResource("Steam_Error_Popup_Message");
+                DialogBox.Error(Message, Title);
+
                 if (returnOnFail)
                 {
                     ResetStateLaunch();
@@ -216,10 +242,10 @@ namespace SaintDenis_Launcher.ViewModel
             //Set A Timing / Or Not depending on IsTimerOnLaunch
             long awaitTime = Settings.Default.IsTimerOnLaunch ? Settings.Default.Timer : 0;
 
-            Logger.Information("Steam Running: " + (Steam.IsRunning && Steam.IsInitialized) + ", Rockstar:" + Rockstar.IsLaunched + ", Epic:" + (Settings.Default.IsOpenEpicgameOnLaunch ? EpicGame.IsLaunched : true));
-            if (Steam.IsRunning && Steam.IsInitialized && Rockstar.IsLaunched && (Settings.Default.IsOpenEpicgameOnLaunch ? EpicGame.IsLaunched : true))
+            Logger.Information("Steam Running: " + Steam.HasBeenSkipped + ", Rockstar:" + (Settings.Default.IsOpenRockstarOnLaunch ? Rockstar.HasBeenSkipped : true) + ", Epic:" + (Settings.Default.IsOpenEpicgameOnLaunch ? EpicGame.HasBeenSkipped : true));
+            if (Steam.HasBeenSkipped && (Settings.Default.IsOpenRockstarOnLaunch ? Rockstar.HasBeenSkipped : true) && (Settings.Default.IsOpenEpicgameOnLaunch ? EpicGame.HasBeenSkipped : true))
             {
-                awaitTime = 4;
+                awaitTime = 1;
             }
 
             //After Timing Out
@@ -243,7 +269,11 @@ namespace SaintDenis_Launcher.ViewModel
                     catch (Exception ex)
                     {
                         Logger.LogError(ex);
-                        DialogBox.Error("Impossible to Launch RedM", "RedM Error");
+                        
+                        string Title = (string)App.Current.FindResource("RedM_Error_Popup_Title");
+                        string Message = (string)App.Current.FindResource("RedM_Error_Popup_Message");
+                        DialogBox.Error(Message, Title);
+
                         if (returnOnFail)
                         {
                             ResetStateLaunch();
@@ -262,7 +292,11 @@ namespace SaintDenis_Launcher.ViewModel
                         catch (Win32Exception ex)
                         {
                             Logger.LogError(ex);
-                            DialogBox.Error("Impossible to Launch Teamspeak", "Teamspeak Error");
+
+                            string Title = (string)App.Current.FindResource("TeamSpeak_Error_Popup_Title");
+                            string Message = (string)App.Current.FindResource("TeamSpeak_Error_Popup_Message");
+                            DialogBox.Error(Message, Title);
+
                             if (returnOnFail)
                             {
                                 ResetStateLaunch();
@@ -275,7 +309,11 @@ namespace SaintDenis_Launcher.ViewModel
             catch (Exception ex)
             {
                 Logger.LogError(ex);
-                DialogBox.Error("The Timer as turned off unexpectedly", "Timer Error");
+
+                string Title = (string)App.Current.FindResource("Timer_Error_Popup_Title");
+                string Message = (string)App.Current.FindResource("Timer_Error_Popup_Message");
+                DialogBox.Error(Message, Title);
+                
                 if (returnOnFail)
                 {
                     ResetStateLaunch();

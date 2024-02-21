@@ -9,6 +9,8 @@ namespace SaintDenis_Launcher.Tools.Handlers
         public static String ProcessName = "Steam";
         public static String ExecName = "steam.exe";
 
+        public static bool HasBeenSkipped = false;
+
         /// <summary>
         /// All behaviors to Start Steam Properly
         /// </summary>
@@ -16,11 +18,13 @@ namespace SaintDenis_Launcher.Tools.Handlers
         {
             Logger.Information("Steam Is Running: " + IsRunning);
             Logger.Information("Steam Is Initialized: " + IsInitialized);
+            HasBeenSkipped = false;
 
             // If Steam Is Opened and Ready, skip
             if (IsRunning && IsInitialized)
             {
                 Logger.Information("Steam Already Launched Skip Phase");
+                HasBeenSkipped = true;
             }
             // If Steam Is Opened and not Ready, Wait it is ready
             else if (IsRunning && !IsInitialized)

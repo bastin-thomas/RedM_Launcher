@@ -16,6 +16,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
         private readonly bool _asAdmin;
         private readonly ProcessWindowStyle _style;
         private Process _process = new();
+        public bool HasBeenSkipped = false;
 
         public ProcessHandler(string processName, string execName, string folder, string parameters = "", bool asAdmin = false, ProcessWindowStyle style = ProcessWindowStyle.Normal)
         {
@@ -33,11 +34,13 @@ namespace SaintDenis_Launcher.Tools.Handlers
         public void StartAsync()
         {
             Logger.Information($"{_processName} Is Running: {IsProcessRunning}");
+            HasBeenSkipped = false;
 
             // If Process Is Opened and Ready, skip
             if (IsProcessRunning)
             {
                 Logger.Information($"{_processName} Already Launched Skip Phase");
+                HasBeenSkipped = true;
             }
             // If Process Is Not Open, Launch it
             else

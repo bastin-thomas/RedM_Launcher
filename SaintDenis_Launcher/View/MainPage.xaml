@@ -36,7 +36,7 @@
                 </Style>
             </Button.Resources>
             <Border Margin="0,-4,0,0">
-                <TextBlock>PLAY</TextBlock>
+                <TextBlock Text="{StaticResource PlayIdle_Button}"/>
             </Border>
         </Button>
 
@@ -61,7 +61,7 @@
                     </Style>
                 </Button.Resources>
                 <Border BorderBrush="{x:Null}" Background="Transparent" Padding="0,0,0,0">
-                    <TextBlock>clear cache</TextBlock>
+                    <TextBlock Text="{StaticResource ClearCache_Button}"/>
                 </Border>
             </Button>
 
@@ -74,7 +74,7 @@
                     </Style>
                 </Button.Resources>
                 <Border BorderBrush="{x:Null}" Background="Transparent" Padding="0,0,0,0">
-                    <TextBlock>install azerty</TextBlock>
+                    <TextBlock Text="{StaticResource InstallAzerty_Button}"/>
                 </Border>
             </Button>
         </Grid>
@@ -147,7 +147,7 @@
                     </Image>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
-                            <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="Server" TextWrapping="Wrap"/>
+                            <TextBlock Text="{StaticResource ServerStatus_Widget}" FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" TextWrapping="Wrap"/>
                         </Border>
                     </StackPanel>
                 </StackPanel>
@@ -179,7 +179,7 @@
                     </Image>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Border BorderBrush="{x:Null}" Padding="0,0,0,0">
-                            <TextBlock FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" Text="RedM" TextWrapping="Wrap"/>
+                            <TextBlock Text="{StaticResource RedMStatus_Widget}" FontSize="20" FontFamily="{StaticResource MainFont}" Opacity="0.80" VerticalAlignment="Center" Foreground="{StaticResource Color.Text.White}" TextWrapping="Wrap"/>
                         </Border>
                     </StackPanel>
                 </StackPanel>
