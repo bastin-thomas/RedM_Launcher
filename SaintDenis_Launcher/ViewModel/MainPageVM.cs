@@ -219,7 +219,7 @@ namespace SaintDenis_Launcher.ViewModel
             Logger.Information("Steam Running: " + (Steam.IsRunning && Steam.IsInitialized) + ", Rockstar:" + Rockstar.IsLaunched + ", Epic:" + (Settings.Default.IsOpenEpicgameOnLaunch ? EpicGame.IsLaunched : true));
             if (Steam.IsRunning && Steam.IsInitialized && Rockstar.IsLaunched && (Settings.Default.IsOpenEpicgameOnLaunch ? EpicGame.IsLaunched : true))
             {
-                awaitTime = 0;
+                awaitTime = 4;
             }
 
             //After Timing Out

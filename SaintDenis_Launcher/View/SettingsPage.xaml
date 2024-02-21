@@ -71,7 +71,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Text="RedM" Grid.Row="1" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
                         <TextBlock Text="Select RedM.exe Location" Grid.Row="2"  Opacity="0.60" Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource TextSettings}"/>
-                        <Button Command="{Binding onRedMFolderClick}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
+                        <Button Command="{Binding OnRedMFolderClick}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="20"/>
@@ -212,7 +212,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Text="STEAM" Grid.Row="1" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
                         <TextBlock Text="Select Steam.exe Location" Grid.Row="2" Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource SubTextSettings}"/>
-                        <Button Command="{Binding onSteamFolderClick}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
+                        <Button Command="{Binding OnSteamFolderClick}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="20"/>
@@ -239,7 +239,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Text="RockStar - Launcher" IsEnabled="{Binding IsOpenRockstarOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="1" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
                         <TextBlock Text="Select Launcher.exe Location" Grid.Row="2" IsEnabled="{Binding IsOpenRockstarOnLaunch, FallbackValue=False, Mode=OneWay}"  Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource SubTextSettings}"/>
-                        <Button Command="{Binding onRockstarFolderClick}" IsEnabled="{Binding IsOpenRockstarOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
+                        <Button Command="{Binding OnRockstarFolderClick}" IsEnabled="{Binding IsOpenRockstarOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="20"/>
@@ -267,7 +267,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Text="EpicGame - Folder" IsEnabled="{Binding IsOpenEpicgameOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="1" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
                         <TextBlock Text="Select EpicGame Folder Location" IsEnabled="{Binding IsOpenEpicgameOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="2" Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource SubTextSettings}"/>
-                        <Button Command="{Binding onEpicFolderClick}" IsEnabled="{Binding IsOpenEpicgameOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
+                        <Button Command="{Binding OnEpicFolderClick}" IsEnabled="{Binding IsOpenEpicgameOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="20"/>
@@ -296,7 +296,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Text="TeamSpeak" IsEnabled="{Binding IsOpenTeamSpeakOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="1" Grid.ColumnSpan="2" FontSize="35" Style="{StaticResource TextSettings}"/>
                         <TextBlock Text="Select  ts3client_win64.exe  Location" IsEnabled="{Binding IsOpenTeamSpeakOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Row="2" Grid.ColumnSpan="2" FontSize="20" Style="{StaticResource SubTextSettings}"/>
-                        <Button Command="{Binding onTeamSpeakFolderClick}" IsEnabled="{Binding IsOpenTeamSpeakOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
+                        <Button Command="{Binding OnTeamSpeakFolderClick}" IsEnabled="{Binding IsOpenTeamSpeakOnLaunch, FallbackValue=False, Mode=OneWay}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MainButtonStyle}">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="20"/>

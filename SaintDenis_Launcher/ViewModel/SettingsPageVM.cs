@@ -118,6 +118,12 @@ namespace SaintDenis_Launcher.ViewModel
             get { return false; }
             set { }
         }
+
+        public static bool IsLaunching
+        {
+            get { return false; }
+            set { }
+        }
         #endregion
 
         #region Constructors
