@@ -1,6 +1,4 @@
-﻿using SaintDenis_Launcher.Properties;
-using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
 
 namespace SaintDenis_Launcher.Tools.Handlers
 {
@@ -23,11 +21,11 @@ namespace SaintDenis_Launcher.Tools.Handlers
         {
             List<Task> tasks = [];
 
-            foreach(string path in ToRemove) 
+            foreach (string path in ToRemove)
             {
                 tasks.Add(Task.Run(() =>
                 {
-                    if(Directory.Exists(path))
+                    if (Directory.Exists(path))
                     {
                         Directory.Delete(path, true);
                     }

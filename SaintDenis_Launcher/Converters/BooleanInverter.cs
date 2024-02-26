@@ -1,5 +1,4 @@
-﻿using SaintDenis_Launcher.Tools;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Windows.Data;
 
 namespace SaintDenis_Launcher.Converters
@@ -8,7 +7,7 @@ namespace SaintDenis_Launcher.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool valueBoolean) 
+            if (value is bool valueBoolean)
             {
                 return !valueBoolean;
             }

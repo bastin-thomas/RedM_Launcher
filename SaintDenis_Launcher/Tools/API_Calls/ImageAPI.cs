@@ -1,12 +1,7 @@
 ﻿using System.IO;
 using System.Net;
-using System.Net.Cache;
-using System.Reflection;
-using System.Resources;
-using System.Security.Policy;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Xml;
 
 namespace SaintDenis_Launcher.Tools.API_Calls
 {
@@ -21,8 +16,8 @@ namespace SaintDenis_Launcher.Tools.API_Calls
                 WebClient cln = new();
                 cln.DownloadFile(url, filePath);
                 return GetImageFromSource(filePath);
-            } 
-            catch (Exception ex) 
+            }
+            catch (Exception ex)
             {
                 Logger.LogError(ex);
                 return new BitmapImage(new Uri(Properties.Settings.Default.MainPageLogo, UriKind.Relative));

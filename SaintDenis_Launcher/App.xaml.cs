@@ -1,11 +1,6 @@
-﻿using Custom_Dialog.Dialogs.Service;
-using SaintDenis_Launcher.Properties;
+﻿using SaintDenis_Launcher.Properties;
 using SaintDenis_Launcher.Tools;
 using SaintDenis_Launcher.Tools.API_Calls;
-using Steamworks;
-using System.Configuration;
-using System.Data;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Windows;
@@ -36,9 +31,9 @@ namespace SaintDenis_Launcher
             CultureInfo culture = CultureInfo.CurrentUICulture;
             string language = culture.TwoLetterISOLanguageName;
             Logger.Information($"Actual Language: {language}");
-            
+
             ResourceDictionary newLocalization;
-            switch (language) 
+            switch (language)
             {
                 case "fr":
                     newLocalization = new()
@@ -65,13 +60,13 @@ namespace SaintDenis_Launcher
             //Put default Settings on Launch
             Logger.Information("Verify Corrupted Folder");
 
-            if (!Directory.Exists(Settings.Default.RedmFolder)) 
+            if (!Directory.Exists(Settings.Default.RedmFolder))
             {
                 Logger.Information("RedmFolder Corrupted");
                 Settings.Default.RedmFolder = FileTools.DefaultRedMFolder;
             }
 
-            if (!Directory.Exists(Settings.Default.SteamFolder)) 
+            if (!Directory.Exists(Settings.Default.SteamFolder))
             {
                 Logger.Information("SteamFolder Corrupted");
                 Settings.Default.SteamFolder = FileTools.DefaultSteamFolder;

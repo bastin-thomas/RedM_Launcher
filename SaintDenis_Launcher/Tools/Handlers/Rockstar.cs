@@ -1,10 +1,4 @@
 ﻿using SaintDenis_Launcher.Properties;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SaintDenis_Launcher.Tools.Handlers
 {
@@ -14,9 +8,9 @@ namespace SaintDenis_Launcher.Tools.Handlers
         public readonly static String ExecName = "LauncherPatcher.exe";
         public readonly static String ProcessFolder = Settings.Default.RockstarFolder;
 
-        public static bool IsLaunched 
+        public static bool IsLaunched
         {
-            get 
+            get
             {
                 return _pr is not null ? _pr.IsProcessRunning : false;
             }

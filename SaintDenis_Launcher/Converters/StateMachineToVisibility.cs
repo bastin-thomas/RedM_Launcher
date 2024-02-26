@@ -1,5 +1,4 @@
-﻿using SaintDenis_Launcher.Tools;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
@@ -9,10 +8,10 @@ namespace SaintDenis_Launcher.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is int valueInt) 
+            if (value is int valueInt)
             {
                 if (valueInt == 0) { return Visibility.Visible; }
-                if(valueInt == 1) {  return Visibility.Hidden; }
+                if (valueInt == 1) { return Visibility.Hidden; }
             }
             return Visibility.Visible;
         }

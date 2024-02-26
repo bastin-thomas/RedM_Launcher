@@ -7,14 +7,14 @@ namespace SaintDenis_Launcher.Tools.API_Calls
     {
         public static bool IsOnline
         {
-            get 
+            get
             {
-                try 
+                try
                 {
                     return AnalyseJson(GetDataFromWeb());
                 }
                 catch (Exception ex)
-                { 
+                {
                     Logger.LogError(ex);
                     return false;
                 }
@@ -31,7 +31,7 @@ namespace SaintDenis_Launcher.Tools.API_Calls
             WebClient client = new();
             return client.DownloadString(url);
         }
-        private static bool AnalyseJson(string json) 
+        private static bool AnalyseJson(string json)
         {
             JsonNode rootNode = JsonNode.Parse(json)!;
             JsonNode status = rootNode["status"]!;

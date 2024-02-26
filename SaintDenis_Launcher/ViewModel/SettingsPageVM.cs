@@ -2,7 +2,6 @@
 using SaintDenis_Launcher.Tools;
 using SaintDenis_Launcher.Utils;
 using System.ComponentModel;
-using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
@@ -81,12 +80,12 @@ namespace SaintDenis_Launcher.ViewModel
             get { return Config.TSPassword; }
             set { Config.TSPassword = value; OnPropertyChanged(); }
         }
-        public long Timer 
+        public long Timer
         {
             get { return Config.Timer; }
             set { Config.Timer = value; OnPropertyChanged(); }
         }
-        
+
         public String RedmFolder
         {
             get { return Config.RedmFolder; }
@@ -173,7 +172,7 @@ namespace SaintDenis_Launcher.ViewModel
             try
             {
                 string Title = (string)App.Current.FindResource("Steam_OpenFolder_Popup_Title");
-                SteamFolder = GetFolderFromFile(Title, SteamFolder, "Steam|Steam.exe"); 
+                SteamFolder = GetFolderFromFile(Title, SteamFolder, "Steam|Steam.exe");
             }
             catch (Exception ex)
             {

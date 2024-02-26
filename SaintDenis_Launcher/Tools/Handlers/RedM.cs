@@ -1,5 +1,4 @@
 ﻿using SaintDenis_Launcher.Properties;
-using System.Diagnostics;
 using System.Net;
 
 namespace SaintDenis_Launcher.Tools.Handlers
@@ -16,7 +15,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
         /// <summary>
         /// All behaviors to Start RedM Properly Synchronously
         /// </summary>
-        public static void Start(bool asArguments) 
+        public static void Start(bool asArguments)
         {
             IPAddress? addr;
             bool ValidateIP = IPAddress.TryParse(Settings.Default.RedmServerIP, out addr);
@@ -26,8 +25,8 @@ namespace SaintDenis_Launcher.Tools.Handlers
             if (asArguments && ValidateIP)
             {
                 (_pr = new ProcessHandler(ProcessName, ExecName, ProcessFolder, Arguments)).Start();
-            } 
-            else 
+            }
+            else
             {
                 (_pr = new ProcessHandler(ProcessName, ExecName, ProcessFolder)).Start();
             }

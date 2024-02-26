@@ -8,7 +8,7 @@ namespace Custom_Dialog.Dialogs.Alert
         {
             var type = (Alerts)values[0];
 
-            switch (type) 
+            switch (type)
             {
                 case Alerts.Information:
                     return values[1];
