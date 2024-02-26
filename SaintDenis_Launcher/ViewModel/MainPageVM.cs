@@ -9,6 +9,8 @@ using SaintDenis_Launcher.Utils;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Windows.UI.Popups;
 
 namespace SaintDenis_Launcher.ViewModel
@@ -27,6 +29,10 @@ namespace SaintDenis_Launcher.ViewModel
 
         private bool _isLaunching = false;
         private bool _isLaunched = false;
+
+        private ImageSource _logo;
+
+        private string _mainButtonText;
         #endregion
 
         #region Accessors
@@ -65,11 +71,27 @@ namespace SaintDenis_Launcher.ViewModel
         {
             get { return Properties.Settings.Default; }
         }
+
+        public ImageSource Logo
+        {
+            get { return _logo; }
+            set { _logo = value; OnPropertyChanged(); }
+        }
+
+        public string MainButtonText
+        {
+            get { return _mainButtonText; }
+            set { _mainButtonText = value; OnPropertyChanged(); }
+        }
         #endregion
 
         #region Constructors
         public MainPageVM()
-        {   
+        {
+            FlipButtonText();
+            Logo = ImageAPI.GetLogo();
+            
+            //OnlineResources
             Task.Run(async () => {
                 while (true) {
                     //Run tasks in parallel
@@ -103,6 +125,7 @@ namespace SaintDenis_Launcher.ViewModel
         {
             IsLaunched = false;
             IsLaunching = false;
+            FlipButtonText();
         }
 
         private void LaunchClearCache(bool displayEndPopup = false, bool returnOnFail = false) 
@@ -255,8 +278,8 @@ namespace SaintDenis_Launcher.ViewModel
                         IsLaunched = true;
 
                         RedM.OnProcessEnd(() => {
-                            IsLaunching = false;
-                            IsLaunched = false;
+                            ResetStateLaunch();
+
                             Logger.Information("RedM Has Been Closed");
                         });
                     }
@@ -315,7 +338,19 @@ namespace SaintDenis_Launcher.ViewModel
                 }
             }
         }
-        #endregion
+
+        private void FlipButtonText()
+        {
+            if (MainButtonText == (string)App.Current.FindResource("PlayIdle_Button")) 
+            {
+                MainButtonText = (string)App.Current.FindResource("PlayLaunching_Button");
+            }
+            else 
+            {
+                MainButtonText = (string)App.Current.FindResource("PlayIdle_Button");
+            }
+        }
+#endregion
 
         #region Events
         #region Commands
@@ -323,8 +358,10 @@ namespace SaintDenis_Launcher.ViewModel
         {
             if(IsLaunching) { return; }
             IsLaunching = true;
+            FlipButtonText();
 
             Logger.Information("== LaunchButton Click ==");
+
 
             Task.Run(() => {
                 //LaunchClearCache
@@ -338,13 +375,13 @@ namespace SaintDenis_Launcher.ViewModel
                 {
                     LaunchPlaceAzerty();
                 }
-                
+
                 //Launch Rockstar Launcher if Needed
                 if (Config.IsOpenRockstarOnLaunch)
                 {
                     LaunchRockstar();
                 }
-                
+
                 //Launch EpicGame if Needed
                 if (Config.IsOpenEpicgameOnLaunch)
                 {

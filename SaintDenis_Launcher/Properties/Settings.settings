@@ -51,7 +51,7 @@
       <Value Profile="(Default)">/.Resources/Icons/Server_Logo.png</Value>
     </Setting>
     <Setting Name="MainPageBackground" Type="System.String" Scope="User">
-      <Value Profile="(Default)">/.Resources/Chinois_Background.png</Value>
+      <Value Profile="(Default)">/.Resources/Default_Background.png</Value>
     </Setting>
     <Setting Name="IsTimerOnLaunch" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -64,6 +64,12 @@
     </Setting>
     <Setting Name="Title" Type="System.String" Scope="User">
       <Value Profile="(Default)">Saint Denis 1899</Value>
+    </Setting>
+    <Setting Name="OnlineLogo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://raw.githubusercontent.com/hadesfx8/img/main/logo.png</Value>
+    </Setting>
+    <Setting Name="OnlineBackground" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://raw.githubusercontent.com/hadesfx8/img/main/bg.png</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -49,5 +49,15 @@ namespace SaintDenis_Launcher.View
             SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
         }
         #endregion
+
+        private void onLoaded(object sender, RoutedEventArgs e)
+        {
+            if (VersionAPI.NeedUpdate)
+            {
+                string Title = (string)App.Current.FindResource("NeedUpdate_Popup_Warning_Title");
+                string Message = (string)App.Current.FindResource("NeedUpdate_Popup_Warning_Message");
+                DialogBox.Warning(Message, Title);
+            }
+        }
     }
 }

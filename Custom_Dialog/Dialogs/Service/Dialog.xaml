@@ -11,6 +11,7 @@
         WindowStyle="None" AllowsTransparency="true" ResizeMode="NoResize"
         Background="Transparent"
         MouseDown="Window_MouseDown"
+        Topmost="True"
         >
     <ContentControl x:Name="ContentPresenter" Content="{Binding}"/>
 </Window>

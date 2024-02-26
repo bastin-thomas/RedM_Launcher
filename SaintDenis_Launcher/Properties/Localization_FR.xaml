@@ -4,7 +4,7 @@
     
     <!-- Main Menu -->
     <system:String x:Key="PlayIdle_Button">Jouer</system:String>
-    <system:String x:Key="PlayLaunching_Button">Lancement...</system:String>
+    <system:String x:Key="PlayLaunching_Button">...</system:String>
     
     <system:String x:Key="ClearCache_Button">Vider le Cache</system:String>
     <system:String x:Key="InstallAzerty_Button">Installer Azerty</system:String>
@@ -94,6 +94,6 @@
     <system:String x:Key="Timer_Error_Popup_Message">Le minuteur s'est éteint de manière inattendue, veuillez contacter le support</system:String>
 
     <system:String x:Key="NeedUpdate_Popup_Warning_Title">Mise à jour disponible</system:String>
-    <system:String x:Key="NeedUpdate_Popup_Warning_Message">Une mise à jour est disponible, Il est recommandé d'installer la mise à jour. (github.com/bastin-thomas/SaintDenis_Launcher/releases)</system:String>
+    <system:String x:Key="NeedUpdate_Popup_Warning_Message">Une mise à jour est disponible, Il est recommandé d'installer la mise à jour!</system:String>
 
 </ResourceDictionary>

@@ -96,16 +96,6 @@ namespace SaintDenis_Launcher
             }
 
             Settings.Default.Save();
-
-            Task.Run(async () => {
-                await Task.Delay(1500);
-                if (VersionAPI.NeedUpdate)
-                {
-                    string Title = (string)App.Current.FindResource("NeedUpdate_Popup_Warning_Title");
-                    string Message = (string)App.Current.FindResource("NeedUpdate_Popup_Warning_Message");
-                    DialogBox.Warning(Message, Title);
-                }
-            });
         }
     }
 }
