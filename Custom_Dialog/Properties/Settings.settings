@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Custom_Dialog.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ErrorIcon" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/.Resources/Icons/error.png</Value>
+    </Setting>
+    <Setting Name="WarningIcon" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/.Resources/Icons/warning.png</Value>
+    </Setting>
+    <Setting Name="InfoIcon" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/.Resources/Icons/info.png</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

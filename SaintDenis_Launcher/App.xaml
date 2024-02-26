@@ -6,7 +6,9 @@
              xmlns:viewModel="clr-namespace:SaintDenis_Launcher.ViewModel"
              xmlns:view="clr-namespace:SaintDenis_Launcher.View"
              xmlns:converter="clr-namespace:SaintDenis_Launcher.Converters"
+             xmlns:alert="clr-namespace:Custom_Dialog.Dialogs.Alert;assembly=Custom_Dialog"
              StartupUri="View/MainWindow.xaml">
+    
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -17,9 +19,12 @@
                 <ResourceDictionary Source="View/Themes/ScrollBar.xaml"/>
                 <ResourceDictionary Source="View/Themes/Button.xaml"/>
                 <ResourceDictionary Source="View/Themes/TextBox.xaml"/>
-                
                 <ResourceDictionary x:Name="localization" Source="Properties/Localization_EN.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type alert:AlertDialogViewModel}">
+                <alert:AlertDialogView/>
+            </DataTemplate>
 
             <converter:BooleanANDConverter x:Key="booleanAndConverter" />
             <converter:BoolToVisibility x:Key="boolToVisibility" />

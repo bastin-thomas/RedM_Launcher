@@ -90,6 +90,8 @@
 
     <system:String x:Key="Timer_Error_Popup_Title">Timer Error</system:String>
     <system:String x:Key="Timer_Error_Popup_Message">The Timer as turned off unexpectedly, please contact support</system:String>
-
+    
+    <system:String x:Key="NeedUpdate_Popup_Warning_Title">Update Available</system:String>
+    <system:String x:Key="NeedUpdate_Popup_Warning_Message">An Update is available, it is highly recommanded to install it (github.com/bastin-thomas/SaintDenis_Launcher/releases)</system:String>
 
 </ResourceDictionary>

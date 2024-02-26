@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Custom_Dialog.Dialogs.Alert;
+using Microsoft.Win32;
 using SaintDenis_Launcher.Model.Utils;
 using SaintDenis_Launcher.Properties;
 using SaintDenis_Launcher.Tools;
@@ -68,8 +69,7 @@ namespace SaintDenis_Launcher.ViewModel
 
         #region Constructors
         public MainPageVM()
-        {
-            
+        {   
             Task.Run(async () => {
                 while (true) {
                     //Run tasks in parallel
@@ -78,7 +78,6 @@ namespace SaintDenis_Launcher.ViewModel
                         new Task(() => { ConnectedPlayers = ServerAPI.ConnectedPlayers; }),
                         new Task(() => { MaxPlayer = ServerAPI.MaxPlayers;              }),
                         new Task(() => { IsServerOnline = ServerAPI.IsOnline;           }),
-                        new Task(() => GC.Collect()                                      ),
                     ];
 
                     foreach (var task in tasks) { task.Start(); }
@@ -108,67 +107,62 @@ namespace SaintDenis_Launcher.ViewModel
 
         private void LaunchClearCache(bool displayEndPopup = false, bool returnOnFail = false) 
         {
-            Task.Run(async () => {
-                try
-                {
-                    await Cache.Clear();
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogError(ex);
+            var task = Task.Run(Cache.Clear);
+            task.Wait();
 
-                    string Title = (string)App.Current.FindResource("ClearCache_Error_Popup_Title");
-                    string Message = (string)App.Current.FindResource("ClearCache_Error_Popup_Message");
-                    DialogBox.Error(Message, Title);
+            if(task.IsFaulted) 
+            {
+                Logger.LogError(task.Exception);
 
-                    if (returnOnFail)
-                    {
-                        ResetStateLaunch();
-                        return;
-                    }
-                }
-                if (displayEndPopup)
+                string Title = (string)App.Current.FindResource("ClearCache_Error_Popup_Title");
+                string Message = (string)App.Current.FindResource("ClearCache_Error_Popup_Message");
+                DialogBox.Error(Message, Title);
+
+                if (returnOnFail)
                 {
-                    string Title = (string)App.Current.FindResource("ClearCache_Info_Popup_Title");
-                    string Message = (string)App.Current.FindResource("ClearCache_Info_Popup_Message");
-                    DialogBox.Information(Message, Title);
-
                     ResetStateLaunch();
+                    return;
                 }
-            });
+            }
+
+            if (displayEndPopup)
+            {
+                string Title = (string)App.Current.FindResource("ClearCache_Info_Popup_Title");
+                string Message = (string)App.Current.FindResource("ClearCache_Info_Popup_Message");
+                DialogBox.Information(Message, Title);
+
+                ResetStateLaunch();
+            }
         }
 
         private void LaunchPlaceAzerty(bool displayEndPopup = false, bool returnOnFail = false)
         {
-            Task.Run(async () =>
+            var task = Task.Run(PlaceAzerty.MoveFile);
+            task.Wait();
+
+            if(task.IsFaulted)
             {
-                try
-                {
-                    await PlaceAzerty.MoveFile();
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogError(ex);
+                Logger.LogError(task.Exception);
 
-                    string Title = (string)App.Current.FindResource("Azerty_Error_Popup_Title");
-                    string Message = (string)App.Current.FindResource("Azerty_Error_Popup_Message");
-                    DialogBox.Error(Message, Title);
+                string Title = (string)App.Current.FindResource("Azerty_Error_Popup_Title");
+                string Message = (string)App.Current.FindResource("Azerty_Error_Popup_Message");
+                DialogBox.Error(Message, Title);
 
-                    if (returnOnFail)
-                    {
-                        ResetStateLaunch();
-                        return;
-                    }
-                }
-                if (displayEndPopup) 
+                if (returnOnFail)
                 {
-                    string Title = (string)App.Current.FindResource("Azerty_Info_Popup_Title");
-                    string Message = (string)App.Current.FindResource("Azerty_Info_Popup_Message");
-                    DialogBox.Information(Message, Title);
-
                     ResetStateLaunch();
+                    return;
                 }
-            });
+            }
+
+            if (displayEndPopup)
+            {
+                string Title = (string)App.Current.FindResource("Azerty_Info_Popup_Title");
+                string Message = (string)App.Current.FindResource("Azerty_Info_Popup_Message");
+                DialogBox.Information(Message, Title);
+
+                ResetStateLaunch();
+            }
         }
 
         private void LaunchRockstar(bool returnOnFail = false)
@@ -379,8 +373,6 @@ namespace SaintDenis_Launcher.ViewModel
             LaunchPlaceAzerty(true, true);
         });
         #endregion
-
-
 
         #region INotifiedProperty Block
         public event PropertyChangedEventHandler? PropertyChanged;
