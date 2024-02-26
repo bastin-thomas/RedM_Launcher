@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="Custom_Dialog.Dialogs.Alert.AlertDialogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Custom_Dialog.Dialogs.Alert"
+             xmlns:e="clr-namespace:Custom_Dialog.Dialogs.Alert"
+             mc:Ignorable="d" 
+             d:Height="200" Width="400">
+    <UserControl.Resources>
+        <local:ImageConverter x:Key="ImageConverter"/>
+        
+        <ImageSource x:Key="ErrorIcon">/.Resources/Icons/error.png</ImageSource>
+        <ImageSource x:Key="WarningIcon">/.Resources/Icons/warning.png</ImageSource>
+        <ImageSource x:Key="InfoIcon">/.Resources/Icons/info.png</ImageSource>
+        
+    </UserControl.Resources>
+
+    <Grid>
+        <Border Margin="10" CornerRadius="20">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                    <GradientStop Color="{StaticResource Color.Button.Gradient7}" Offset="0.0"/>
+                    <GradientStop Color="{StaticResource Color.Button.Gradient8}" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="20" Opacity="0.25" Color="Black"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22"/>
+                        <RowDefinition Height="3"/>
+                        <RowDefinition Height="1*" MinHeight="75"/>
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="75"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding Title, FallbackValue=Title}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6"
+                                   HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20"
+                                   TextWrapping="Wrap" Style="{StaticResource SubTextSettings}" TextDecorations="Underline"/>
+
+                        <Border Grid.Column="0" Grid.Row="2" CornerRadius="0.50">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                    <GradientStop Color="{StaticResource Color.Button.Gradient1}" Offset="0.0"/>
+                                    <GradientStop Color="{StaticResource Color.Button.Gradient2}" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                    </Grid>
+
+                    
+                    <TextBlock Text="{Binding Message, FallbackValue=Hello_World}" Grid.Row="2" Grid.Column="0"
+                               HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="23"
+                               TextWrapping="Wrap" Style="{StaticResource TextSettings}"/>
+
+
+
+
+                    <Image Grid.Column="3" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Top">
+                        <Image.Source>
+                            <MultiBinding Converter="{StaticResource ImageConverter}" FallbackValue="{StaticResource InfoIcon}">
+                                <Binding Path="Type"/>
+                                <Binding Source="{StaticResource InfoIcon}"/>
+                                <Binding Source="{StaticResource WarningIcon}"/>
+                                <Binding Source="{StaticResource ErrorIcon}"/>
+                            </MultiBinding>
+                        </Image.Source>
+                    </Image>
+
+
+                    <Button Grid.Column="0" Grid.ColumnSpan="3" Content="OK" Grid.Row="3" Width="100" 
+                            FontSize="27" HorizontalAlignment="Right"
+                            Command="{Binding OKCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" 
+                            Style="{StaticResource LaunchButtonStyle}">
+                        <Button.BitmapEffect>
+                            <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.3" ShadowDepth="3" Opacity="0.75" />
+                        </Button.BitmapEffect>
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="8"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

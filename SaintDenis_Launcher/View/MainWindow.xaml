@@ -7,11 +7,12 @@
         xmlns:viewModel="clr-namespace:SaintDenis_Launcher.ViewModel"
         xmlns:settings="clr-namespace:SaintDenis_Launcher.Properties"
         mc:Ignorable="d"
-        Title="Saint Denis 1899" 
+        Title="{Binding Config.Title}" 
         Height="650" Width="1155"
         WindowStyle="None" AllowsTransparency="true" ResizeMode="NoResize"
         Background="Transparent"
         MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen"
         >
     <Window.DataContext>
         <viewModel:MainWindowVM/>

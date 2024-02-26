@@ -1,5 +1,7 @@
-﻿using SaintDenis_Launcher.Properties;
+﻿using Custom_Dialog.Dialogs.Service;
+using SaintDenis_Launcher.Properties;
 using SaintDenis_Launcher.Tools;
+using SaintDenis_Launcher.Tools.API_Calls;
 using Steamworks;
 using System.Configuration;
 using System.Data;
@@ -22,19 +24,19 @@ namespace SaintDenis_Launcher
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
+            VersionAPI.Setup();
             Logger.Setup();
-            Logger.Information("Launcher Startup");
+
+            Logger.Information($"Launcher Startup");
+            Logger.Information($"CurrentVersion: {VersionAPI.CurrentRealesedVersion}");
+            Logger.Information($"LastVersion: {VersionAPI.CurrentRealesedVersion}");
 
 
             //Get OS Language and init the right Localization
             CultureInfo culture = CultureInfo.CurrentUICulture;
             string language = culture.TwoLetterISOLanguageName;
             Logger.Information($"Actual Language: {language}");
-
-#if DEBUG
-            language = "fr"; // TOREMOVE !!!!!!
-#endif
+            
             ResourceDictionary newLocalization;
             switch (language) 
             {
@@ -94,6 +96,16 @@ namespace SaintDenis_Launcher
             }
 
             Settings.Default.Save();
+
+            Task.Run(async () => {
+                await Task.Delay(1500);
+                if (VersionAPI.NeedUpdate)
+                {
+                    string Title = (string)App.Current.FindResource("NeedUpdate_Popup_Warning_Title");
+                    string Message = (string)App.Current.FindResource("NeedUpdate_Popup_Warning_Message");
+                    DialogBox.Warning(Message, Title);
+                }
+            });
         }
     }
 }

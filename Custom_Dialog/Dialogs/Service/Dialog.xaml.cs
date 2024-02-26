@@ -1,26 +1,30 @@
-﻿using SaintDenis_Launcher.Properties;
-using SaintDenis_Launcher.Tools;
-using SaintDenis_Launcher.Tools.API_Calls;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
-namespace SaintDenis_Launcher.View
+namespace Custom_Dialog.Dialogs.Service
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Dialog.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Dialog : Window, IDialogWindow
     {
-        private readonly Settings Config = Properties.Settings.Default;
-
-        public MainWindow()
+        public Dialog()
         {
             InitializeComponent();
         }
 
-        
-
-        private void Window_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
@@ -28,8 +32,6 @@ namespace SaintDenis_Launcher.View
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
-            Logger.Information("App is Closed Normally");
-            Config.Save();
             Close();
         }
 

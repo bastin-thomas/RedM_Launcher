@@ -22,7 +22,7 @@ Another one is the RockStarLauncher UI.
 ![Rockstar MainPage](./.Documentation/Inspiration/Rockstar1.png)
 ![Rockstar SettingPage](./.Documentation/Inspiration/Rockstar2.png)
 
-## ♻️| Advancement
+## ♻️| 1.0 Advancement
 
 ✅ ReadMe Creation
 
@@ -69,13 +69,15 @@ Another one is the RockStarLauncher UI.
 
 ✅ Create functions to get Server Status and Update UI to relate it
 
-☐ Online Backgrounds / Logos
-
 ✅ Internationalization For EN & FR (more could be added by the Community). Based on OS Language
 
+✅ Custom Popups
+
+☐ Online Backgrounds / Logos
+
+
+## ♻️| 1.1 Advancement
 
 ☐ Launching Pop Bar (Skippable Timer + What's going on)
-
-☐ Custom Popups
 
 ☐ Create functions to get RP Board Data and displaying them on the mainpage
