@@ -2,10 +2,8 @@
 using SaintDenis_Launcher.Tools;
 using SaintDenis_Launcher.Tools.API_Calls;
 using SaintDenis_Launcher.Utils;
-using SaintDenis_Launcher.View;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows;
 using System.Windows.Media;
 
 namespace SaintDenis_Launcher.ViewModel
@@ -31,7 +29,7 @@ namespace SaintDenis_Launcher.ViewModel
             get { return _stateMachine; }
             set { _stateMachine = value; OnPropertyChanged(); }
         }
-        
+
         public static Settings Config
         {
             get { return Properties.Settings.Default; }
@@ -68,7 +66,7 @@ namespace SaintDenis_Launcher.ViewModel
         #region Commands
         public RelayCommand OnSettingClick => new(execute =>
         {
-            switch (StateMachine) 
+            switch (StateMachine)
             {
                 case 0:
                     CurrentPage = Settings;

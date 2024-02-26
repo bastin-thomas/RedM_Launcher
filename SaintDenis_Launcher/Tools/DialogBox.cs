@@ -1,11 +1,5 @@
 ﻿using Custom_Dialog.Dialogs.Alert;
 using Custom_Dialog.Dialogs.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace SaintDenis_Launcher.Tools
 {
@@ -13,15 +7,15 @@ namespace SaintDenis_Launcher.Tools
     {
         private static readonly IDialogService _alertServices = new DialogService();
 
-        public static void Information(String message, String title) 
+        public static void Information(String message, String title)
         {
-            try 
+            try
             {
                 var dialog = new AlertDialogViewModel(title, message, Alerts.Information);
                 var result = _alertServices.OpenDialog(dialog);
             }
             catch (Exception ex)
-            { 
+            {
                 Logger.LogError(ex);
             }
 
@@ -39,7 +33,7 @@ namespace SaintDenis_Launcher.Tools
             {
                 Logger.LogError(ex);
             }
-            
+
             //MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.ServiceNotification);
         }
 
@@ -54,7 +48,7 @@ namespace SaintDenis_Launcher.Tools
             {
                 Logger.LogError(ex);
             }
-                        
+
             //MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.ServiceNotification);
         }
     }

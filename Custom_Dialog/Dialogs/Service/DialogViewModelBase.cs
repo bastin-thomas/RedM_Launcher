@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Custom_Dialog.Dialogs.Service
+﻿namespace Custom_Dialog.Dialogs.Service
 {
     public abstract class DialogViewModelBase<T>
     {
@@ -20,10 +14,10 @@ namespace Custom_Dialog.Dialogs.Service
             Message = message;
         }
 
-        public void CloseDialogWithResult(IDialogWindow dialog, T result) 
-        { 
+        public void CloseDialogWithResult(IDialogWindow dialog, T result)
+        {
             DialogResult = result;
-            if(dialog != null)
+            if (dialog != null)
             {
                 dialog.DialogResult = true;
             }

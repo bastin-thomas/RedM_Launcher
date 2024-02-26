@@ -17,11 +17,12 @@ namespace SaintDenis_Launcher.Tools.Handlers
             }
         }
 
-        public static bool HasBeenSkipped { 
-            get 
+        public static bool HasBeenSkipped
+        {
+            get
             {
                 return _pr is not null ? _pr.HasBeenSkipped : false;
-            } 
+            }
         }
 
         private static ProcessHandler _pr;

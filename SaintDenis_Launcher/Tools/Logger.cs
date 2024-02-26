@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SaintDenis_Launcher.Tools
 {
@@ -13,7 +8,7 @@ namespace SaintDenis_Launcher.Tools
         private static TextWriterTraceListener fileListener;
         public static void Setup()
         {
-            if (!Directory.Exists(App.workingDirectoryPath + $"/Logs/")) 
+            if (!Directory.Exists(App.workingDirectoryPath + $"/Logs/"))
             {
                 Directory.CreateDirectory(App.workingDirectoryPath + $"/Logs/");
             }

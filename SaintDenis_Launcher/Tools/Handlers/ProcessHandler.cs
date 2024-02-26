@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows;
+﻿using System.Diagnostics;
 
 namespace SaintDenis_Launcher.Tools.Handlers
 {
@@ -83,7 +81,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
                 _process = list[0];
             }
 
-            if ( _process != null ) 
+            if (_process != null)
             {
                 _process.WaitForInputIdle();
                 Logger.Information($"{_processName} Is Initialized");
@@ -104,10 +102,10 @@ namespace SaintDenis_Launcher.Tools.Handlers
         /// Waiting Asynchronously Process Closure
         /// </summary>
         /// <param name="action"></param>
-        internal async Task ProcessEndCallBack(Action action) 
+        internal async Task ProcessEndCallBack(Action action)
         {
-            if( _process == null ) { throw new Exception("Process_Null"); }
-            if(_process.HasExited) { throw new Exception("Already_Finished"); }
+            if (_process == null) { throw new Exception("Process_Null"); }
+            if (_process.HasExited) { throw new Exception("Already_Finished"); }
 
             await _process.WaitForExitAsync();
             action.Invoke();

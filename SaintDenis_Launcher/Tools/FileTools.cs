@@ -5,7 +5,7 @@ namespace SaintDenis_Launcher.Tools
 {
     class FileTools
     {
-        private readonly struct Steam 
+        private readonly struct Steam
         {
             public const String DefaultPath = @"C:\Program Files (x86)\Steam\";
             public const String KeyPath = @"Software\Valve\Steam";
@@ -39,7 +39,8 @@ namespace SaintDenis_Launcher.Tools
         /// </summary>
         public static String DefaultRedMFolder
         {
-            get {
+            get
+            {
                 return App.Local + @"\RedM\";
             }
         }
@@ -51,7 +52,7 @@ namespace SaintDenis_Launcher.Tools
         {
             get
             {
-                try 
+                try
                 {
                     RegistryKey? SteamKey = Registry.CurrentUser.OpenSubKey(Steam.KeyPath);
                     if (SteamKey is not null)
@@ -63,7 +64,7 @@ namespace SaintDenis_Launcher.Tools
                         }
                     }
                 }
-                catch(Exception ex) 
+                catch (Exception ex)
                 {
                     Logger.LogError(ex);
                 }
@@ -95,7 +96,7 @@ namespace SaintDenis_Launcher.Tools
                 catch (Exception ex)
                 {
                     Logger.LogError(ex);
-                }               
+                }
 
                 return Rockstar.DefaultPath;
             }
@@ -107,7 +108,7 @@ namespace SaintDenis_Launcher.Tools
         public static String DefaultEpicFolder
         {
             get
-            {    
+            {
                 try
                 {
                     RegistryKey? EpicKey = Registry.LocalMachine.OpenSubKey(Epic.KeyPath);
@@ -181,7 +182,8 @@ namespace SaintDenis_Launcher.Tools
                 Logger.Information("NewPath: " + dialog);
                 return dialog.FolderName;
             }
-            else {
+            else
+            {
                 return currentFolder;
             }
         }

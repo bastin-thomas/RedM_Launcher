@@ -12,7 +12,7 @@ namespace SaintDenis_Launcher.Tools.API_Calls
             {
                 try
                 {
-                    if(LastRealesedVersion.Equals("unknown") || CurrentRealesedVersion.Equals(LastRealesedVersion)) return false;
+                    if (LastRealesedVersion.Equals("unknown") || CurrentRealesedVersion.Equals(LastRealesedVersion)) return false;
                 }
                 catch (Exception ex)
                 {
@@ -29,7 +29,7 @@ namespace SaintDenis_Launcher.Tools.API_Calls
         public static string LastRealesedVersion = "unkown";
 
 
-        private static void InitAPI() 
+        private static void InitAPI()
         {
             try
             {
@@ -62,7 +62,7 @@ namespace SaintDenis_Launcher.Tools.API_Calls
 
             foreach (XmlNode node in nodes)
             {
-                if (node.Name == "AssemblyVersion") 
+                if (node.Name == "AssemblyVersion")
                 {
                     return node.InnerXml!;
                 }

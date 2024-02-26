@@ -1,6 +1,4 @@
-﻿using Custom_Dialog.Dialogs.Alert;
-using Microsoft.Win32;
-using SaintDenis_Launcher.Model.Utils;
+﻿using SaintDenis_Launcher.Model.Utils;
 using SaintDenis_Launcher.Properties;
 using SaintDenis_Launcher.Tools;
 using SaintDenis_Launcher.Tools.API_Calls;
@@ -8,10 +6,7 @@ using SaintDenis_Launcher.Tools.Handlers;
 using SaintDenis_Launcher.Utils;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using Windows.UI.Popups;
 
 namespace SaintDenis_Launcher.ViewModel
 {
@@ -67,7 +62,7 @@ namespace SaintDenis_Launcher.ViewModel
             set { _isLaunched = value; OnPropertyChanged(); }
         }
 
-        public static Settings Config 
+        public static Settings Config
         {
             get { return Properties.Settings.Default; }
         }
@@ -90,16 +85,18 @@ namespace SaintDenis_Launcher.ViewModel
         {
             FlipButtonText();
             Logo = ImageAPI.GetLogo();
-            
+
             //OnlineResources
-            Task.Run(async () => {
-                while (true) {
+            Task.Run(async () =>
+            {
+                while (true)
+                {
                     //Run tasks in parallel
                     Task[] tasks = [
-                        new Task(() => { IsRedMOnline = CfxAPI.IsOnline;                }),
+                        new Task(() => { IsRedMOnline = CfxAPI.IsOnline; }),
                         new Task(() => { ConnectedPlayers = ServerAPI.ConnectedPlayers; }),
-                        new Task(() => { MaxPlayer = ServerAPI.MaxPlayers;              }),
-                        new Task(() => { IsServerOnline = ServerAPI.IsOnline;           }),
+                        new Task(() => { MaxPlayer = ServerAPI.MaxPlayers; }),
+                        new Task(() => { IsServerOnline = ServerAPI.IsOnline; }),
                     ];
 
                     foreach (var task in tasks) { task.Start(); }
@@ -121,19 +118,19 @@ namespace SaintDenis_Launcher.ViewModel
         #endregion
 
         #region Methods
-        private void ResetStateLaunch() 
+        private void ResetStateLaunch()
         {
             IsLaunched = false;
             IsLaunching = false;
             FlipButtonText();
         }
 
-        private void LaunchClearCache(bool displayEndPopup = false, bool returnOnFail = false) 
+        private void LaunchClearCache(bool displayEndPopup = false, bool returnOnFail = false)
         {
             var task = Task.Run(Cache.Clear);
             task.Wait();
 
-            if(task.IsFaulted) 
+            if (task.IsFaulted)
             {
                 Logger.LogError(task.Exception);
 
@@ -163,7 +160,7 @@ namespace SaintDenis_Launcher.ViewModel
             var task = Task.Run(PlaceAzerty.MoveFile);
             task.Wait();
 
-            if(task.IsFaulted)
+            if (task.IsFaulted)
             {
                 Logger.LogError(task.Exception);
 
@@ -210,7 +207,7 @@ namespace SaintDenis_Launcher.ViewModel
             }
         }
 
-        private void LaunchEpic(bool returnOnFail = false) 
+        private void LaunchEpic(bool returnOnFail = false)
         {
             try
             {
@@ -232,7 +229,7 @@ namespace SaintDenis_Launcher.ViewModel
             }
         }
 
-        private void LaunchSteam(bool returnOnFail = false) 
+        private void LaunchSteam(bool returnOnFail = false)
         {
             try
             {
@@ -277,7 +274,8 @@ namespace SaintDenis_Launcher.ViewModel
                         RedM.WaitRedMInitialized();
                         IsLaunched = true;
 
-                        RedM.OnProcessEnd(() => {
+                        RedM.OnProcessEnd(() =>
+                        {
                             ResetStateLaunch();
 
                             Logger.Information("RedM Has Been Closed");
@@ -286,7 +284,7 @@ namespace SaintDenis_Launcher.ViewModel
                     catch (Exception ex)
                     {
                         Logger.LogError(ex);
-                        
+
                         string Title = (string)App.Current.FindResource("RedM_Error_Popup_Title");
                         string Message = (string)App.Current.FindResource("RedM_Error_Popup_Message");
                         DialogBox.Error(Message, Title);
@@ -330,7 +328,7 @@ namespace SaintDenis_Launcher.ViewModel
                 string Title = (string)App.Current.FindResource("Timer_Error_Popup_Title");
                 string Message = (string)App.Current.FindResource("Timer_Error_Popup_Message");
                 DialogBox.Error(Message, Title);
-                
+
                 if (returnOnFail)
                 {
                     ResetStateLaunch();
@@ -341,29 +339,30 @@ namespace SaintDenis_Launcher.ViewModel
 
         private void FlipButtonText()
         {
-            if (MainButtonText == (string)App.Current.FindResource("PlayIdle_Button")) 
+            if (MainButtonText == (string)App.Current.FindResource("PlayIdle_Button"))
             {
                 MainButtonText = (string)App.Current.FindResource("PlayLaunching_Button");
             }
-            else 
+            else
             {
                 MainButtonText = (string)App.Current.FindResource("PlayIdle_Button");
             }
         }
-#endregion
+        #endregion
 
         #region Events
         #region Commands
         public RelayCommand OnLaunchClick => new(execute =>
         {
-            if(IsLaunching) { return; }
+            if (IsLaunching) { return; }
             IsLaunching = true;
             FlipButtonText();
 
             Logger.Information("== LaunchButton Click ==");
 
 
-            Task.Run(() => {
+            Task.Run(() =>
+            {
                 //LaunchClearCache
                 if (Config.IsClearCacheOnLaunch)
                 {

@@ -1,7 +1,5 @@
 ﻿using SaintDenis_Launcher.Properties;
-using System.Configuration;
 using System.Net;
-using System.Security.Policy;
 using System.Text.Json.Nodes;
 
 namespace SaintDenis_Launcher.Tools.API_Calls
@@ -94,5 +92,5 @@ namespace SaintDenis_Launcher.Tools.API_Calls
 
             return int.Parse(RootNode["vars"]!["sv_maxClients"]!.GetValue<string>());
         }
-	}
+    }
 }
