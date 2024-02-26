@@ -24,8 +24,8 @@
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Image RenderOptions.BitmapScalingMode="HighQuality" Height="250" Width="250" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.RowSpan="2" Opacity="0.85" Margin="0,-40,0,0"
-                Source="{Binding Config.MainPageLogo, FallbackValue={StaticResource ServerLogo}, Mode=OneWay}"/>
+        <Image RenderOptions.BitmapScalingMode="HighQuality" Height="250" Width="250" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.RowSpan="2" Opacity="0.95" Margin="0,-40,0,0"
+                Source="{Binding Logo, FallbackValue={StaticResource ServerLogo}, Mode=OneWay}"/>
 
         <Border Visibility="{Binding IsLaunching, Converter={StaticResource boolToVisibility}, Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="3" CornerRadius="10" Background="Black"/>
 
@@ -36,7 +36,7 @@
                 </Style>
             </Button.Resources>
             <Border Margin="0,-4,0,0">
-                <TextBlock Text="{StaticResource PlayIdle_Button}"/>
+                <TextBlock Text="{Binding MainButtonText, FallbackValue={StaticResource PlayIdle_Button}}"/>
             </Border>
         </Button>
 

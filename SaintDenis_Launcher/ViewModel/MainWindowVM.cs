@@ -6,6 +6,7 @@ using SaintDenis_Launcher.View;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Media;
 
 namespace SaintDenis_Launcher.ViewModel
 {
@@ -14,6 +15,8 @@ namespace SaintDenis_Launcher.ViewModel
         #region Properties
         private object? _currentPage;
         private int _stateMachine;
+
+        private ImageSource _background;
         #endregion
 
         #region Accessors
@@ -33,6 +36,11 @@ namespace SaintDenis_Launcher.ViewModel
         {
             get { return Properties.Settings.Default; }
         }
+        public ImageSource Background
+        {
+            get { return _background; }
+            set { _background = value; }
+        }
 
 
 
@@ -43,6 +51,8 @@ namespace SaintDenis_Launcher.ViewModel
         #region Constructors
         public MainWindowVM()
         {
+            Background = ImageAPI.GetBackground();
+
             MainPage = new MainPageVM();
             Settings = new SettingsPageVM();
 

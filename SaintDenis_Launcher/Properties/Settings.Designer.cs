@@ -217,7 +217,7 @@ namespace SaintDenis_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("/.Resources/Chinois_Background.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("/.Resources/Default_Background.png")]
         public string MainPageBackground {
             get {
                 return ((string)(this["MainPageBackground"]));
@@ -272,6 +272,30 @@ namespace SaintDenis_Launcher.Properties {
             }
             set {
                 this["Title"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/hadesfx8/img/main/logo.png")]
+        public string OnlineLogo {
+            get {
+                return ((string)(this["OnlineLogo"]));
+            }
+            set {
+                this["OnlineLogo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/hadesfx8/img/main/bg.png")]
+        public string OnlineBackground {
+            get {
+                return ((string)(this["OnlineBackground"]));
+            }
+            set {
+                this["OnlineBackground"] = value;
             }
         }
     }

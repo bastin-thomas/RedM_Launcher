@@ -12,8 +12,8 @@
     <IsPublishable>False</IsPublishable>
     <SignAssembly>False</SignAssembly>
     <SupportedOSPlatformVersion>10.0.18362.0</SupportedOSPlatformVersion>
-    <AssemblyVersion>0.9.0.0</AssemblyVersion>
-    <FileVersion>0.9.0.0</FileVersion>
+    <AssemblyVersion>0.9.8.0</AssemblyVersion>
+    <FileVersion>0.9.5.0</FileVersion>
     <UseWindowsForms>False</UseWindowsForms>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
@@ -66,7 +66,10 @@
     <Resource Include=".Resources\background.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include=".Resources\Default_Background.png">
+    <EmbeddedResource Include=".Resources\Default_Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Resource Include=".Resources\Icons\Server_Logo_2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include=".Resources\Fonts\Carnevalee Freakshow.ttf">
@@ -106,9 +109,9 @@
     <Resource Include=".Resources\Settings_Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include=".Resources\Icons\Server_Logo.png">
+    <EmbeddedResource Include=".Resources\Icons\Server_Logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </EmbeddedResource>
     <Resource Include=".Resources\Icons\Server_Logo_min.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -150,11 +153,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

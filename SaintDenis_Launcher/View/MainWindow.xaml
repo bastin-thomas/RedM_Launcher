@@ -12,7 +12,7 @@
         WindowStyle="None" AllowsTransparency="true" ResizeMode="NoResize"
         Background="Transparent"
         MouseDown="Window_MouseDown"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen" Loaded="onLoaded"
         >
     <Window.DataContext>
         <viewModel:MainWindowVM/>
@@ -39,7 +39,7 @@
                                     <Style TargetType="{x:Type Image}">
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding StateMachine, FallbackValue = 0}" Value="0">
-                                                <Setter Property="Source" Value="{Binding Config.MainPageBackground, FallbackValue={StaticResource Background1}, Mode=OneTime}"/>
+                                                <Setter Property="Source" Value="{Binding Background, FallbackValue={StaticResource Background1}, Mode=OneTime}"/>
                                             </DataTrigger>
                                             <DataTrigger Binding="{Binding StateMachine}" Value="1">
                                                 <Setter Property="Source" Value="{StaticResource Background0}"/>
