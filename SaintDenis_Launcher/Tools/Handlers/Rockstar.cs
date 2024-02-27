@@ -4,9 +4,9 @@ namespace SaintDenis_Launcher.Tools.Handlers
 {
     internal class Rockstar
     {
-        public readonly static String ProcessName = "Launcher";
-        public readonly static String ExecName = "LauncherPatcher.exe";
-        public readonly static String ProcessFolder = Settings.Default.RockstarFolder;
+        public readonly static string ProcessName = "Launcher";
+        public readonly static string ExecName = "LauncherPatcher.exe";
+        public  static string ProcessFolder { get { return Settings.Default.RockstarFolder; } }
 
         public static bool IsLaunched
         {

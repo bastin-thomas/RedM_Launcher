@@ -5,9 +5,9 @@ namespace SaintDenis_Launcher.Tools.Handlers
 {
     internal class EpicGame
     {
-        public readonly static String ProcessName = "EpicGamesLauncher";
-        public readonly static String ExecName = "EpicGamesLauncher.exe";
-        public readonly static String ProcessFolder = Settings.Default.EpicFolder + @"\Launcher\Portal\Binaries\Win64";
+        public readonly static string ProcessName = "EpicGamesLauncher";
+        public readonly static string ExecName = "EpicGamesLauncher.exe";
+        public static string ProcessFolder { get { return Settings.Default.EpicFolder + @"\Launcher\Portal\Binaries\Win64"; } }
 
         public static bool IsLaunched
         {

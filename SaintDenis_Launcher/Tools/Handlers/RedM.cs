@@ -8,8 +8,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
         public readonly static String ProcessName = "RedM";
         public readonly static String ExecName = "RedM.exe";
         public static string Arguments { get { return $"+connect {Settings.Default.RedmServerIP}"; } }
-        
-        public readonly static String ProcessFolder = Settings.Default.RedmFolder;
+        public static string ProcessFolder { get { return Settings.Default.RedmFolder; } }
 
         private static ProcessHandler _pr;
 

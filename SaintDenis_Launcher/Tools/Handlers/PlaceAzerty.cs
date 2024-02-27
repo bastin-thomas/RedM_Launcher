@@ -5,8 +5,9 @@ namespace SaintDenis_Launcher.Tools.Handlers
 {
     internal class PlaceAzerty
     {
-        private static readonly String sourceFile = @"./Resources/default.meta";
-        private static readonly String destinationFile = Settings.Default.RedmFolder + @"\RedM.app\citizen\platform\data\control\default.meta";
+        private static readonly string sourceFile = @"./Resources/default.meta";
+        private static string destinationFile { get{ return Settings.Default.RedmFolder + @"\RedM.app\citizen\platform\data\control\default.meta"; } }
+
 
         /// <summary>
         /// Move File Asynchronously

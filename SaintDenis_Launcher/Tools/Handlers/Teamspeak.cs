@@ -5,10 +5,10 @@ namespace SaintDenis_Launcher.Tools.Handlers
 {
     internal class Teamspeak
     {
-        public readonly static String ProcessName = "ts3client_win64";
-        public readonly static String ExecName = "ts3client_win64.exe";
-        public readonly static String Arguments = $"ts3server://{Settings.Default.TSServerIP}?password={Settings.Default.TSPassword}";
-        public readonly static String ProcessFolder = Settings.Default.TeamSpeakFolder;
+        public readonly static string ProcessName = "ts3client_win64";
+        public readonly static string ExecName = "ts3client_win64.exe";
+        public static string Arguments { get { return $"ts3server://{Settings.Default.TSServerIP}?password={Settings.Default.TSPassword}"; } }
+        public static string ProcessFolder { get { return Settings.Default.TeamSpeakFolder; } }
 
         private static ProcessHandler _pr;
 
