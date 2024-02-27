@@ -73,7 +73,9 @@ Another one is the RockStarLauncher UI.
 
 ✅ Custom Popups
 
-☐ Online Backgrounds / Logos
+✅ Online Backgrounds / Logos
+
+☐ Add "Hide When RedM Running" Settings
 
 
 ## ♻️| 1.1 Advancement
