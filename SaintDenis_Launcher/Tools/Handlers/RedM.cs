@@ -7,7 +7,8 @@ namespace SaintDenis_Launcher.Tools.Handlers
     {
         public readonly static String ProcessName = "RedM";
         public readonly static String ExecName = "RedM.exe";
-        public readonly static String Arguments = $"+connect {Settings.Default.RedmServerIP}";
+        public static string Arguments { get { return $"+connect {Settings.Default.RedmServerIP}"; } }
+        
         public readonly static String ProcessFolder = Settings.Default.RedmFolder;
 
         private static ProcessHandler _pr;
@@ -17,12 +18,7 @@ namespace SaintDenis_Launcher.Tools.Handlers
         /// </summary>
         public static void Start(bool asArguments)
         {
-            IPAddress? addr;
-            bool ValidateIP = IPAddress.TryParse(Settings.Default.RedmServerIP, out addr);
-
-            //TODO: Display a Warning that String is not a good IP
-
-            if (asArguments && ValidateIP)
+            if (asArguments)
             {
                 (_pr = new ProcessHandler(ProcessName, ExecName, ProcessFolder, Arguments)).Start();
             }

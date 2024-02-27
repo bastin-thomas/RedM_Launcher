@@ -6,7 +6,7 @@ namespace SaintDenis_Launcher.Tools.API_Calls
 {
     internal class ServerAPI
     {
-        public static readonly string Ip = Settings.Default.RedmServerIP;
+        public static string Ip { get { return Settings.Default.RedmServerIP; } }
 
         public static bool IsOnline
         {

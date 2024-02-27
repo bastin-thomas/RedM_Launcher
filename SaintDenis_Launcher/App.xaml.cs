@@ -24,7 +24,7 @@ namespace SaintDenis_Launcher
 
             Logger.Information($"Launcher Startup");
             Logger.Information($"CurrentVersion: {VersionAPI.CurrentRealesedVersion}");
-            Logger.Information($"LastVersion: {VersionAPI.CurrentRealesedVersion}");
+            Logger.Information($"LastVersion: {VersionAPI.LastRealesedVersion}");
 
 
             //Get OS Language and init the right Localization

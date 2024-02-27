@@ -50,7 +50,7 @@ namespace SaintDenis_Launcher.Tools.API_Calls
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        private static string GetVersionFromGitHub(string url = @"https://raw.githubusercontent.com/bastin-thomas/SaintDenis_Launcher/realese/SaintDenis_Launcher/SaintDenis_Launcher.csproj")
+        private static string GetVersionFromGitHub(string url = @"https://raw.githubusercontent.com/bastin-thomas/RedM_Launcher/realese/SaintDenis_Launcher/SaintDenis_Launcher.csproj")
         {
             WebClient client = new();
             string data = client.DownloadString(url);
