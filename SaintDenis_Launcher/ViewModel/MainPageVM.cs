@@ -83,7 +83,7 @@ namespace SaintDenis_Launcher.ViewModel
         #region Constructors
         public MainPageVM()
         {
-            FlipButtonText();
+            setPlayText();
             Logo = ImageAPI.GetLogo();
 
             //OnlineResources
@@ -122,7 +122,7 @@ namespace SaintDenis_Launcher.ViewModel
         {
             IsLaunched = false;
             IsLaunching = false;
-            FlipButtonText();
+            setPlayText();
         }
 
         private void LaunchClearCache(bool displayEndPopup = false, bool returnOnFail = false)
@@ -337,16 +337,14 @@ namespace SaintDenis_Launcher.ViewModel
             }
         }
 
-        private void FlipButtonText()
+        private void setWaitingText()
         {
-            if (MainButtonText == (string)App.Current.FindResource("PlayIdle_Button"))
-            {
-                MainButtonText = (string)App.Current.FindResource("PlayLaunching_Button");
-            }
-            else
-            {
-                MainButtonText = (string)App.Current.FindResource("PlayIdle_Button");
-            }
+            MainButtonText = (string)App.Current.FindResource("PlayLaunching_Button");
+        }
+
+        private void setPlayText()
+        {
+            MainButtonText = (string)App.Current.FindResource("PlayIdle_Button");
         }
         #endregion
 
@@ -356,7 +354,7 @@ namespace SaintDenis_Launcher.ViewModel
         {
             if (IsLaunching) { return; }
             IsLaunching = true;
-            FlipButtonText();
+            setWaitingText();
 
             Logger.Information("== LaunchButton Click ==");
 
