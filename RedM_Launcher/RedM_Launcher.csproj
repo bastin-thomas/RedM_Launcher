@@ -8,7 +8,7 @@
     <ApplicationIcon>.Resources\Icons\Server_Logo.ico</ApplicationIcon>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <StartupObject>RedM_Launcher.App</StartupObject>
-    <ApplicationManifest>E:\GitHub\SaintDenis_Launcher\.RedM_Resources\MyManifest.xml</ApplicationManifest>
+    <ApplicationManifest></ApplicationManifest>
     <IsPublishable>False</IsPublishable>
     <SignAssembly>False</SignAssembly>
     <SupportedOSPlatformVersion>10.0.18362.0</SupportedOSPlatformVersion>

@@ -587,6 +587,6 @@ FodyWeavers.xsd
 
 # CUSTOM EXCEPTIONS
 
-!.RedM_Ressources/*.meta
+!.RedM_Ressources/
 Online_Launcher_Background.png
 Online_Launcher_Logo.png
