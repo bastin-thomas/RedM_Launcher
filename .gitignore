@@ -584,7 +584,7 @@ FodyWeavers.xsd
 
 
 
-
+!.Installer
 # CUSTOM EXCEPTIONS
 !default.meta
 Online_Launcher_Background.png
