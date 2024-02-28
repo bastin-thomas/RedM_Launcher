@@ -12,7 +12,7 @@ namespace RedM_Launcher.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -193,7 +193,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool IsDirectConnectOnLaunch {
             get {
                 return ((bool)(this["IsDirectConnectOnLaunch"]));
@@ -205,7 +205,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool IsOpenTeamSpeakOnLaunch {
             get {
                 return ((bool)(this["IsOpenTeamSpeakOnLaunch"]));
@@ -217,7 +217,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool IsDirectConnectTSOnLaunch {
             get {
                 return ((bool)(this["IsDirectConnectTSOnLaunch"]));
@@ -229,7 +229,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("162.19.253.49")]
         public string RedmServerIP {
             get {
                 return ((string)(this["RedmServerIP"]));
@@ -241,7 +241,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("162.19.253.49")]
         public string TSServerIP {
             get {
                 return ((string)(this["TSServerIP"]));
@@ -253,7 +253,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4jKQz4t5")]
         public string TSPassword {
             get {
                 return ((string)(this["TSPassword"]));
@@ -265,7 +265,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("RedM Launcher")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Saint Denis 1899")]
         public string Title {
             get {
                 return ((string)(this["Title"]));
@@ -277,7 +277,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/hadesfx8/img/main/logo.png")]
         public string OnlineLogo {
             get {
                 return ((string)(this["OnlineLogo"]));
@@ -289,7 +289,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/hadesfx8/img/main/bg.png")]
         public string OnlineBackground {
             get {
                 return ((string)(this["OnlineBackground"]));

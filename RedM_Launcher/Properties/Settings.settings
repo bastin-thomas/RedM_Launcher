@@ -45,31 +45,31 @@
       <Value Profile="(Default)">/.Resources/background.jpg</Value>
     </Setting>
     <Setting Name="IsDirectConnectOnLaunch" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="IsOpenTeamSpeakOnLaunch" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="IsDirectConnectTSOnLaunch" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="RedmServerIP" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">162.19.253.49</Value>
     </Setting>
     <Setting Name="TSServerIP" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">162.19.253.49</Value>
     </Setting>
     <Setting Name="TSPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">4jKQz4t5</Value>
     </Setting>
     <Setting Name="Title" Type="System.String" Scope="User">
-      <Value Profile="(Default)">RedM Launcher</Value>
+      <Value Profile="(Default)">Saint Denis 1899</Value>
     </Setting>
     <Setting Name="OnlineLogo" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">https://raw.githubusercontent.com/hadesfx8/img/main/logo.png</Value>
     </Setting>
     <Setting Name="OnlineBackground" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">https://raw.githubusercontent.com/hadesfx8/img/main/bg.png</Value>
     </Setting>
     <Setting Name="IsHideLauncherWhenRedMRunning" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

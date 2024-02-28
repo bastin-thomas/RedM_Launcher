@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>Redm.ico</ApplicationIcon>
+    <ApplicationIcon>.Resources\Icons\Server_Logo.ico</ApplicationIcon>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <StartupObject>RedM_Launcher.App</StartupObject>
     <ApplicationManifest></ApplicationManifest>
@@ -102,7 +102,7 @@
     <Resource Include=".Resources\Icons\icon-Minimized.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Content Include="Redm.ico" />
+    <Content Include=".Resources\Icons\Server_Logo.ico" />
     <Resource Include=".Resources\Icons\error.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
