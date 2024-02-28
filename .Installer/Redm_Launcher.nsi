@@ -85,7 +85,7 @@ Section "Dummy Section" SecDummy
   WriteUninstaller "$INSTDIR\Uninstall.exe"
 
 	# Shortcut
-  createShortCut "$DESKTOP\RedM Launcher.lnk" "$INSTDIR\RedM Launcher.exe" "" "$INSTDIR\Redm.ico"
+  createShortCut "$DESKTOP\RedM Launcher.lnk" "$INSTDIR\RedM_Launcher.exe" "" "$INSTDIR\Redm.ico"
  
 	# Registry information for add/remove programs
 	WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\RedM Launcher" "DisplayName"           "RedM Launcher"
