@@ -66,7 +66,7 @@
 ;--------------------------------
 ;Languages
 
-  !insertmacro MUI_LANGUAGE "French"
+  !insertmacro MUI_LANGUAGE "English"
 
 ;--------------------------------
 ;Installer Sections
