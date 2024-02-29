@@ -19,7 +19,11 @@ Contact me on Discord (Arkios) to get a customized Launcher for your server (Abi
 
 ## 🐛| Next Fix Update:
 
+☐ Fix concurency access to online Background/logo
+
 ☐ Better Popup Thread handling (popup currently not showing because not in UI Thread).
+
+☐ Add Mutex to have only one App instance at same time
 
 ## ♻️| 1.1 Advancement
 
