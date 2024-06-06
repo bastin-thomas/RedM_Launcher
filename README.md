@@ -17,14 +17,6 @@ The Redm Launcher, is intended to be used as a Client Launcher, that will start 
 ## 🔧 Want a Custom Server Launcher ?
 Contact me on Discord (Arkios) to get a customized Launcher for your server (Ability to have dynamic Logo/Background based on events, Possibility to add Specific features...) 
 
-## 🐛| Next Fix Update:
-
-☐ Fix concurency access to online Background/logo
-
-☐ Better Popup Thread handling (popup currently not showing because not in UI Thread).
-
-☐ Add Mutex to have only one App instance at same time
-
 ## ♻️| 1.1 Advancement
 
 ☐ Launching Pop Bar (Skippable Timer + What's going on)
