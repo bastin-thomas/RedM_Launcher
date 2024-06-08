@@ -60,7 +60,7 @@
             <ImageSource x:Key="OfflineIcon">/.Resources/Icons/Offline.png</ImageSource>
 
 
-            <ImageSource x:Key="ServerLogo">/.Resources/Icons/Server_Logo_2.png</ImageSource>
+            <ImageSource x:Key="ServerLogo">/.Resources/Icons/Server_Logo.png</ImageSource>
             <ImageSource x:Key="Background0">/.Resources/Settings_Background.png</ImageSource>
             <ImageSource x:Key="Background1">/.Resources/background.jpg</ImageSource>
 

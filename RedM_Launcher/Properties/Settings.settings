@@ -39,7 +39,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="MainPageLogo" Type="System.String" Scope="User">
-      <Value Profile="(Default)">/.Resources/Icons/Server_Logo_2.png</Value>
+      <Value Profile="(Default)">/.Resources/Icons/Server_Logo.png</Value>
     </Setting>
     <Setting Name="MainPageBackground" Type="System.String" Scope="User">
       <Value Profile="(Default)">/.Resources/background.jpg</Value>
@@ -63,13 +63,13 @@
       <Value Profile="(Default)">4jKQz4t5</Value>
     </Setting>
     <Setting Name="Title" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Saint Denis 1899</Value>
+      <Value Profile="(Default)">RiverSide</Value>
     </Setting>
     <Setting Name="OnlineLogo" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://raw.githubusercontent.com/hadesfx8/img/main/logo.png</Value>
+      <Value Profile="(Default)">https://raw.githubusercontent.com/bastin-thomas/ImageHosting/main/logo.png</Value>
     </Setting>
     <Setting Name="OnlineBackground" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://raw.githubusercontent.com/hadesfx8/img/main/bg.png</Value>
+      <Value Profile="(Default)">https://raw.githubusercontent.com/bastin-thomas/ImageHosting/main/bg.png</Value>
     </Setting>
     <Setting Name="IsHideLauncherWhenRedMRunning" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

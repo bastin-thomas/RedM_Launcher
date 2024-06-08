@@ -24,7 +24,7 @@
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Image RenderOptions.BitmapScalingMode="HighQuality" Height="250" Width="250" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.RowSpan="2" Opacity="0.95" Margin="0,-40,0,0"
+        <Image RenderOptions.BitmapScalingMode="HighQuality" Height="300" Width="300" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.RowSpan="2" Opacity="0.95" Margin="0,-40,0,0"
                 Source="{Binding Logo, FallbackValue={StaticResource ServerLogo}, Mode=OneWay}"/>
 
         <Border Visibility="{Binding IsLaunching, Converter={StaticResource boolToVisibility}, Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="3" CornerRadius="10" Background="Black"/>

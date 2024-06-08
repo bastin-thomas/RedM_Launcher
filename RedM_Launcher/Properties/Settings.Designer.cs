@@ -169,7 +169,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("/.Resources/Icons/Server_Logo_2.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("/.Resources/Icons/Server_Logo.png")]
         public string MainPageLogo {
             get {
                 return ((string)(this["MainPageLogo"]));
@@ -265,7 +265,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Saint Denis 1899")]
+        [global::System.Configuration.DefaultSettingValueAttribute("RiverSide")]
         public string Title {
             get {
                 return ((string)(this["Title"]));
@@ -277,7 +277,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/hadesfx8/img/main/logo.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/bastin-thomas/ImageHosting/main/logo.png")]
         public string OnlineLogo {
             get {
                 return ((string)(this["OnlineLogo"]));
@@ -289,7 +289,7 @@ namespace RedM_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/hadesfx8/img/main/bg.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/bastin-thomas/ImageHosting/main/bg.png")]
         public string OnlineBackground {
             get {
                 return ((string)(this["OnlineBackground"]));
