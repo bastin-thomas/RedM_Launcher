@@ -16,8 +16,8 @@
 ;General
 
   ;Name and file
-  Name "Saint Denis 1899"
-  OutFile "SaintDenis_Launcher-1.0.0.1-Installer.exe"
+  Name "RiverSide"
+  OutFile "RiverSide-1.0.1.0-Installer.exe"
   Unicode True
 
   ;Default installation folder
@@ -31,8 +31,8 @@
 
   !define MUI_WELCOMEFINISHPAGE_BITMAP "${NSISDIR}\Contrib\Graphics\Wizard\orange.bmp"
   !define MUI_ABORTWARNING
-  !define MUI_ICON "E:\GitHub\RedM_Launcher\.Installer\Redm.ico"
-  !define MUI_UNICON "E:\GitHub\RedM_Launcher\.Installer\Redm.ico"
+  !define MUI_ICON "E:\GitHub\RedM_Launcher\RedM_Launcher\.Resources\Icons\Server_Logo.ico"
+  !define MUI_UNICON "E:\GitHub\RedM_Launcher\RedM_Launcher\.Resources\Icons\Server_Logo.ico"
 
   ; !define MUI_BGCOLOR 252525
   ; !define MUI_TEXTCOLOR FFFFFF
@@ -41,7 +41,7 @@
 ;Options finish
 
   !define MUI_FINISHPAGE_RUN "$LOCALAPPDATA\RedM_Launcher\RedM_Launcher.exe"
-  !define MUI_FINISHPAGE_RUN_TEXT "Lancer Saint Denis Launcher sans attendre"
+  !define MUI_FINISHPAGE_RUN_TEXT "Lancer RiverSide Launcher sans attendre"
 
 ;--------------------------------
 ;Pages
@@ -85,26 +85,26 @@ Section "Dummy Section" SecDummy
   WriteUninstaller "$INSTDIR\Uninstall.exe"
 
 	# Shortcut
-  createShortCut "$DESKTOP\Saint Denis 1899.lnk" "$INSTDIR\RedM_Launcher.exe" "" "$INSTDIR\Redm.ico"
+  createShortCut "$DESKTOP\RiverSide.lnk" "$INSTDIR\RedM_Launcher.exe" "" "$INSTDIR\Redm.ico"
  
 	# Registry information for add/remove programs
-	WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "DisplayName"           "Saint Denis 1899"
-	WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "UninstallString"       "$\"$INSTDIR\uninstall.exe$\""
-	WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "QuietUninstallString"  "$\"$INSTDIR\uninstall.exe$\" /S"
-	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "InstallLocation"       "$\"$INSTDIR$\""
-	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "DisplayIcon"           "$\"$INSTDIR\Redm.ico$\""
-	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "Publisher"             "$\"Thomas Bastin$\""
-	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "HelpLink"              "$\"https://github.com/bastin-thomas/RedM_Launcher/releases/latest$\""
-	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "URLUpdateInfo"         "$\"https://github.com/bastin-thomas/RedM_Launcher/releases/latest$\""
-	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "URLInfoAbout"          "$\"https://github.com/bastin-thomas/RedM_Launcher$\""
-	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "DisplayVersion"        "1.0.0.1"
-	WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "VersionMajor"        1
-	WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "VersionMinor"        0
+	WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "DisplayName"           "RiverSide"
+	WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "UninstallString"       "$\"$INSTDIR\uninstall.exe$\""
+	WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "QuietUninstallString"  "$\"$INSTDIR\uninstall.exe$\" /S"
+	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "InstallLocation"       "$\"$INSTDIR$\""
+	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "DisplayIcon"           "$\"$INSTDIR\Redm.ico$\""
+	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "Publisher"             "$\"Thomas Bastin$\""
+	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "HelpLink"              "$\"https://github.com/bastin-thomas/RedM_Launcher/releases/latest$\""
+	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "URLUpdateInfo"         "$\"https://github.com/bastin-thomas/RedM_Launcher/releases/latest$\""
+	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "URLInfoAbout"          "$\"https://github.com/bastin-thomas/RedM_Launcher$\""
+	WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "DisplayVersion"        "1.0.1.0"
+	WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "VersionMajor"        1
+	WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "VersionMinor"        0
 	# There is no option for modifying or repairing the install
-	WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "NoModify" 1
-	WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "NoRepair" 1
+	WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "NoModify" 1
+	WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "NoRepair" 1
 	# Set the INSTALLSIZE constant (!defined at the top of this script) so Add/Remove Programs can accurately report the size
-	WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899" "EstimatedSize" 53800
+	WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide" "EstimatedSize" 53800
 
 SectionEnd
 
@@ -127,10 +127,10 @@ Section "Uninstall"
   RMDir /r $INSTDIR
 
 	# Shortcut
-  Delete "$DESKTOP\Saint Denis 1899.lnk"
+  Delete "$DESKTOP\RiverSide.lnk"
 
   ;DeleteRegKey /ifempty HKCU "Software\Modern UI Test"
 	# Remove uninstaller information from the registry
-	DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Saint Denis 1899"
+	DeleteRegKey HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\RiverSide"
 
 SectionEnd

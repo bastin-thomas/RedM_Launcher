@@ -17,6 +17,9 @@
     <UseWindowsForms>False</UseWindowsForms>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Redm.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <ContentWithTargetPath Include="..\.RedM_Resources\ClearCache.bat">
@@ -142,6 +145,9 @@
     <Resource Include=".Resources\Icons\icons8-close-48.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Redm.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
