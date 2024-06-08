@@ -28,8 +28,12 @@ namespace RedM_Launcher.View
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
-            Logger.Information("App is Closed Normally");
             Config.Save();
+            Logger.Information("App is Closed Normally");
+            
+            InstanceChecker.MutexRealese();
+            Logger.Information("Free the Mutex");
+                        
             Close();
         }
 
