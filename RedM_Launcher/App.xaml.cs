@@ -22,6 +22,12 @@ namespace RedM_Launcher
             VersionAPI.Setup();
             Logger.Setup();
 
+            if (InstanceChecker.IsAlreadyLaunched())
+            {
+                Logger.Information("Application already launched");
+                DialogBox.Error("Application already oppened", "Redm Launcher");
+            }
+
             Logger.Information($"Launcher Startup");
             Logger.Information($"CurrentVersion: {VersionAPI.CurrentRealesedVersion}");
             Logger.Information($"LastVersion: {VersionAPI.LastRealesedVersion}");

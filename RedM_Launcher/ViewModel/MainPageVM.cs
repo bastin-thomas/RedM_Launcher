@@ -382,11 +382,13 @@ namespace RedM_Launcher.ViewModel
                     LaunchClearCache();
                 }
 
+                
                 //ModeFile
                 if (Config.IsAzertyInstallOnLaunch)
                 {
                     LaunchPlaceAzerty();
                 }
+                                
 
                 //Launch Rockstar Launcher if Needed
                 if (Config.IsOpenRockstarOnLaunch)
