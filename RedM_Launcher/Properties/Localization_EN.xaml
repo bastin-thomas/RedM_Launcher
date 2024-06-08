@@ -97,6 +97,8 @@
     <system:String x:Key="NeedUpdate_Popup_Warning_Title">Update Available</system:String>
     <system:String x:Key="NeedUpdate_Popup_Warning_Message">An Update is available, it is highly recommanded to install it!</system:String>
 
+    <system:String x:Key="App_Already_Opened_Popup_Title">Redm Launcher</system:String>
+    <system:String x:Key="App_Already_Opened_Popup_Message">Application already oppened. You can't use multiple instance of the Launcher.</system:String>
 
     <!-- Popups - Settings Errors -->
     <system:String x:Key="OpenRedMFolder_Popup_Error_Title">RedM Folder Error</system:String>
