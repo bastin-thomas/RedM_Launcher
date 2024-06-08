@@ -25,7 +25,12 @@ namespace RedM_Launcher
             if (InstanceChecker.IsAlreadyLaunched())
             {
                 Logger.Information("Application already launched");
-                DialogBox.Error("Application already oppened", "Redm Launcher");
+
+                string Title = (string)App.Current.FindResource("App_Already_Opened_Popup_Title");
+                string Message = (string)App.Current.FindResource("App_Already_Opened_Popup_Message");
+                DialogBox.Error(Message, Title);
+
+                Environment.Exit(0);
             }
 
             Logger.Information($"Launcher Startup");
